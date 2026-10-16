@@ -1,0 +1,128 @@
+# repo|name|category|flag|tags|description|detail|note
+cathrynlavery/diagram-design|diagram-design|graphics||SVG,HTML,Agent|让编程助手生成架构图、流程图和时序图。|输出可独立打开的 HTML 与 SVG，可将 Mermaid、draw.io 等图表重新组织为统一视觉风格，也能围绕产品配色制作技术文档插图。|
+alibaba/open-code-review|open-code-review|dev|CN|CLI,AI,Code Review|结合确定性规则和 AI 的代码审查 CLI。|工具负责选择文件、匹配规则及定位代码，Agent 负责理解上下文；既可检查 Git 变更，也能扫描已有代码文件。|需要配置模型服务。
+openai/mcp-extensions|MCP Extensions|ai||MCP,TypeScript,Python|为 MCP 服务接入更完整的 ChatGPT 交互界面。|包含 TypeScript、Python SDK 与协议说明，用于侧边栏入口、文件处理、资源引用及交互表单。|部分界面扩展受客户端与开放范围限制。
+CopilotKit/OpenDots|OpenDots|selfhost||Agent,Web UI,Containers|可自行部署的多 Agent 工作空间模板。|为不同 Agent 分配角色、工具权限、工作文件和计算机环境，包含浏览器控制、文档编辑与人工审批流程。|早期模板；完整自托管与模型服务的许可条件需单独核对。
+HelixDB/helix-foundry|Helix Foundry|data||Docker,DuckDB,Ollama|将数据库、文件与 API 连接到本地 AI 数据工作台。|结合 HelixDB、DuckDB 与 Ollama，组织不同来源的数据，并使用自然语言查询；仓库提供多服务 Docker Compose 部署。|原日报记载没有用户鉴权，不应直接暴露公网。
+ESPARGOS/esp-sdr|ESP-SDR|hardware||ESP32,SDR,Radio|利用 ESP32 接收无线信号并进行软件无线电分析。|将原始 I/Q 采样送往电脑，提供浏览器频谱查看及连接 SDR++、GNU Radio 的桥接工具。|以接收为主，采样与持续传输能力取决于芯片。
+CAPCOM-TD-OSS/REDox|RE:Dox|dev|JP|C#,DotNet,Game Dev|CAPCOM 开源的 .NET 结构化数据处理组件。|以紧凑 Token DOM 处理 JSON、JSON5、CBOR、MessagePack 等数据，支持读写、修改与序列化，可通过 NuGet 集成。|部分数据格式组件仍处于预览阶段。
+cuculhart/teaspoon-ide|Teaspoon IDE|dev|JP|Electron,AI,Ollama|支持本地模型的独立 AI 编程 IDE。|集成文件管理、Monaco 编辑器、Git、交互终端与 Agent 聊天；文件修改具有审批、检查点和回滚机制。|原日报记载采用 FSL-1.1-MIT，而非普通 MIT。
+shinshin86/mesh-avatar-studio|Mesh Avatar Studio|graphics|JP|Avatar,2D,Windows|把人物插画制作成会眨眼、说话和转头的虚拟角色。|结合部件切分、网格与本地编辑器，调整嘴型、呼吸、头部和头发动作，并提供示例角色。|制作自己的角色仍需合适的原图与工具配置。
+zhongerxin/iPhone-use|iPhone Use|hardware|CN|iPhone,MCP,Automation|让 Coding Agent 通过 USB 操作真实 iPhone。|基于 WebDriverAgent，提供屏幕显示、截图、触控、应用启动和 MCP 接口，能够检查执行结果。|需要 macOS、完整 Xcode、签名环境和真机。
+LosaLosSantos/aurelio-finance|Aurelio Finance|data||Finance,Desktop,Local|本地资产、股票和 ETF 投资组合管理工具。|记录账户、现金、房产、负债与分红，分析资产分布、持仓成本和投资表现，提供桌面版本与演示数据。|可选 AI 问答会调用外部模型，不等于完全离线。
+oil-oil/oil-ui|Oil UI|graphics|CN|Design,HTML,Agent|为 AI 界面设计提供多方案比较与调整流程。|将不同布局、字体和视觉方向并排展示，可比较 HTML、图片及网页，并切换桌面或手机尺寸。|开源版本与付费 Pro 功能不同。
+facebookincubator/muse-gadget-sdk|Muse Gadget SDK|hardware||ESP32,Raspberry Pi,SDK|把 ESP32 和 Linux 硬件接入 Muse 的开发套件。|连接显示屏、按钮、传感器、音频和执行器，提供 ESP32 与 Linux SDK 来构建交互装置。|配对依赖对应 App 和 SDK Token，并非独立离线系统。
+alchaincyf/huashu-art-motion|huashu-art-motion|graphics|CN|Animation,Video,Code|让 Coding Agent 用代码制作艺术动画和解说视频。|包含水墨、像素、动态文字、白板及财经图表等动画示例，使用程序控制画面运动与合成。|
+morluto/rea|REA|security||MCP,Agent,Reverse Engineering|将逆向工程工具接入 AI Agent 的分析流程。|用于原生二进制、Electron 应用及程序行为分析，通过 MCP 连接专门的反汇编和逆向工具。|仅在具备权限的软件和环境中开展测试。
+boykopovar/AnyPS5|AnyPS5|games||Game Port,PC,Reverse Engineering|探索把 PS5 可执行程序移植到 PC。|通过重链接和兼容组件研究原始程序在 Windows、Linux 上的执行方式。|实验性移植，不代表任意游戏均可运行；需自行提供合法游戏文件。
+storytold/artcraft|ArtCraft|graphics||AI,Video,3D|集成图像、视频和三维内容制作的创作工具。|将生成式模型与桌面创作流程组合，面向图形、媒体与场景制作。|
+anthropics/knowledge-work-plugins|knowledge-work-plugins|ai||Plugins,Claude,Workflow|面向知识工作的 Claude 插件集合。|以可安装的插件组织不同工作场景所需的工具与流程。|
+Robbyant/lingbot-map|LingBot-Map|graphics||3D,Vision,Research|从连续视觉输入进行流式三维场景重建。|使用几何上下文模型组织连续观测，是面向三维映射与重建的研究项目。|研究实现，资源与数据要求需按仓库说明配置。
+hiroi-sora/Umi-OCR|Umi-OCR|dev|CN|OCR,Offline,Windows|免费离线 OCR，支持截图、扫描 PDF 和批量图片。|提供桌面操作界面与 HTTP API，适合将文字识别接入个人文件处理流程。|
+langbot-app/LangBot|LangBot|selfhost|CN|Docker,Agent,Chatbot|把 AI 助手接入多个聊天平台。|连接模型、插件和消息通道，用同一套自托管服务管理不同平台的机器人。|
+nanaism/yomiyasu|yomiyasu|learning|JP|Japanese,Writing,AI|将 AI 生成的日语改写得更自然。|针对句子结构、主谓关系和过度修辞提供日语润色流程。|
+openai/math|OpenAI Math|learning||Math,Lean,Research|数学研究手稿、推理轨迹与形式化证明资料。|收录数学探索与 Lean 证明相关材料，面向研究与学习。|资料仓库，并非可直接运行的模型。
+QingYunA/answer-me-with-html|answer-me-with-html|graphics|CN|HTML,Agent,Visualization|把长篇 AI 回答转成可阅读的独立网页。|通过排版、图表与结构化呈现组织复杂内容，输出 HTML 阅读页面。|
+debpalash/VoiceStudio|VoiceStudio|graphics||Audio,Local AI,MCP|本地语音克隆、配音与有声书制作工作台。|整合语音设计、转录、视频配音和批量音频处理，提供桌面界面及本地接口。|GPU 与模型决定速度；不同语言质量不应视为相同。
+storytold/wordcraft|WordCraft|dev||Rust,DOCX,Office|使用 Rust 构建的开源文字处理软件。|围绕 DOCX 读写、表格、样式、批注与修订提供文档编辑，也包含 CLI 和 MCP 接口。|Alpha；复杂文档版式和 SmartArt 兼容性仍有限。
+hugohe3/ppt-master|PPT Master|graphics|CN|PPTX,Agent,Slides|从文档、网页或主题生成可继续编辑的 PowerPoint。|使用原生文字、形状、图表和表格组织幻灯片，支持模板、备注及演示制作工作流。|
+mksglu/context-mode|context-mode|ai||MCP,SQLite,Context|减少 Coding Agent 的工具输出占用并保留工作历史。|通过 MCP 与 Hooks 组织日志、文件和网页输出，将历史存入可检索的 SQLite 索引，再按需取回上下文。|Token 节省比例依赖任务，不能把项目基准当作固定收益。
+microsoft/TRELLIS.2|TRELLIS.2|graphics||3D,GPU,Research|微软开源的图片转三维模型生成项目。|以稀疏体素表示组织复杂三维结构，生成包含材质属性的物体，并提供模型与推理代码。|原日报记载仅验证 Linux，要求 NVIDIA GPU 和至少 24GB 显存。
+RapidAI/RapidOCR|RapidOCR|dev|CN|OCR,ONNX,Python|可嵌入应用的跨平台 OCR 推理引擎。|支持不同推理后端及多种编程语言集成，适合开发程序中的文字识别能力。|
+iamlukethedev/Herald-OS|Herald OS|ai||Linux,Agent,Desktop|围绕 Hermes Agent 构建的实验性操作环境。|让 Agent 处理文件、打开应用和执行任务，通过分级权限控制读取、修改及高风险动作。|Alpha 实验项目，并非 Hermes 官方操作系统。
+rociiu/talorys|Talorys|selfhost||Cloudflare,Agent,Web UI|部署在自己的 Cloudflare 账户中的 AI 助手。|提供聊天、笔记、项目、长期记忆及定时任务，使用 Workers 和 Durable Objects 保存工作状态。|依赖 Cloudflare 服务及其配额，并非本地离线运行。
+noahdunnagan/fsearch|FSearch|dev||Rust,macOS,Search|面向 macOS 的本地文件搜索工具。|支持模糊文件名、内容检索、正则表达式及文件属性过滤，提供 CLI 和 Rust 集成方式。|全盘索引需要相应磁盘访问权限。
+c22dev/muguet|Muguet|games||iOS,macOS,WebAssembly|探索 GTA V WebAssembly 构建在 Apple 设备上运行。|使用 Wasmtime、wgpu 与 Metal 组织执行和图形处理，研究预编译方式以适配移动端。|需自行提供对应游戏构建与数据；设备兼容性仍不确定。
+alejandrobujan/tendedero|Tendedero|dev||macOS,Screenshot,Desktop|把最近截图挂在屏幕顶部，方便查看和拖放。|以轻量桌面交互管理刚截取的图像，便于在多个应用之间传递。|面向 macOS。
+datawhalechina/hello-agents|hello-agents|learning|CN|Python,Agent,Tutorial|从零学习构建 AI Agent 的中文教程与配套代码。|围绕智能体基础、工具调用和应用实践组织学习材料。|
+zhayujie/CowAgent|CowAgent|selfhost|CN|Agent,Memory,Web UI|带长期记忆与任务规划的个人 Agent 系统。|提供多模型、工具调用、Skills 和 Web 控制台，可组织多个助手协作。|
+higress-group/higress|Higress|dev|CN|Gateway,AI,Cloud Native|面向 AI API 的网关与流量管理平台。|统一接入模型 API，并管理请求路由、扩展和服务流量。|
+w-okada/voice-changer|voice-changer|graphics|JP|Audio,AI,Realtime|使用语音模型实时转换麦克风输入。|提供实时变声工作流，可按场景选择不同声音转换模型。|计算资源需求依赖模型与实时性要求。
+bdunderscore/modular-avatar|modular-avatar|games|JP|Unity,VRChat,Avatar|简化 VRChat 角色服装、骨骼和动画组件的组合。|在 Unity 中以模块化方式组织虚拟角色内容，减少重复配置。|
+bilawalsidhu/gods-eye-view|God's Eye View|graphics||3D,Maps,Web|在三维地球上查看航空、航运、卫星与地理数据。|提供多种地图显示模式和交互入口，将不同公共数据组合到浏览器中的地球界面。|部分数据和轨迹包含模拟或估算，不能全部视为实时观测。
+chthollyphile/folia-major|Folia|graphics|CN|Music,Web,Desktop|围绕动态歌词设计的跨平台音乐播放器。|可连接本地音乐与 Navidrome 等来源，支持全屏歌词动画、自动配色及 Web 部署。|在线来源可用性依赖第三方服务。
+Predidit/Kazumi|Kazumi|games|CN|Flutter,Android,Windows|支持自定义规则、弹幕和超分辨率的追番工具。|通过规则导入组织番剧搜索与播放，提供记录、下载和投屏等功能。|iOS 需侧载；实时超分对 GPU 有要求。
+CopilotKit/OpenIntelligentUI|Open Intelligent UI|ai||React,AG-UI,Web|让 AI 对话生成可以直接操作的交互界面。|根据问题呈现表格、图表、三维演示或计算器，将模型回答和应用组件结合。|
+repowise-dev/repowise|Repowise|dev||MCP,Code Search,Local|为本地代码库建立结构、依赖与历史索引。|Agent 可查询函数引用、修改影响、测试与 Git 记录，用检索到的上下文辅助开发。|授权与性能数据需以当前仓库说明为准。
+wheresryan22/anatomy|Anatomy|graphics||SVG,WebGL,Agent|把抽象技术原理制作成交互式结构图。|通过 SVG 与 WebGL 等输出，用机械运动和可操作图形解释复杂机制。|部分三维功能属于实验性能力。
+t4t5/omdrop-owl|omdrop-owl|hardware||Linux,Wi-Fi,AirDrop|让部分 Linux 无线网卡与 iPhone 进行 AirDrop 通信。|利用 AWDL 通信组件接入文件发送和接收，并提供不同发行版安装说明。|支持范围受网卡、驱动和上游接口状态限制。
+ARahim3/DigUp|DigUp|dev||macOS,Search,Local AI|使用本地语义索引搜索照片、文档与媒体文件。|根据自然语言描述定位文件内容，覆盖图片、PDF、音频、视频和源代码等资料。|原日报记载需要 Apple Silicon 与 macOS 14 以上。
+storytold/craft-launcher|ArtCraft Launcher|graphics||Rust,Desktop,Launcher|集中安装、更新和启动 Craft 系列创作应用。|根据平台选择安装包并执行校验，统一管理文档、图形和媒体工具。|早期版本，各子应用的成熟度不同。
+anthropics/oss-scanner|OSS Scanner|security||Security,AI,Docker|面向开源维护者的 AI 漏洞扫描项目入口。|维护者提交构建配置和项目资料，由对应服务运行扫描并返回分析报告。|公开仓库不等于完整扫描服务可自托管。
+marclou/mailcheap|Mailcheap|selfhost||Newsletter,Next.js,SES|基于 Amazon SES 的自托管邮件 Newsletter 系统。|管理订阅、邮件编辑、预约发送、公开归档及退信和点击记录。|还依赖数据库与任务服务，作者不承诺持续支持。
+wesbos/photo-frame-dashboard|Photo Frame Dashboard|hardware||Android,IoT,Kiosk|把 Android 数码相框改造成家庭信息屏。|包含设备实验记录、定制 Launcher、Dashboard 示例与全屏网页应用。|硬件与固件因批次而异，并非通用刷机方案。
+ThariqS/ai-newtab|AI Homepage|dev||Chrome,AI,Browser|根据浏览记录生成个性化浏览器新标签页。|将网页访问上下文组织成可阅读的个人首页。|会涉及浏览历史与模型 API，使用前核对隐私范围。
+tcchen2026/VibeOffice|VibeOffice|dev||Web,Office,JavaScript|在浏览器中编辑文档、表格和演示文稿。|包含 DOCX、XLSX、PPTX 工作流，采用经典办公界面风格，主打本地文件处理。|复杂 Office 文件兼容性主要来自项目自述。
+xiaomoBoy/pi-durable-assistant|Pi Durable Assistant|selfhost|CN|Node.js,SQLite,Docker|支持任务恢复、长期记忆和定时执行的私人 Agent。|提供浏览器聊天、任务中心与子 Agent，用 SQLite 保存会话和任务状态。|个人单用户实验项目，非 Pi Durable 官方产品。
+AstrBotDevs/AstrBot|AstrBot|selfhost|CN|Agent,Chatbot,Plugins|支持多聊天平台和插件的 AI 机器人框架。|统一组织模型、工具和消息平台接入，扩展个人助手工作流。|
+MaaAssistantArknights/MaaAssistantArknights|MAA|games|CN|Automation,Arknights,Desktop|《明日方舟》日常操作自动化助手。|通过识别与任务流程完成部分重复游戏操作。|
+nilaoda/N_m3u8DL-RE|N_m3u8DL-RE|dev|CN|CLI,Video,Download|支持 M3U8、MPD 和 ISM 的流媒体下载器。|跨平台处理音视频流下载与批量任务。|仅处理自己有权访问和保存的内容。
+kurotu/VRCQuestTools|VRCQuestTools|games|JP|Unity,VRChat,Android|协助将 PC 版 VRChat 角色转换为移动端角色。|在 Unity 中处理材质、纹理及不兼容组件，简化 Android 角色适配。|
+onehumanbeing/esp32-iphone-agent|ESP32 iPhone Agent|hardware||ESP32,iPhone,Agent|用 ESP32-S3 和屏幕镜像让 AI 操作真实 iPhone。|通过 AirPlay 取得画面，借助 USB 模拟鼠标键盘，再由视觉模型选择点击、滑动和输入动作。|需要额外硬件；Lightning 手机还需合适转接器。
+liseami/CCBaga|CCBaga|dev||Tauri,Rust,Claude Code|集中管理 Claude Code 本地配置与开发环境。|包含 CLI 检测、身份归档和独立浏览器相关工具，提供跨平台桌面构建。|浏览器环境配置不会自动改变公网 IP。
+shaongitbd/doory|Doory|graphics||Docker,Design,Web UI|可自行部署的 Canva 类在线设计平台。|提供多页画布、图层、文字效果与协作，覆盖海报、演示及媒体导出。|原日报记录为特殊署名许可，商用应核对原文。
+FelipePrado0/gow3_pc|gow3_pc|games||Windows,Vulkan,Game Port|探索 PS4《战神 III 重制版》在 Windows 原生执行。|以兼容运行环境和游戏专用补丁处理系统接口，结合 Vulkan 图形组件。|需要自行提供对应游戏文件，兼容性不保证。
+jhaizhou-ops/d2r-mobile|D2R Mobile|games|CN|iOS,Metal,Game Port|探索《暗黑破坏神 II：重制版》的移动端移植。|研究 ARM64 兼容层、Metal 图形转换、触控和手柄操作。|原日报记载要求 iOS 26；性能与设备覆盖尚未独立验证。
+zhuyansen/new-term-radar|new-term-radar|data|CN|Python,Automation,SEO|自动发现 AI 新产品、模型与搜索关键词。|合并 GitHub、Hugging Face 等来源的新名称，组织关键词报告与后续趋势检查。|完整趋势分析可能需要付费第三方 API。
+kanaemi-app/kanaemi|Kanaemi|dev|JP|Rust,IME,Japanese|基于 SKK 思路的跨平台日语输入法。|在不同系统采用一致的按键和转换逻辑，支持用户辞典与本地处理。|
+lyogavin/airllm|AirLLM|ai||Python,LLM,GPU|通过分层加载权重降低大模型的 GPU 显存需求。|按层从存储读取模型，让有限显存环境尝试运行更大模型，并提供压缩选项与 Python API。|低显存不等于低内存或小磁盘；读取权重可能显著拖慢推理。
+HIllya51/LunaTranslator|LunaTranslator|learning|CN|Windows,OCR,Japanese|游戏文本提取、翻译与日语学习辅助工具。|结合 Hook、OCR、翻译引擎、假名标注和语音，可配合 Anki 与词典工具学习。|
+open-webui/open-webui|Open WebUI|selfhost||Docker,Ollama,LLM|自托管的 AI 聊天界面，可连接本地及远程模型。|统一管理模型聊天、资料和扩展，支持 Ollama 与兼容 API 服务。|
+microsoft/BitNet|BitNet|ai||LLM,CPU,Inference|微软开源的 1-bit 大语言模型推理框架。|研究低比特模型执行，提供相应模型与推理工具链。|需要适配的模型，并非任意大模型都能直接转换。
+ScottSloan/Bili23-Downloader|Bili23 Downloader|dev|CN|Video,Desktop,Download|跨平台 B 站视频及弹幕下载工具。|包含多线程下载、批量任务和音视频处理。|
+czy0729/Bangumi|Bangumi|games|CN|Android,iOS,Anime|番剧追踪、收藏和资料管理客户端。|在移动端查看作品信息并整理个人观看记录。|
+xfangfang/wiliwili|wiliwili|games|CN|PC,Switch,Video|覆盖电脑与部分掌机平台的第三方 B 站客户端。|提供适合不同设备操作方式的视频浏览体验。|
+jeecgboot/JeecgBoot|JeecgBoot|dev|CN|Java,Low Code,AI|整合表单、工作流和报表的企业低代码平台。|提供业务系统开发基础，并集成 AI 相关能力。|
+YunaiV/ruoyi-vue-pro|ruoyi-vue-pro|dev|CN|Java,ERP,CRM|包含商城、ERP 和 CRM 的 Java 企业应用框架。|围绕权限、支付和业务模块提供系统开发基础。|
+soybeanjs/soybean-admin|soybean-admin|dev|CN|Vue,TypeScript,Admin|基于 Vue 3 的后台管理界面模板。|提供管理系统布局、页面与 TypeScript 开发基础。|
+whitewater-png/Meltype-for-Mac|Meltype for Mac|dev|JP|macOS,IME,Japanese|自动区分日语和英语输入的 macOS 输入法。|减少中途切换输入模式的操作。|面向 macOS。
+yuiseki/dji-waypoints-hitl|dji-waypoints-hitl|hardware|JP|DJI,Automation,Drone|AI 辅助生成需人工确认的无人机摄影航点。|围绕摄影目标组织航点与飞行计划。|仍需人工监督，并遵守飞行环境与设备限制。
+baairon/soundcli|soundcli|dev||CLI,Music,Offline|在终端管理和播放离线音乐。|组织音频来源、下载及本地音乐库。|
+aarondfrancis/fleet|fleet|dev||macOS,SSH,CI|监控多台 GitHub Actions 自托管 Runner。|通过 SSH 与设备网络读取运行器状态，在桌面集中查看。|
+xtool-org/xtool|xtool|dev||Swift,iOS,WSL|跨平台构建、签名和安装 iOS 应用的工具。|围绕 Swift Package Manager 提供编译、设备管理、IPA 安装与启动能力，也可作为 Swift 库调用。|Windows 主要经 WSL 使用；签名仍需有效凭据。
+Tencent/BrowserSkill|BrowserSkill|ai|CN|Browser,Agent,Windows|让 Agent 操作已经登录的 Chrome 和 Edge。|通过浏览器扩展与本地 CLI 读取页面、填写表单、截图和执行交互，复用现有登录状态。|会获得网页操作权限，应谨慎处理敏感后台会话。
+t8y2/dbx|DBX|data|CN|Rust,Docker,MCP|兼有桌面、Web、CLI 与 MCP 的数据库管理器。|管理多种数据库连接、查询和备份，并向 Coding Agent 暴露工具接口。|备份时需要保留凭据加密所依赖的密钥文件。
+Tencent/WeKnora|WeKnora|selfhost|CN|Docker,RAG,MCP|整合知识库、Agent 和自动 Wiki 的自托管平台。|导入文档并进行检索问答，通过 MCP 扩展工具；Wiki 将原始资料整理成相互关联的知识页面。|标准版和 Lite 版的组件、资源与功能范围不同。
+AprilNEA/OpenLogi|OpenLogi|hardware||HID,Desktop,Local|开源的罗技鼠标和键盘配置工具。|通过 HID++ 管理按键映射、DPI、滚轮及应用配置，无需依赖官方账户。|功能取决于设备型号与固件。
+google/ax|Google AX|ai||Kubernetes,Agent,Sandbox|在集群里运行和管理多个 AI Agent 的编排平台。|使用声明式任务定义组织沙盒、模型、仓库和工具，提供任务观察及运行环境管理。|依赖 Kubernetes 与相关基础组件，非单容器轻量应用。
+tailscale/tailcat|Tailcat|dev||Networking,CLI,WireGuard|无需完整 VPN 配置的加密点对点连接工具。|提取加密通信与 NAT 穿透能力，用于临时连接、数据交换和文件传输。|并非完整 Tailscale VPN 替代品，连接可能经过中继。
+tester-army/e2e|tester-army/e2e|dev||Testing,Playwright,AI|用自然语言操作界面，再以断言验证测试结果。|将 Agent 执行步骤与网页、移动端测试结合，支持记录和重放成功操作。|AI 执行需要模型服务；移动端受测试引擎与模拟器支持限制。
+DuarteSantos8/openGym|openGym|selfhost||Docker,PWA,Fitness|自托管健身计划与训练记录平台。|记录重量、次数、组数和体重，查看训练统计，并提供 PWA 与 Android 使用方式。|
+VectifyAI/PageIndex|PageIndex|ai||Python,RAG,Documents|基于文档层级索引进行检索的 RAG 方案。|先生成章节树，再让模型沿结构定位相关内容，而不是只依赖文本向量相似度。|检索依赖模型推理，成本和准确率随资料变化。
+susumutomita/koto-input|Koto|dev|JP|macOS,Japanese,Local AI|使用 Apple 本地模型辅助日语转换的输入法。|以快捷键触发转换，照顾终端内的技术术语和混合语言输入。|原日报记载需要 Apple Silicon、macOS 26 和 Apple Intelligence。
+GoRakuDo/yomitan-mcp|Yomitan MCP|learning|JP|MCP,Japanese,Anki|让 Agent 查询本地日语词典并生成 Anki 字段。|连接 Yomitan 辞典的词汇、汉字和分词信息，供学习流程使用。|
+JoeanAmier/TikTokDownloader|TikTokDownloader|dev|CN|Python,Download,Data|抖音与 TikTok 视频下载和公开数据采集。|支持批量处理与作品资料整理。|使用需遵守内容权限和平台规则。
+RayWangQvQ/BiliBiliToolPro|BiliBiliToolPro|selfhost|CN|Docker,Automation,Tasks|可部署到 Docker 的 B 站自动化任务工具。|通过任务配置组织重复操作，支持不同运行环境。|
+ccfos/nightingale|Nightingale|selfhost|CN|Monitoring,Alerting,MCP|自托管监控告警与系统数据分析平台。|集中管理指标、日志和数据库告警，并提供 Agent 与 MCP 集成入口。|
+vercel-labs/skills|skills|dev||CLI,Skills,Agent|统一搜索、安装和管理 Agent Skills 的 CLI。|为不同 Coding Agent 管理可复用的工作流扩展。|
+ifixai-ai/iFixAi|iFixAi|ai||CLI,Evaluation,Testing|评估 Agent 是否真正完成预期任务。|检查执行结果与工作要求，提供交互 CLI、自动化模式和结构化报告。|模型评估不能替代关键任务的独立验证。
+vxcontrol/pentagi|PentAGI|security||Docker,Agent,Web UI|可自行部署的多 Agent 安全测试平台。|在隔离环境中组织专门工具与 Agent，保存任务记录，并接入本地或商业模型。|仅用于已获授权的网络和设备。
+ntdevlabs/tiny11builder|tiny11builder|dev||Windows,PowerShell,ISO|从官方镜像制作精简 Windows 11 安装介质。|按模式或自定义选项删减预装组件，并保留构建脚本与界面操作路径。|Tiny11 Core 会移除更新和部分维护能力，先在虚拟机测试。
+HKUDS/CLI-Anything|CLI-Anything|ai|CN|CLI,Automation,Desktop|把桌面软件操作转换成 Agent 可调用的命令接口。|包含针对图形、办公和建模软件的适配与测试，减少单纯依赖截图和点击的自动化方式。|
+agenvoy/Agenvoy|Agenvoy|selfhost||Go,MCP,Agent|支持长期任务的单文件私人 AI Agent。|提供 Web 界面、定时任务、记忆和工具共享，也能连接消息平台。|本地保存数据不意味着模型调用完全离线。
+artokun/comfyui-mcp|comfyui-mcp|graphics||ComfyUI,MCP,AI|让 Agent 创建、修改和运行 ComfyUI 工作流。|通过 MCP 操作节点、模型、插件与参数，可连接本机或远程实例。|先需可用 ComfyUI；显存由工作流模型决定。
+edgedepthhq/edgedepth-terminal|EdgeDepth Terminal|data||Docker,C++,WebAssembly|自托管订单簿和成交订单流可视化终端。|在浏览器查看深度、热力图和成交量，提供行情录制与回放流程。|实时数据来源有地区限制；社区版与商业服务不同。
+sktkkoo/Yorishiro|Yorishiro|graphics|JP|VRM,macOS,Agent|为编程助手加入三维虚拟角色的终端。|将终端状态与角色动作、语音和画面结合，支持不同显示模式。|原日报记载以 macOS 为主，其他平台支持有限。
+pafuhana1213/KawaiiPhysics|KawaiiPhysics|games|JP|Unreal,C++,Animation|为角色头发、裙摆和尾巴添加骨骼物理效果。|在 Unreal 动画蓝图中设置骨骼、碰撞与摆动参数，不必建立完整复杂物理系统。|
+lizhipay/acg-faka|acg-faka|data|CN|PHP,Docker,E-commerce|支持自动交付与在线支付的数字商品商城。|提供商品、卡密、会员价格、优惠券和分站等订单与交付功能。|商用前核对许可证及仓库另行声明的用途要求。
+ShenSeanChen/waku-agent|Waku Agent|ai||SQLite,Agent,Evaluation|带长期记忆、执行追踪和评估的本地优先 Agent。|围绕工具调用和会话存储组织个人助手开发流程。|
+Muvon/octomind|Octomind|dev||Rust,MCP,Agent|使用 Rust 开发的 MCP 原生 Coding Agent。|包含任务编排、工具调用与自动化运行入口。|
+NationalSecurityAgency/ghidra|Ghidra|security||Java,Reverse Engineering,Desktop|集成反汇编、反编译和脚本扩展的程序分析平台。|提供多处理器程序分析工具和可扩展工作环境，适合软件研究与授权分析。|
+firerpa/lamda|lamda|hardware|CN|Android,Automation,MCP|Android 真机远程控制与自动化工具平台。|结合远程桌面、OCR 和结构化接口，让程序或 Agent 操作移动设备。|
+xerj-org/xerj|XERJ|dev||MCP,Search,Local|为 Agent 提供本地代码、文档和数据检索。|索引源码、PDF、日志和结构化文件，通过符号查询与行号定位按需取回上下文，减少反复读取整个文件。|原日报中的 Token 节省幅度未经独立验证；无鉴权模式仅限可信本机。
+JuliusBrussee/caveman|Caveman|ai||CLI,Context,Node.js|压缩 Agent 的回答、日志和工具输出。|结合输出整理、本地代理及上下文处理，允许按工具环境启用不同组件。|原日报记载需要 Node.js 22.13+；节约比例依赖任务。
+lightseekorg/tokenspeed|TokenSpeed|ai||GPU,Inference,C++|面向高并发 Agent 工作负载的模型推理引擎。|分离请求调度和模型执行，管理 KV Cache 并通过可插拔 Kernel 适配 GPU。|面向服务器级 GPU，不是低内存 CPU 小主机方案。
+TencentCloud/Octop|Octop|selfhost|CN|Docker,Agent,MCP|可供多个用户使用的自托管 AI 助手。|提供 Web 控制台、长期记忆、知识库与浏览器自动化，可接入消息通道和其他 Agent 实例。|Agent Teams 在原日报中标为 Beta；外部 API 推理不在本机完成。
+getumbrel/murmur|Murmur|selfhost||Docker,Hermes,Web UI|为 Hermes Agent 提供跨设备图形界面。|在电脑与手机上管理不同角色的 Agent、聊天及任务，可连接已有 Hermes 或一并部署。|早期项目；需匹配 Hermes Agent 版本。
+openchamber/openchamber|OpenChamber|dev||Docker,OpenCode,Web UI|同时管理并比较多组 Coding Agent 任务。|组织独立会话、代码差异和 GitHub 工作项，可在浏览器查看服务器上的编程进度。|代码生成依赖所配置的 Agent 与模型服务。
+FootprintAI/Containarium|Containarium|selfhost||Linux,MCP,Sandbox|给不同 Agent 分配独立 Linux 执行环境。|通过 MCP 创建沙盒、执行命令、管理文件和端口，隔离编译与测试工作。|需要适配的 Linux 虚拟化环境，并非普通单容器应用。
+togatoga/karukan|Karukan|dev|JP|Rust,Japanese,Local AI|结合本地神经网络与词典的日语输入法。|支持 Linux Fcitx5 和 macOS 输入框架，结合上下文转换、用户学习与辞典工具。|没有 Windows 输入法版本；神经网络功能需下载模型。
+Canon-73/crescent-grove|Crescent Grove|ai|JP|Windows,Memory,AI|让虚拟角色保存连续经历与长期记忆的实验。|通过周期性状态推进组织回忆、记录和自发活动，探索持续存在的个人 AI 角色。|早期 Windows 实验，并非成熟任务平台。
+whyour/qinglong|青龙 QingLong|selfhost|CN|Docker,Automation,Python|用 Web 面板管理脚本和定时任务。|统一管理 Python、JavaScript、TypeScript、Shell、环境变量、日志与通知，提供多种容器镜像。|不同镜像的 crond 权限要求不同。
+hugo2046/QuantsPlaybook|QuantsPlaybook|data|CN|Python,Finance,Research|复现量化研究报告、技术指标和组合策略。|收录择时、多因子和组合优化等研究代码，便于学习实现与方法。|研究代码与历史回测不构成投资收益保证。
+chuspeeism/dashi-ppt-skill|dashi-ppt-skill|graphics|CN|PPTX,HTML,Agent|生成可在浏览器修改的演示文稿。|组织 Agent 幻灯片制作流程，并支持网页与办公格式导出。|
+K-Dense-AI/scientific-agent-skills|scientific-agent-skills|learning||Science,Agent,Data|科学研究和专业数据工具的 Agent 工作流集合。|覆盖科学计算、统计分析与研究数据库等场景。|
+anthropics/claude-plugins-official|claude-plugins-official|dev||Claude Code,Plugins,Tools|官方维护的 Claude Code 插件目录。|提供可安装的工具与开发工作流扩展入口。|
+affaan-m/ECC|ECC|dev||Agent,Workflow,Security|为 Coding Agent 提供开发、记忆和安全工作流。|组织跨工具的开发约定、任务流程和可复用配置。|
+obra/superpowers|superpowers|dev||Agent,Skills,Testing|基于 Skills 的软件开发任务执行框架。|串联需求、实现、测试和审查等开发步骤。|
+ruvnet/ruflo|ruflo|ai||Multi-Agent,Memory,RAG|多 Agent 协作、任务编排与记忆系统。|组合工具、工作流和检索能力来管理智能体任务。|

@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';
+export default defineConfig({testDir:'./tests',testMatch:'browser.spec.mjs',timeout:20000,fullyParallel:true,retries:0,workers:2,reporter:[['list'],['json',{outputFile:'test-results/browser-results.json'}]],use:{baseURL:'http://127.0.0.1:4173',viewport:{width:1440,height:1000},screenshot:'only-on-failure',trace:'off'},webServer:{command:'node scripts/serve.mjs',url:'http://127.0.0.1:4173',reuseExistingServer:false},projects:[{name:'chromium',use:{browserName:'chromium'}}]});

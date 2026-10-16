@@ -1,23 +1,42 @@
-name: Validate Radar Data
+name: Radar validation
 on:
   push:
-    branches: [main]
+    branches: [main, 'rebuild/**']
   pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: radar-check-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  validate:
+  verify:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '22'
-      - name: Validate historical entries
-        run: node scripts/validate-data.mjs
-      - name: Check required frontend files
+      - name: Model tests and production build
+        run: npm run check
+      - name: Syntax validation
         run: |
-          test -s index.html
-          test -s assets/styles.css
-          test -s assets/app.js
-          test -s data/history.js
+          node --check assets/app.mjs
+          node --check tests/browser.spec.mjs
+      - name: Install pinned browser test tools
+        run: npm install --no-save --ignore-scripts @playwright/test@1.64.1
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Native browser regression tests
+        run: npx playwright test
+      - name: Save test evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: radar-browser-evidence
+          path: test-results/
+          retention-days: 7
+          if-no-files-found: ignore
