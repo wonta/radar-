@@ -1,0 +1,6 @@
+{
+  "test": "daily-sync",
+  "date": "2026-10-17",
+  "purpose": "Verify scheduled publishing GitHub write permissions without changing production or fabricating an issue.",
+  "status": "smoke-test"
+}
