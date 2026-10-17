@@ -25,9 +25,9 @@ jobs:
       - name: Test and build
         run: npm run check
       - name: Configure Pages
-        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745 # v5.0.0
+        uses: actions/configure-pages@v5 # v5.0.0
       - name: Upload static site
-        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27ad1f # v3.0.1
+        uses: actions/upload-pages-artifact@v3 # v3.0.1
         with:
           path: dist
   deploy:
