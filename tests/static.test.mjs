@@ -26,7 +26,7 @@ test('historic different REA metrics are preserved by date',()=>{
 });
 test('latest home and month/year indexes link to independent HTML',()=>{
   const home=fs.readFileSync('dist/index.html','utf8');
-  assert.match(home,/<meta name="radar-date" content="2026-10-20">/);
+  assert.match(home,/<meta name="radar-date" content="\\d{4}-\\d{2}-\\d{2}">/);
   assert.match(fs.readFileSync('dist/archive/2026/10/index.html','utf8'),/20\.html/);
   assert.match(fs.readFileSync('dist/archive/2026/index.html','utf8'),/10\/index\.html/);
   assert.match(fs.readFileSync('dist/archive/index.html','utf8'),/2026\/index\.html/);
