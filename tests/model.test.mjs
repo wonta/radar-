@@ -27,7 +27,7 @@ test('duplicate repo within a day rejected',()=>{const d=copy();d.issues[0].entr
 test('unknown repository reference rejected',()=>{const d=copy();d.issues[0].entries[0].repo='missing/repo';assert.throws(()=>validateData(d))});
 test('invalid date rejected',()=>{const d=copy();d.issues[0].date='2026-02-31';assert.throws(()=>validateData(d))});
 test('negative star count rejected',()=>{const d=copy();d.issues[0].entries[0].metric.value=-1;assert.throws(()=>validateData(d))});
-test('verified metric without source is rejected',()=>{const d=copy();d.issues[0].entries[0].metric.verified=true;assert.throws(()=>validateData(d))});
+test('verified metric without source is rejected',()=>{const d=copy();d.issues.find(x=>x.source==='legacy-newsletter').entries[0].metric.verified=true;assert.throws(()=>validateData(d))});
 test('new project may not invent a star count',()=>{const d=copy();d.issues[0].entries[0].metric={type:'new',value:10,verified:false};assert.throws(()=>validateData(d))});
 test('path-like repository IDs are rejected',()=>{assert.equal(validRepo('owner/..'),false);assert.equal(validRepo('https://github.com/a/b'),false);assert.equal(validRepo('owner/repo'),true)});
 test('deployed output excludes raw source and old assets',()=>{assert.equal(fs.existsSync('dist/data/history.js'),false);assert.equal(fs.existsSync('dist/.github'),false);assert.equal(fs.existsSync('dist/data/catalog.tsv'),false);assert.ok(fs.statSync('dist/assets/app.mjs').size>0)});
