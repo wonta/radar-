@@ -1,3 +1,381 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f9f9f7"><meta name="robots" content="noindex,nofollow"><meta name="description" content="radar：中文 GitHub 项目日报与私人项目档案。按日期阅读、搜索、收藏，不再错过昨天的发现。"><title>radar · GitHub 项目雷达</title><link rel="icon" type="image/svg+xml" href="./assets/radar.svg"><link rel="stylesheet" href="./assets/styles.css"><script type="module" src="./assets/app.mjs"></script></head>
-<body><a class="skip" href="#main">跳到内容</a><header class="header"><div class="header-inner"><a class="brand" href="#/daily"><img src="./assets/radar.svg" width="30" height="30" alt=""><span>radar<span class="brand-dot">.</span></span></a><span class="brand-desc">开源发现，持续积累。</span><nav class="navigation" aria-label="主导航"><a href="#/daily" data-nav="daily">每日雷达</a><a href="#/projects" data-nav="projects">项目库</a><a href="#/archive" data-nav="archive">往期</a><a href="#/saved" data-nav="saved">收藏<span id="saved-count"></span></a></nav><button class="search-trigger" id="search-trigger" aria-label="搜索项目">搜索项目 <kbd>/</kbd></button><span class="private-label">私人档案</span></div></header><div id="app"><main id="main" class="loading" tabindex="-1"><h1>radar</h1><p>正在打开项目档案…</p><noscript>请启用 JavaScript 以浏览、搜索和收藏项目。网站不依赖外部脚本或字体。</noscript></main></div><footer class="footer"><span>radar <b>·</b> 让发现有迹可循</span><a href="#/about">数据与使用说明</a><span>独立私人站点 · 非 GitHub 官方</span></footer><div id="toast" role="status" aria-live="polite"></div><input type="file" id="import-file" accept="application/json,.json" hidden></body></html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f4">
+  <meta name="description" content="中文 GitHub 开源项目日报：项目功能、实际用途、注意事项和历史归档。">
+  <title>2026-10-20 GitHub 每日项目雷达 · radar</title>
+  <link rel="icon" type="image/svg+xml" href="assets/radar.svg">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
+  <meta name="radar-date" content="2026-10-20"><meta name="radar-count" content="20"><meta name="radar-source" content="editorial">
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="header"><div class="container header-inner">
+    <a class="brand" href="index.html"><img src="assets/radar.svg" width="31" height="31" alt="">radar<span>.</span></a>
+    <span class="brand-caption">开源发现，持续积累。</span>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html">最新日报</a>
+      <a href="search.html">项目搜索</a>
+      <a href="archive/index.html">往期归档</a>
+      <a href="search.html?view=saved">我的收藏</a>
+    </nav>
+  </div></header>
+  <main class="container main" id="main">
+    <div class="eyebrow"><span class="dot"></span> DAILY OPEN SOURCE RADAR <span class="dash">/</span> 2026 / 10 / 20</div>
+    <div class="issue-intro"><div>
+      <h1>今天，有哪些项目<br><em>值得打开看看。</em></h1>
+      <p class="intro-subtitle">每日 GitHub 项目雷达 · 2026-10-20 · 20 个项目</p>
+    </div><a class="button button-light" href="archive/2026/10/index.html">查看本月归档 ↗</a></div>
+    <p class="source-notice">项目资料为编辑整理；功能及限制仍应以仓库说明为准。</p>
+    <details class="overview"><summary>本期项目速览 <span>20 个项目</span><span class="overview-hint">展开查看全部名称</span></summary>
+      <ol><li><a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener noreferrer">Headroom</a><span>压缩发往大模型的工具输出、日志和检索内容。</span></li><li><a href="https://github.com/Gathin23/cleanyourtv" target="_blank" rel="noopener noreferrer">CleanYourTV</a><span>通过无线 ADB 精简 Android TV/Google TV 预装组件并更换启动器。</span></li><li><a href="https://github.com/rohit267/net-merge" target="_blank" rel="noopener noreferrer">net-merge</a><span>将多条网络连接按 TCP/UDP 会话分流，利用多个网卡。</span></li><li><a href="https://github.com/Leonxlnx/earshot" target="_blank" rel="noopener noreferrer">earshot</a><span>让 Coding Agent 在 CPU 上分析、比较、定位和合成声音。</span></li><li><a href="https://github.com/VallierDev/uu-remote-linux" target="_blank" rel="noopener noreferrer">UU Remote Linux</a><span>为网易 UU 远程提供非官方 Linux 被控端与实验性控制端。</span></li><li><a href="https://github.com/gymzatan/smt-nine-recomp" target="_blank" rel="noopener noreferrer">SMT NINE Recomp</a><span>把 Xbox《真·女神转生 NINE》转换为可在 Windows 本地编译运行的程序。</span></li><li><a href="https://github.com/open-wxa/wxa-runner" target="_blank" rel="noopener noreferrer">wxa-runner</a><span>在浏览器中运行微信小程序构建产物并进行无头自动化测试。</span></li><li><a href="https://github.com/studio-yebisu/yomiyasu-studio" target="_blank" rel="noopener noreferrer">Yomiyasu Studio</a><span>对照展示日语文章原文与 AI 校对改写内容。</span></li><li><a href="https://github.com/mrdoob/izakaya-yomi" target="_blank" rel="noopener noreferrer">Izakaya Yomi</a><span>拍日本菜单，离线查看汉字读音、罗马字、英文释义。</span></li><li><a href="https://github.com/Graphicle-AI/graphicle" target="_blank" rel="noopener noreferrer">Graphicle</a><span>为编程 Agent 提供带文件行号的本地代码图和记忆检索。</span></li><li><a href="https://github.com/deeplethe/solid-glass" target="_blank" rel="noopener noreferrer">Solid Glass</a><span>专为 AI 应用设计的轻量触感材质与组件样式。</span></li><li><a href="https://github.com/Kruk2/jasna" target="_blank" rel="noopener noreferrer">Jasna</a><span>定位并局部修复视频和图片马赛克区域。</span></li><li><a href="https://github.com/withmarbleapp/os-taxonomy" target="_blank" rel="noopener noreferrer">Marble Skill Taxonomy</a><span>公开小学课程知识点及其先修依赖关系。</span></li><li><a href="https://github.com/kitlangton/scrawl" target="_blank" rel="noopener noreferrer">Scrawl</a><span>录制屏幕、声音和绘制标注后，生成可供 Agent 理解的多模态问题包。</span></li><li><a href="https://github.com/pro-vi/cc-stretch" target="_blank" rel="noopener noreferrer">cc-stretch</a><span>把 Claude Code 的长答案转为逐段点击展开的短文本。</span></li><li><a href="https://github.com/kividbio/kividb" target="_blank" rel="noopener noreferrer">KiviDB</a><span>用 Rust 构建兼容 Redis 协议的多线程键值数据库。</span></li><li><a href="https://github.com/HeyPuter/everything" target="_blank" rel="noopener noreferrer">Everything Project</a><span>汇总多类商业软件开源替代品的应用源码和演示。</span></li><li><a href="https://github.com/Zfinix/eleven" target="_blank" rel="noopener noreferrer">Eleven</a><span>以 GUI + Agent 的方式分析原生二进制、Android APK 与 GPU 内核。</span></li><li><a href="https://github.com/vercel-labs/fx0" target="_blank" rel="noopener noreferrer">fx0</a><span>从自然语言生成可下载的单文件 HTML 页面。</span></li><li><a href="https://github.com/bydash-xyz/ipod-cjk-patch" target="_blank" rel="noopener noreferrer">iPod CJK Patch</a><span>修正 iPod Video 5/5.5G 原厂固件的中日韩菜单和歌词字体。</span></li></ol>
+    </details>
+    <section class="issue-section"><div class="section-title"><h2>今日重点</h2><span>12 个项目</span></div><article class="project" data-repo="headroomlabs-ai/headroom" data-name="Headroom" data-summary="压缩发往大模型的工具输出、日志和检索内容。" data-detail="提供 Python/TypeScript 库、代理、CLI 与 MCP 接口；按内容类型压缩并缓存原文供按需取回。README 的 Token 节省数字尚未独立复现。" data-category="ai" data-tags="Agent 上下文 MCP" data-date="2026-10-20" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">01</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener noreferrer">Headroom<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">headroomlabs-ai/headroom </div>
+      </div>
+      <button class="save-button" type="button" data-save="headroomlabs-ai/headroom" aria-pressed="false" aria-label="收藏 Headroom">☆ 收藏</button>
+    </div>
+    <p class="project-summary">压缩发往大模型的工具输出、日志和检索内容。</p>
+    <p class="project-detail">提供 Python/TypeScript 库、代理、CLI 与 MCP 接口；按内容类型压缩并缓存原文供按需取回。README 的 Token 节省数字尚未独立复现。</p>
+    <p class="project-note">Apache-2.0；v0.41.0（10月14日）。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">AI / Agent</span><span class="tag">Agent</span><span class="tag">上下文</span><span class="tag">MCP</span></div>
+      <span class="metric">76,206 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="headroomlabs-ai/headroom" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="Gathin23/cleanyourtv" data-name="CleanYourTV" data-summary="通过无线 ADB 精简 Android TV/Google TV 预装组件并更换启动器。" data-detail="不需 Root；主要停用而非删除预装包，可恢复。必须核对机型支持列表，停用关键系统组件仍可能影响电视功能。" data-category="hardware" data-tags="Android TV ADB Launcher" data-date="2026-10-20" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">02</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/Gathin23/cleanyourtv" target="_blank" rel="noopener noreferrer">CleanYourTV<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">Gathin23/cleanyourtv </div>
+      </div>
+      <button class="save-button" type="button" data-save="gathin23/cleanyourtv" aria-pressed="false" aria-label="收藏 CleanYourTV">☆ 收藏</button>
+    </div>
+    <p class="project-summary">通过无线 ADB 精简 Android TV/Google TV 预装组件并更换启动器。</p>
+    <p class="project-detail">不需 Root；主要停用而非删除预装包，可恢复。必须核对机型支持列表，停用关键系统组件仍可能影响电视功能。</p>
+    <p class="project-note">MIT（直接核对 LICENSE）；v2.3.0（10月19日）。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">硬件 / IoT</span><span class="tag">Android TV</span><span class="tag">ADB</span><span class="tag">Launcher</span></div>
+      <span class="metric">5,045 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="gathin23/cleanyourtv" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="rohit267/net-merge" data-name="net-merge" data-summary="将多条网络连接按 TCP/UDP 会话分流，利用多个网卡。" data-detail="支持 Windows、macOS、Linux，可组合 Wi-Fi、以太网与手机共享。适合并发下载，不能让单一连接直接叠加链路带宽。" data-category="dev" data-tags="Go 网络 Linux" data-date="2026-10-20" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">03</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/rohit267/net-merge" target="_blank" rel="noopener noreferrer">net-merge<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">rohit267/net-merge </div>
+      </div>
+      <button class="save-button" type="button" data-save="rohit267/net-merge" aria-pressed="false" aria-label="收藏 net-merge">☆ 收藏</button>
+    </div>
+    <p class="project-summary">将多条网络连接按 TCP/UDP 会话分流，利用多个网卡。</p>
+    <p class="project-detail">支持 Windows、macOS、Linux，可组合 Wi-Fi、以太网与手机共享。适合并发下载，不能让单一连接直接叠加链路带宽。</p>
+    <p class="project-note">MIT；v0.3.2（10月19日）；安装会涉及系统网络路由。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">开发工具</span><span class="tag">Go</span><span class="tag">网络</span><span class="tag">Linux</span></div>
+      <span class="metric">1,354 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="rohit267/net-merge" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="Leonxlnx/earshot" data-name="earshot" data-summary="让 Coding Agent 在 CPU 上分析、比较、定位和合成声音。" data-detail="提供 CLI、Python API、MCP、声谱图、声音匹配和音效生成；部分分析命令初次加载本地模型较慢。README 所述功能可能领先于正式发行版。" data-category="ai" data-tags="Audio MCP CPU" data-date="2026-10-20" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">04</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/Leonxlnx/earshot" target="_blank" rel="noopener noreferrer">earshot<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">Leonxlnx/earshot </div>
+      </div>
+      <button class="save-button" type="button" data-save="leonxlnx/earshot" aria-pressed="false" aria-label="收藏 earshot">☆ 收藏</button>
+    </div>
+    <p class="project-summary">让 Coding Agent 在 CPU 上分析、比较、定位和合成声音。</p>
+    <p class="project-detail">提供 CLI、Python API、MCP、声谱图、声音匹配和音效生成；部分分析命令初次加载本地模型较慢。README 所述功能可能领先于正式发行版。</p>
+    <p class="project-note">MIT；v0.2.0（10月16日）。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">AI / Agent</span><span class="tag">Audio</span><span class="tag">MCP</span><span class="tag">CPU</span></div>
+      <span class="metric">1,504 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="leonxlnx/earshot" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="VallierDev/uu-remote-linux" data-name="UU Remote Linux" data-summary="为网易 UU 远程提供非官方 Linux 被控端与实验性控制端。" data-detail="Rust 程序支持扫码、桌面、音频、文件传输、终端和端口映射；支持无头 NAS 的 Docker 场景，部分 Wayland 路径仍实验性。" data-category="selfhost" data-tags="Rust 远程桌面 Linux" data-date="2026-10-20" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">05</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/VallierDev/uu-remote-linux" target="_blank" rel="noopener noreferrer">UU Remote Linux<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">VallierDev/uu-remote-linux <span class="flag">CN</span></div>
+      </div>
+      <button class="save-button" type="button" data-save="vallierdev/uu-remote-linux" aria-pressed="false" aria-label="收藏 UU Remote Linux">☆ 收藏</button>
+    </div>
+    <p class="project-summary">为网易 UU 远程提供非官方 Linux 被控端与实验性控制端。</p>
+    <p class="project-detail">Rust 程序支持扫码、桌面、音频、文件传输、终端和端口映射；支持无头 NAS 的 Docker 场景，部分 Wayland 路径仍实验性。</p>
+    <p class="project-note">GPL-3.0；v0.2.15（10月19日）；需要 UU 账号与官方服务，非完全自建。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">自托管</span><span class="tag">Rust</span><span class="tag">远程桌面</span><span class="tag">Linux</span></div>
+      <span class="metric">300 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="vallierdev/uu-remote-linux" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="gymzatan/smt-nine-recomp" data-name="SMT NINE Recomp" data-summary="把 Xbox《真·女神转生 NINE》转换为可在 Windows 本地编译运行的程序。" data-detail="基于 xboxrecomp，用户需自行提供日版正版 ISO。默认日语，可选中文；构建建议 16GB RAM、15GB 空间，尚无全游戏兼容性保证。" data-category="games" data-tags="Xbox Recomp Windows" data-date="2026-10-20" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">06</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/gymzatan/smt-nine-recomp" target="_blank" rel="noopener noreferrer">SMT NINE Recomp<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">gymzatan/smt-nine-recomp <span class="flag">JP</span></div>
+      </div>
+      <button class="save-button" type="button" data-save="gymzatan/smt-nine-recomp" aria-pressed="false" aria-label="收藏 SMT NINE Recomp">☆ 收藏</button>
+    </div>
+    <p class="project-summary">把 Xbox《真·女神转生 NINE》转换为可在 Windows 本地编译运行的程序。</p>
+    <p class="project-detail">基于 xboxrecomp，用户需自行提供日版正版 ISO。默认日语，可选中文；构建建议 16GB RAM、15GB 空间，尚无全游戏兼容性保证。</p>
+    <p class="project-note">MIT；v0.1.12（10月19日）；不提供游戏资产。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">游戏与模拟器</span><span class="tag">Xbox</span><span class="tag">Recomp</span><span class="tag">Windows</span></div>
+      <span class="metric">19 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="gymzatan/smt-nine-recomp" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="open-wxa/wxa-runner" data-name="wxa-runner" data-summary="在浏览器中运行微信小程序构建产物并进行无头自动化测试。" data-detail="使用微信基础库，支持 Chrome DevTools、请求模拟、热更新及 Playwright E2E；不替代小程序上传、发布或真机测试。" data-category="dev" data-tags="微信小程序 Playwright E2E" data-date="2026-10-20" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">07</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/open-wxa/wxa-runner" target="_blank" rel="noopener noreferrer">wxa-runner<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">open-wxa/wxa-runner <span class="flag">CN</span></div>
+      </div>
+      <button class="save-button" type="button" data-save="open-wxa/wxa-runner" aria-pressed="false" aria-label="收藏 wxa-runner">☆ 收藏</button>
+    </div>
+    <p class="project-summary">在浏览器中运行微信小程序构建产物并进行无头自动化测试。</p>
+    <p class="project-detail">使用微信基础库，支持 Chrome DevTools、请求模拟、热更新及 Playwright E2E；不替代小程序上传、发布或真机测试。</p>
+    <p class="project-note">MIT；v0.3.2（10月19日）；内置腾讯基础库有独立版权限制。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">开发工具</span><span class="tag">微信小程序</span><span class="tag">Playwright</span><span class="tag">E2E</span></div>
+      <span class="metric">99 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="open-wxa/wxa-runner" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="studio-yebisu/yomiyasu-studio" data-name="Yomiyasu Studio" data-summary="对照展示日语文章原文与 AI 校对改写内容。" data-detail="组合 Sarashina API、规则与本地意义判定模型，提供 Windows 版和 MCP；标准配置约需 9.1GB 模型及11GiB可用内存。macOS 实机未验证。" data-category="learning" data-tags="日语 校对 MCP" data-date="2026-10-20" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">08</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/studio-yebisu/yomiyasu-studio" target="_blank" rel="noopener noreferrer">Yomiyasu Studio<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">studio-yebisu/yomiyasu-studio <span class="flag">JP</span></div>
+      </div>
+      <button class="save-button" type="button" data-save="studio-yebisu/yomiyasu-studio" aria-pressed="false" aria-label="收藏 Yomiyasu Studio">☆ 收藏</button>
+    </div>
+    <p class="project-summary">对照展示日语文章原文与 AI 校对改写内容。</p>
+    <p class="project-detail">组合 Sarashina API、规则与本地意义判定模型，提供 Windows 版和 MCP；标准配置约需 9.1GB 模型及11GiB可用内存。macOS 实机未验证。</p>
+    <p class="project-note">MIT；README 写 v0.2.10，GitHub latest stable API 为 v0.2.9（10月19日）。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">学习与研究</span><span class="tag">日语</span><span class="tag">校对</span><span class="tag">MCP</span></div>
+      <span class="metric">4 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="studio-yebisu/yomiyasu-studio" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="mrdoob/izakaya-yomi" data-name="Izakaya Yomi" data-summary="拍日本菜单，离线查看汉字读音、罗马字、英文释义。" data-detail="使用 PP-OCRv5、kuromoji 和 JMdict，经 WebGPU/WASM 在设备上运行；首次加载后可离线。特殊菜单字体和词语读音可能有误。" data-category="learning" data-tags="Japanese OCR Web" data-date="2026-10-20" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">09</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/mrdoob/izakaya-yomi" target="_blank" rel="noopener noreferrer">Izakaya Yomi<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">mrdoob/izakaya-yomi <span class="flag">JP</span></div>
+      </div>
+      <button class="save-button" type="button" data-save="mrdoob/izakaya-yomi" aria-pressed="false" aria-label="收藏 Izakaya Yomi">☆ 收藏</button>
+    </div>
+    <p class="project-summary">拍日本菜单，离线查看汉字读音、罗马字、英文释义。</p>
+    <p class="project-detail">使用 PP-OCRv5、kuromoji 和 JMdict，经 WebGPU/WASM 在设备上运行；首次加载后可离线。特殊菜单字体和词语读音可能有误。</p>
+    <p class="project-note">仓库未发现总 LICENSE 或正式 Release；所依赖模型、词典各自授权。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">学习与研究</span><span class="tag">Japanese</span><span class="tag">OCR</span><span class="tag">Web</span></div>
+      <span class="metric">8 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="mrdoob/izakaya-yomi" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="Graphicle-AI/graphicle" data-name="Graphicle" data-summary="为编程 Agent 提供带文件行号的本地代码图和记忆检索。" data-detail="索引代码引用、文档和会话记录，可接入 Claude Code、Codex 等。setup 会修改 AGENTS.md 并安装 Git Hooks，操作前注意备份。" data-category="dev" data-tags="Rust MCP 代码索引" data-date="2026-10-20" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">10</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/Graphicle-AI/graphicle" target="_blank" rel="noopener noreferrer">Graphicle<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">Graphicle-AI/graphicle </div>
+      </div>
+      <button class="save-button" type="button" data-save="graphicle-ai/graphicle" aria-pressed="false" aria-label="收藏 Graphicle">☆ 收藏</button>
+    </div>
+    <p class="project-summary">为编程 Agent 提供带文件行号的本地代码图和记忆检索。</p>
+    <p class="project-detail">索引代码引用、文档和会话记录，可接入 Claude Code、Codex 等。setup 会修改 AGENTS.md 并安装 Git Hooks，操作前注意备份。</p>
+    <p class="project-note">Apache-2.0；v0.1.2（10月18日）；Windows 预览。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">开发工具</span><span class="tag">Rust</span><span class="tag">MCP</span><span class="tag">代码索引</span></div>
+      <span class="metric">323 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="graphicle-ai/graphicle" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="deeplethe/solid-glass" data-name="Solid Glass" data-summary="专为 AI 应用设计的轻量触感材质与组件样式。" data-detail="适配 React 19、Tailwind 4 和 shadcn/ui；通过 CSS 与 data-slot 赋予面板、状态指示和对话组件视觉层级。" data-category="graphics" data-tags="CSS Design System shadcn" data-date="2026-10-20" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">11</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/deeplethe/solid-glass" target="_blank" rel="noopener noreferrer">Solid Glass<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">deeplethe/solid-glass </div>
+      </div>
+      <button class="save-button" type="button" data-save="deeplethe/solid-glass" aria-pressed="false" aria-label="收藏 Solid Glass">☆ 收藏</button>
+    </div>
+    <p class="project-summary">专为 AI 应用设计的轻量触感材质与组件样式。</p>
+    <p class="project-detail">适配 React 19、Tailwind 4 和 shadcn/ui；通过 CSS 与 data-slot 赋予面板、状态指示和对话组件视觉层级。</p>
+    <p class="project-note">MIT；10月18日仍有更新，未找到独立正式 Release。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">图形与创作</span><span class="tag">CSS</span><span class="tag">Design System</span><span class="tag">shadcn</span></div>
+      <span class="metric">2,271 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="deeplethe/solid-glass" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="Kruk2/jasna" data-name="Jasna" data-summary="定位并局部修复视频和图片马赛克区域。" data-detail="免费 BasicVSR++ 与需要支持者许可的 LTX 等模型分开；NVIDIA GTX16/RTX20 起，AMD 属实验性。首次 GPU 模型准备可能需 15–60 分钟。" data-category="graphics" data-tags="Video GPU Restoration" data-date="2026-10-20" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">12</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/Kruk2/jasna" target="_blank" rel="noopener noreferrer">Jasna<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">Kruk2/jasna </div>
+      </div>
+      <button class="save-button" type="button" data-save="kruk2/jasna" aria-pressed="false" aria-label="收藏 Jasna">☆ 收藏</button>
+    </div>
+    <p class="project-summary">定位并局部修复视频和图片马赛克区域。</p>
+    <p class="project-detail">免费 BasicVSR++ 与需要支持者许可的 LTX 等模型分开；NVIDIA GTX16/RTX20 起，AMD 属实验性。首次 GPU 模型准备可能需 15–60 分钟。</p>
+    <p class="project-note">AGPL-3.0（仓库）；v0.11.2（10月17日）；支持者模型另行授权。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">图形与创作</span><span class="tag">Video</span><span class="tag">GPU</span><span class="tag">Restoration</span></div>
+      <span class="metric">2,868 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="kruk2/jasna" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article></section>
+    <section class="issue-section"><div class="section-title"><h2>更多发现</h2><span>8 个项目</span></div><article class="project" data-repo="withmarbleapp/os-taxonomy" data-name="Marble Skill Taxonomy" data-summary="公开小学课程知识点及其先修依赖关系。" data-detail="包含 1,591 个微知识点、3,225 条先修关系和 JSON Schema；主要与英美教学标准对齐，不直接对应中国、日本课程。" data-category="learning" data-tags="Dataset 教育 Graph" data-date="2026-10-20" data-featured="false">
+    <div class="project-head">
+      <span class="ordinal">13</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/withmarbleapp/os-taxonomy" target="_blank" rel="noopener noreferrer">Marble Skill Taxonomy<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">withmarbleapp/os-taxonomy </div>
+      </div>
+      <button class="save-button" type="button" data-save="withmarbleapp/os-taxonomy" aria-pressed="false" aria-label="收藏 Marble Skill Taxonomy">☆ 收藏</button>
+    </div>
+    <p class="project-summary">公开小学课程知识点及其先修依赖关系。</p>
+    <p class="project-detail">包含 1,591 个微知识点、3,225 条先修关系和 JSON Schema；主要与英美教学标准对齐，不直接对应中国、日本课程。</p>
+    <p class="project-note">ODbL-1.0；10月19日有更新，未发现正式 Release。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">学习与研究</span><span class="tag">Dataset</span><span class="tag">教育</span><span class="tag">Graph</span></div>
+      <span class="metric">6,088 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="withmarbleapp/os-taxonomy" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="kitlangton/scrawl" data-name="Scrawl" data-summary="录制屏幕、声音和绘制标注后，生成可供 Agent 理解的多模态问题包。" data-detail="输出关键帧联系表、转写和时间线，提供 Agent Skill 与 CLI；可定位具体时间点。" data-category="dev" data-tags="Rust macOS Screen Recording" data-date="2026-10-20" data-featured="false">
+    <div class="project-head">
+      <span class="ordinal">14</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/kitlangton/scrawl" target="_blank" rel="noopener noreferrer">Scrawl<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">kitlangton/scrawl </div>
+      </div>
+      <button class="save-button" type="button" data-save="kitlangton/scrawl" aria-pressed="false" aria-label="收藏 Scrawl">☆ 收藏</button>
+    </div>
+    <p class="project-summary">录制屏幕、声音和绘制标注后，生成可供 Agent 理解的多模态问题包。</p>
+    <p class="project-detail">输出关键帧联系表、转写和时间线，提供 Agent Skill 与 CLI；可定位具体时间点。</p>
+    <p class="project-note">MIT；v0.3.5（10月19日）；只支持 Apple Silicon/macOS 26+。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">开发工具</span><span class="tag">Rust</span><span class="tag">macOS</span><span class="tag">Screen Recording</span></div>
+      <span class="metric">453 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="kitlangton/scrawl" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="pro-vi/cc-stretch" data-name="cc-stretch" data-summary="把 Claude Code 的长答案转为逐段点击展开的短文本。" data-detail="使用 stretchtext 交互，默认显示摘要、点击展开细节；终端需要 Claude Code 全屏 TUI。作者的字数节省结果仅为其自测。" data-category="dev" data-tags="Claude Code UX Plugin" data-date="2026-10-20" data-featured="false">
+    <div class="project-head">
+      <span class="ordinal">15</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/pro-vi/cc-stretch" target="_blank" rel="noopener noreferrer">cc-stretch<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">pro-vi/cc-stretch </div>
+      </div>
+      <button class="save-button" type="button" data-save="pro-vi/cc-stretch" aria-pressed="false" aria-label="收藏 cc-stretch">☆ 收藏</button>
+    </div>
+    <p class="project-summary">把 Claude Code 的长答案转为逐段点击展开的短文本。</p>
+    <p class="project-detail">使用 stretchtext 交互，默认显示摘要、点击展开细节；终端需要 Claude Code 全屏 TUI。作者的字数节省结果仅为其自测。</p>
+    <p class="project-note">MIT；v0.5.1（10月19日）。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">开发工具</span><span class="tag">Claude Code</span><span class="tag">UX</span><span class="tag">Plugin</span></div>
+      <span class="metric">390 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="pro-vi/cc-stretch" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="kividbio/kividb" data-name="KiviDB" data-summary="用 Rust 构建兼容 Redis 协议的多线程键值数据库。" data-detail="支持 RESP2/3、快照、可选 AOF、全文和向量索引，默认端口 6380。官方性能测试使用32核云主机，不代表 N100 性能。" data-category="data" data-tags="Rust Redis Vector Search" data-date="2026-10-20" data-featured="false">
+    <div class="project-head">
+      <span class="ordinal">16</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/kividbio/kividb" target="_blank" rel="noopener noreferrer">KiviDB<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">kividbio/kividb </div>
+      </div>
+      <button class="save-button" type="button" data-save="kividbio/kividb" aria-pressed="false" aria-label="收藏 KiviDB">☆ 收藏</button>
+    </div>
+    <p class="project-summary">用 Rust 构建兼容 Redis 协议的多线程键值数据库。</p>
+    <p class="project-detail">支持 RESP2/3、快照、可选 AOF、全文和向量索引，默认端口 6380。官方性能测试使用32核云主机，不代表 N100 性能。</p>
+    <p class="project-note">AGPL-3.0；v1.1.0（10月16日）；迁移前须测试命令兼容性。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">数据与商业</span><span class="tag">Rust</span><span class="tag">Redis</span><span class="tag">Vector Search</span></div>
+      <span class="metric">256 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="kividbio/kividb" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="HeyPuter/everything" data-name="Everything Project" data-summary="汇总多类商业软件开源替代品的应用源码和演示。" data-detail="以 monorepo 组织文档、表格、演示、白板等应用；不同子项目成熟度和兼容性差异较大。" data-category="dev" data-tags="Open Source Office Monorepo" data-date="2026-10-20" data-featured="false">
+    <div class="project-head">
+      <span class="ordinal">17</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/HeyPuter/everything" target="_blank" rel="noopener noreferrer">Everything Project<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">HeyPuter/everything </div>
+      </div>
+      <button class="save-button" type="button" data-save="heyputer/everything" aria-pressed="false" aria-label="收藏 Everything Project">☆ 收藏</button>
+    </div>
+    <p class="project-summary">汇总多类商业软件开源替代品的应用源码和演示。</p>
+    <p class="project-detail">以 monorepo 组织文档、表格、演示、白板等应用；不同子项目成熟度和兼容性差异较大。</p>
+    <p class="project-note">MIT；10月19日有提交，未发现统一正式 Release。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">开发工具</span><span class="tag">Open Source</span><span class="tag">Office</span><span class="tag">Monorepo</span></div>
+      <span class="metric">2,331 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="heyputer/everything" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="Zfinix/eleven" data-name="Eleven" data-summary="以 GUI + Agent 的方式分析原生二进制、Android APK 与 GPU 内核。" data-detail="支持 ACP 编码代理；借助 Ghidra/REA、Rizin 和 jadx 分析，补丁需人工审批。它是 REA 的上层工作台，不是取代逆向引擎。" data-category="security" data-tags="Reverse Engineering ACP Desktop" data-date="2026-10-20" data-featured="false">
+    <div class="project-head">
+      <span class="ordinal">18</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/Zfinix/eleven" target="_blank" rel="noopener noreferrer">Eleven<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">Zfinix/eleven </div>
+      </div>
+      <button class="save-button" type="button" data-save="zfinix/eleven" aria-pressed="false" aria-label="收藏 Eleven">☆ 收藏</button>
+    </div>
+    <p class="project-summary">以 GUI + Agent 的方式分析原生二进制、Android APK 与 GPU 内核。</p>
+    <p class="project-detail">支持 ACP 编码代理；借助 Ghidra/REA、Rizin 和 jadx 分析，补丁需人工审批。它是 REA 的上层工作台，不是取代逆向引擎。</p>
+    <p class="project-note">Apache-2.0；v0.1.9（10月16日）；仅分析有权使用的程序。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">安全与逆向</span><span class="tag">Reverse Engineering</span><span class="tag">ACP</span><span class="tag">Desktop</span></div>
+      <span class="metric">792 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="zfinix/eleven" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="vercel-labs/fx0" data-name="fx0" data-summary="从自然语言生成可下载的单文件 HTML 页面。" data-detail="基于 libfx 编排 Agent，支持模板、历史版本、网页参考；在线模式依赖 Vercel Gateway、队列和数据库，不是完全离线应用。" data-category="graphics" data-tags="AI HTML Agent" data-date="2026-10-20" data-featured="false">
+    <div class="project-head">
+      <span class="ordinal">19</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/vercel-labs/fx0" target="_blank" rel="noopener noreferrer">fx0<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">vercel-labs/fx0 </div>
+      </div>
+      <button class="save-button" type="button" data-save="vercel-labs/fx0" aria-pressed="false" aria-label="收藏 fx0">☆ 收藏</button>
+    </div>
+    <p class="project-summary">从自然语言生成可下载的单文件 HTML 页面。</p>
+    <p class="project-detail">基于 libfx 编排 Agent，支持模板、历史版本、网页参考；在线模式依赖 Vercel Gateway、队列和数据库，不是完全离线应用。</p>
+    <p class="project-note">Apache-2.0；10月19日新建，暂无正式 Release。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">图形与创作</span><span class="tag">AI</span><span class="tag">HTML</span><span class="tag">Agent</span></div>
+      <span class="metric">97 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="vercel-labs/fx0" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article><article class="project" data-repo="bydash-xyz/ipod-cjk-patch" data-name="iPod CJK Patch" data-summary="修正 iPod Video 5/5.5G 原厂固件的中日韩菜单和歌词字体。" data-detail="重建歌词位图字库并扩展菜单字形，仅针对 Mac 格式化、固件1.3的特定型号。会写入固件分区，恢复可能清空音乐。" data-category="hardware" data-tags="iPod CJK Font" data-date="2026-10-20" data-featured="false">
+    <div class="project-head">
+      <span class="ordinal">20</span>
+      <div class="project-heading">
+        <h3><a href="https://github.com/bydash-xyz/ipod-cjk-patch" target="_blank" rel="noopener noreferrer">iPod CJK Patch<span class="external" aria-hidden="true">↗</span></a></h3>
+        <div class="repo-id">bydash-xyz/ipod-cjk-patch <span class="flag">JP</span></div>
+      </div>
+      <button class="save-button" type="button" data-save="bydash-xyz/ipod-cjk-patch" aria-pressed="false" aria-label="收藏 iPod CJK Patch">☆ 收藏</button>
+    </div>
+    <p class="project-summary">修正 iPod Video 5/5.5G 原厂固件的中日韩菜单和歌词字体。</p>
+    <p class="project-detail">重建歌词位图字库并扩展菜单字形，仅针对 Mac 格式化、固件1.3的特定型号。会写入固件分区，恢复可能清空音乐。</p>
+    <p class="project-note">源码 MIT（直接核对 LICENSE），字体有独立许可；v1.0.0（10月14日）。</p>
+    <div class="project-bottom">
+      <div class="tags"><span class="tag">硬件 / IoT</span><span class="tag">iPod</span><span class="tag">CJK</span><span class="tag">Font</span></div>
+      <span class="metric">7 Stars</span>
+    </div>
+    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="bydash-xyz/ipod-cjk-patch" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
+  </article></section>
+    <div class="issue-end"><a href="archive/2026/10/index.html">← 返回 2026 年 10 月</a><a href="search.html">搜索全部历史项目 →</a></div></main>
+  <footer class="footer container"><span>radar · 每天一页，持续归档</span><span>独立项目 · 非 GitHub 官方 · 收藏和笔记仅在此浏览器保存</span></footer>
+</body>
+</html>
