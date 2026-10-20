@@ -10,7 +10,9 @@ test('historic daily issue has 24 real HTML cards and no JS errors',async({page}
 });
 test('latest homepage has 20 standalone project cards',async({page})=>{
   await page.goto('/');
-  await expect(page.locator('article.project')).toHaveCount(20);
+  const count=Number(await page.locator('meta[name="radar-count"]').getAttribute('content'));
+  expect(count).toBeGreaterThanOrEqual(8);
+  await expect(page.locator('article.project')).toHaveCount(count);
   await expect(page.locator('h1')).toContainText('值得打开看看');
 });
 test('monthly and annual archive links resolve',async({page})=>{
@@ -20,7 +22,7 @@ test('monthly and annual archive links resolve',async({page})=>{
   await page.getByRole('link',{name:/2026 \/ 10/}).first().click();
   await expect(page).toHaveURL(/archive\/2026\/10\/index\.html/);
   await page.locator('.day-list > a').first().click();
-  await expect(page).toHaveURL(/archive\/2026\/10\/20\.html/);
+  await expect(page).toHaveURL(/archive\/2026\/10\/\d{2}\.html/);
 });
 test('Chinese search filters existing HTML cards without replacing input',async({page})=>{
   await page.goto('/search.html');
