@@ -1,0 +1,528 @@
+{
+  "date": "2026-10-20",
+  "source": "editorial",
+  "projects": [
+    {
+      "id": "headroomlabs-ai/headroom",
+      "name": "Headroom",
+      "category": "ai",
+      "flag": "",
+      "tags": [
+        "Agent",
+        "上下文",
+        "MCP"
+      ]
+    },
+    {
+      "id": "Gathin23/cleanyourtv",
+      "name": "CleanYourTV",
+      "category": "hardware",
+      "flag": "",
+      "tags": [
+        "Android TV",
+        "ADB",
+        "Launcher"
+      ]
+    },
+    {
+      "id": "rohit267/net-merge",
+      "name": "net-merge",
+      "category": "dev",
+      "flag": "",
+      "tags": [
+        "Go",
+        "网络",
+        "Linux"
+      ]
+    },
+    {
+      "id": "Leonxlnx/earshot",
+      "name": "earshot",
+      "category": "ai",
+      "flag": "",
+      "tags": [
+        "Audio",
+        "MCP",
+        "CPU"
+      ]
+    },
+    {
+      "id": "VallierDev/uu-remote-linux",
+      "name": "UU Remote Linux",
+      "category": "selfhost",
+      "flag": "CN",
+      "tags": [
+        "Rust",
+        "远程桌面",
+        "Linux"
+      ]
+    },
+    {
+      "id": "gymzatan/smt-nine-recomp",
+      "name": "SMT NINE Recomp",
+      "category": "games",
+      "flag": "JP",
+      "tags": [
+        "Xbox",
+        "Recomp",
+        "Windows"
+      ]
+    },
+    {
+      "id": "open-wxa/wxa-runner",
+      "name": "wxa-runner",
+      "category": "dev",
+      "flag": "CN",
+      "tags": [
+        "微信小程序",
+        "Playwright",
+        "E2E"
+      ]
+    },
+    {
+      "id": "studio-yebisu/yomiyasu-studio",
+      "name": "Yomiyasu Studio",
+      "category": "learning",
+      "flag": "JP",
+      "tags": [
+        "日语",
+        "校对",
+        "MCP"
+      ]
+    },
+    {
+      "id": "mrdoob/izakaya-yomi",
+      "name": "Izakaya Yomi",
+      "category": "learning",
+      "flag": "JP",
+      "tags": [
+        "Japanese",
+        "OCR",
+        "Web"
+      ]
+    },
+    {
+      "id": "Graphicle-AI/graphicle",
+      "name": "Graphicle",
+      "category": "dev",
+      "flag": "",
+      "tags": [
+        "Rust",
+        "MCP",
+        "代码索引"
+      ]
+    },
+    {
+      "id": "deeplethe/solid-glass",
+      "name": "Solid Glass",
+      "category": "graphics",
+      "flag": "",
+      "tags": [
+        "CSS",
+        "Design System",
+        "shadcn"
+      ]
+    },
+    {
+      "id": "Kruk2/jasna",
+      "name": "Jasna",
+      "category": "graphics",
+      "flag": "",
+      "tags": [
+        "Video",
+        "GPU",
+        "Restoration"
+      ]
+    },
+    {
+      "id": "withmarbleapp/os-taxonomy",
+      "name": "Marble Skill Taxonomy",
+      "category": "learning",
+      "flag": "",
+      "tags": [
+        "Dataset",
+        "教育",
+        "Graph"
+      ]
+    },
+    {
+      "id": "kitlangton/scrawl",
+      "name": "Scrawl",
+      "category": "dev",
+      "flag": "",
+      "tags": [
+        "Rust",
+        "macOS",
+        "Screen Recording"
+      ]
+    },
+    {
+      "id": "pro-vi/cc-stretch",
+      "name": "cc-stretch",
+      "category": "dev",
+      "flag": "",
+      "tags": [
+        "Claude Code",
+        "UX",
+        "Plugin"
+      ]
+    },
+    {
+      "id": "kividbio/kividb",
+      "name": "KiviDB",
+      "category": "data",
+      "flag": "",
+      "tags": [
+        "Rust",
+        "Redis",
+        "Vector Search"
+      ]
+    },
+    {
+      "id": "HeyPuter/everything",
+      "name": "Everything Project",
+      "category": "dev",
+      "flag": "",
+      "tags": [
+        "Open Source",
+        "Office",
+        "Monorepo"
+      ]
+    },
+    {
+      "id": "Zfinix/eleven",
+      "name": "Eleven",
+      "category": "security",
+      "flag": "",
+      "tags": [
+        "Reverse Engineering",
+        "ACP",
+        "Desktop"
+      ]
+    },
+    {
+      "id": "vercel-labs/fx0",
+      "name": "fx0",
+      "category": "graphics",
+      "flag": "",
+      "tags": [
+        "AI",
+        "HTML",
+        "Agent"
+      ]
+    },
+    {
+      "id": "bydash-xyz/ipod-cjk-patch",
+      "name": "iPod CJK Patch",
+      "category": "hardware",
+      "flag": "JP",
+      "tags": [
+        "iPod",
+        "CJK",
+        "Font"
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "repo": "headroomlabs-ai/headroom",
+      "featured": true,
+      "summary": "压缩发往大模型的工具输出、日志和检索内容。",
+      "detail": "提供 Python/TypeScript 库、代理、CLI 与 MCP 接口；按内容类型压缩并缓存原文供按需取回。README 的 Token 节省数字尚未独立复现。",
+      "note": "Apache-2.0；v0.41.0（10月14日）。",
+      "metric": {
+        "type": "total",
+        "value": 76206,
+        "display": "76,206",
+        "verified": true,
+        "sourceUrl": "https://github.com/headroomlabs-ai/headroom",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "Gathin23/cleanyourtv",
+      "featured": true,
+      "summary": "通过无线 ADB 精简 Android TV/Google TV 预装组件并更换启动器。",
+      "detail": "不需 Root；主要停用而非删除预装包，可恢复。必须核对机型支持列表，停用关键系统组件仍可能影响电视功能。",
+      "note": "MIT（直接核对 LICENSE）；v2.3.0（10月19日）。",
+      "metric": {
+        "type": "total",
+        "value": 5045,
+        "display": "5,045",
+        "verified": true,
+        "sourceUrl": "https://github.com/Gathin23/cleanyourtv",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "rohit267/net-merge",
+      "featured": true,
+      "summary": "将多条网络连接按 TCP/UDP 会话分流，利用多个网卡。",
+      "detail": "支持 Windows、macOS、Linux，可组合 Wi-Fi、以太网与手机共享。适合并发下载，不能让单一连接直接叠加链路带宽。",
+      "note": "MIT；v0.3.2（10月19日）；安装会涉及系统网络路由。",
+      "metric": {
+        "type": "total",
+        "value": 1354,
+        "display": "1,354",
+        "verified": true,
+        "sourceUrl": "https://github.com/rohit267/net-merge",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "Leonxlnx/earshot",
+      "featured": true,
+      "summary": "让 Coding Agent 在 CPU 上分析、比较、定位和合成声音。",
+      "detail": "提供 CLI、Python API、MCP、声谱图、声音匹配和音效生成；部分分析命令初次加载本地模型较慢。README 所述功能可能领先于正式发行版。",
+      "note": "MIT；v0.2.0（10月16日）。",
+      "metric": {
+        "type": "total",
+        "value": 1504,
+        "display": "1,504",
+        "verified": true,
+        "sourceUrl": "https://github.com/Leonxlnx/earshot",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "VallierDev/uu-remote-linux",
+      "featured": true,
+      "summary": "为网易 UU 远程提供非官方 Linux 被控端与实验性控制端。",
+      "detail": "Rust 程序支持扫码、桌面、音频、文件传输、终端和端口映射；支持无头 NAS 的 Docker 场景，部分 Wayland 路径仍实验性。",
+      "note": "GPL-3.0；v0.2.15（10月19日）；需要 UU 账号与官方服务，非完全自建。",
+      "metric": {
+        "type": "total",
+        "value": 300,
+        "display": "300",
+        "verified": true,
+        "sourceUrl": "https://github.com/VallierDev/uu-remote-linux",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "gymzatan/smt-nine-recomp",
+      "featured": true,
+      "summary": "把 Xbox《真·女神转生 NINE》转换为可在 Windows 本地编译运行的程序。",
+      "detail": "基于 xboxrecomp，用户需自行提供日版正版 ISO。默认日语，可选中文；构建建议 16GB RAM、15GB 空间，尚无全游戏兼容性保证。",
+      "note": "MIT；v0.1.12（10月19日）；不提供游戏资产。",
+      "metric": {
+        "type": "total",
+        "value": 19,
+        "display": "19",
+        "verified": true,
+        "sourceUrl": "https://github.com/gymzatan/smt-nine-recomp",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "open-wxa/wxa-runner",
+      "featured": true,
+      "summary": "在浏览器中运行微信小程序构建产物并进行无头自动化测试。",
+      "detail": "使用微信基础库，支持 Chrome DevTools、请求模拟、热更新及 Playwright E2E；不替代小程序上传、发布或真机测试。",
+      "note": "MIT；v0.3.2（10月19日）；内置腾讯基础库有独立版权限制。",
+      "metric": {
+        "type": "total",
+        "value": 99,
+        "display": "99",
+        "verified": true,
+        "sourceUrl": "https://github.com/open-wxa/wxa-runner",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "studio-yebisu/yomiyasu-studio",
+      "featured": true,
+      "summary": "对照展示日语文章原文与 AI 校对改写内容。",
+      "detail": "组合 Sarashina API、规则与本地意义判定模型，提供 Windows 版和 MCP；标准配置约需 9.1GB 模型及11GiB可用内存。macOS 实机未验证。",
+      "note": "MIT；README 写 v0.2.10，GitHub latest stable API 为 v0.2.9（10月19日）。",
+      "metric": {
+        "type": "total",
+        "value": 4,
+        "display": "4",
+        "verified": true,
+        "sourceUrl": "https://github.com/studio-yebisu/yomiyasu-studio",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "mrdoob/izakaya-yomi",
+      "featured": true,
+      "summary": "拍日本菜单，离线查看汉字读音、罗马字、英文释义。",
+      "detail": "使用 PP-OCRv5、kuromoji 和 JMdict，经 WebGPU/WASM 在设备上运行；首次加载后可离线。特殊菜单字体和词语读音可能有误。",
+      "note": "仓库未发现总 LICENSE 或正式 Release；所依赖模型、词典各自授权。",
+      "metric": {
+        "type": "total",
+        "value": 8,
+        "display": "8",
+        "verified": true,
+        "sourceUrl": "https://github.com/mrdoob/izakaya-yomi",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "Graphicle-AI/graphicle",
+      "featured": true,
+      "summary": "为编程 Agent 提供带文件行号的本地代码图和记忆检索。",
+      "detail": "索引代码引用、文档和会话记录，可接入 Claude Code、Codex 等。setup 会修改 AGENTS.md 并安装 Git Hooks，操作前注意备份。",
+      "note": "Apache-2.0；v0.1.2（10月18日）；Windows 预览。",
+      "metric": {
+        "type": "total",
+        "value": 323,
+        "display": "323",
+        "verified": true,
+        "sourceUrl": "https://github.com/Graphicle-AI/graphicle",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "deeplethe/solid-glass",
+      "featured": true,
+      "summary": "专为 AI 应用设计的轻量触感材质与组件样式。",
+      "detail": "适配 React 19、Tailwind 4 和 shadcn/ui；通过 CSS 与 data-slot 赋予面板、状态指示和对话组件视觉层级。",
+      "note": "MIT；10月18日仍有更新，未找到独立正式 Release。",
+      "metric": {
+        "type": "total",
+        "value": 2271,
+        "display": "2,271",
+        "verified": true,
+        "sourceUrl": "https://github.com/deeplethe/solid-glass",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "Kruk2/jasna",
+      "featured": true,
+      "summary": "定位并局部修复视频和图片马赛克区域。",
+      "detail": "免费 BasicVSR++ 与需要支持者许可的 LTX 等模型分开；NVIDIA GTX16/RTX20 起，AMD 属实验性。首次 GPU 模型准备可能需 15–60 分钟。",
+      "note": "AGPL-3.0（仓库）；v0.11.2（10月17日）；支持者模型另行授权。",
+      "metric": {
+        "type": "total",
+        "value": 2868,
+        "display": "2,868",
+        "verified": true,
+        "sourceUrl": "https://github.com/Kruk2/jasna",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "withmarbleapp/os-taxonomy",
+      "featured": false,
+      "summary": "公开小学课程知识点及其先修依赖关系。",
+      "detail": "包含 1,591 个微知识点、3,225 条先修关系和 JSON Schema；主要与英美教学标准对齐，不直接对应中国、日本课程。",
+      "note": "ODbL-1.0；10月19日有更新，未发现正式 Release。",
+      "metric": {
+        "type": "total",
+        "value": 6088,
+        "display": "6,088",
+        "verified": true,
+        "sourceUrl": "https://github.com/withmarbleapp/os-taxonomy",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "kitlangton/scrawl",
+      "featured": false,
+      "summary": "录制屏幕、声音和绘制标注后，生成可供 Agent 理解的多模态问题包。",
+      "detail": "输出关键帧联系表、转写和时间线，提供 Agent Skill 与 CLI；可定位具体时间点。",
+      "note": "MIT；v0.3.5（10月19日）；只支持 Apple Silicon/macOS 26+。",
+      "metric": {
+        "type": "total",
+        "value": 453,
+        "display": "453",
+        "verified": true,
+        "sourceUrl": "https://github.com/kitlangton/scrawl",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "pro-vi/cc-stretch",
+      "featured": false,
+      "summary": "把 Claude Code 的长答案转为逐段点击展开的短文本。",
+      "detail": "使用 stretchtext 交互，默认显示摘要、点击展开细节；终端需要 Claude Code 全屏 TUI。作者的字数节省结果仅为其自测。",
+      "note": "MIT；v0.5.1（10月19日）。",
+      "metric": {
+        "type": "total",
+        "value": 390,
+        "display": "390",
+        "verified": true,
+        "sourceUrl": "https://github.com/pro-vi/cc-stretch",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "kividbio/kividb",
+      "featured": false,
+      "summary": "用 Rust 构建兼容 Redis 协议的多线程键值数据库。",
+      "detail": "支持 RESP2/3、快照、可选 AOF、全文和向量索引，默认端口 6380。官方性能测试使用32核云主机，不代表 N100 性能。",
+      "note": "AGPL-3.0；v1.1.0（10月16日）；迁移前须测试命令兼容性。",
+      "metric": {
+        "type": "total",
+        "value": 256,
+        "display": "256",
+        "verified": true,
+        "sourceUrl": "https://github.com/kividbio/kividb",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "HeyPuter/everything",
+      "featured": false,
+      "summary": "汇总多类商业软件开源替代品的应用源码和演示。",
+      "detail": "以 monorepo 组织文档、表格、演示、白板等应用；不同子项目成熟度和兼容性差异较大。",
+      "note": "MIT；10月19日有提交，未发现统一正式 Release。",
+      "metric": {
+        "type": "total",
+        "value": 2331,
+        "display": "2,331",
+        "verified": true,
+        "sourceUrl": "https://github.com/HeyPuter/everything",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "Zfinix/eleven",
+      "featured": false,
+      "summary": "以 GUI + Agent 的方式分析原生二进制、Android APK 与 GPU 内核。",
+      "detail": "支持 ACP 编码代理；借助 Ghidra/REA、Rizin 和 jadx 分析，补丁需人工审批。它是 REA 的上层工作台，不是取代逆向引擎。",
+      "note": "Apache-2.0；v0.1.9（10月16日）；仅分析有权使用的程序。",
+      "metric": {
+        "type": "total",
+        "value": 792,
+        "display": "792",
+        "verified": true,
+        "sourceUrl": "https://github.com/Zfinix/eleven",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "vercel-labs/fx0",
+      "featured": false,
+      "summary": "从自然语言生成可下载的单文件 HTML 页面。",
+      "detail": "基于 libfx 编排 Agent，支持模板、历史版本、网页参考；在线模式依赖 Vercel Gateway、队列和数据库，不是完全离线应用。",
+      "note": "Apache-2.0；10月19日新建，暂无正式 Release。",
+      "metric": {
+        "type": "total",
+        "value": 97,
+        "display": "97",
+        "verified": true,
+        "sourceUrl": "https://github.com/vercel-labs/fx0",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    },
+    {
+      "repo": "bydash-xyz/ipod-cjk-patch",
+      "featured": false,
+      "summary": "修正 iPod Video 5/5.5G 原厂固件的中日韩菜单和歌词字体。",
+      "detail": "重建歌词位图字库并扩展菜单字形，仅针对 Mac 格式化、固件1.3的特定型号。会写入固件分区，恢复可能清空音乐。",
+      "note": "源码 MIT（直接核对 LICENSE），字体有独立许可；v1.0.0（10月14日）。",
+      "metric": {
+        "type": "total",
+        "value": 7,
+        "display": "7",
+        "verified": true,
+        "sourceUrl": "https://github.com/bydash-xyz/ipod-cjk-patch",
+        "capturedAt": "2026-10-19T23:05:12.175Z"
+      }
+    }
+  ]
+}
