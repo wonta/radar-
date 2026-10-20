@@ -1,8 +1,8 @@
 node_modules/
 dist/
-.vercel/
 .env*
 !.env.example
 test-results/
 playwright-report/
+package-lock.json
 *.log
