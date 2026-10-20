@@ -1,1 +1,363 @@
-{"date":"2026-10-18","source":"editorial","projects":[],"entries":[]}
+{
+  "date": "2026-10-18",
+  "source": "editorial",
+  "projects": [
+    {
+      "id": "stablyai/orca",
+      "name": "Orca",
+      "category": "dev",
+      "flag": "",
+      "tags": [
+        "Coding Agent",
+        "Worktree",
+        "Desktop"
+      ]
+    },
+    {
+      "id": "feder-cr/git-ai",
+      "name": "gitai",
+      "category": "dev",
+      "flag": "",
+      "tags": [
+        "Go",
+        "Git",
+        "Agent Infrastructure"
+      ]
+    },
+    {
+      "id": "opengeos/RustGIS",
+      "name": "RustGIS",
+      "category": "data",
+      "flag": "",
+      "tags": [
+        "Rust",
+        "GIS",
+        "WebAssembly"
+      ]
+    },
+    {
+      "id": "Ebony-Vinyl/dsh-our-free-model",
+      "name": "dsh-our-free-model",
+      "category": "ai",
+      "flag": "",
+      "tags": [
+        "中文",
+        "DeepSeek Harness",
+        "Free Models"
+      ]
+    },
+    {
+      "id": "MadsLorentzen/ai-job-search",
+      "name": "AI Job Search",
+      "category": "ai",
+      "flag": "",
+      "tags": [
+        "Career",
+        "Claude Code"
+      ]
+    },
+    {
+      "id": "android/skills",
+      "name": "Android Skills",
+      "category": "dev",
+      "flag": "",
+      "tags": [
+        "Android",
+        "Skills"
+      ]
+    },
+    {
+      "id": "YuriyLin/PaperRead",
+      "name": "PaperRead",
+      "category": "learning",
+      "flag": "",
+      "tags": [
+        "繁體中文",
+        "PDF",
+        "Research"
+      ]
+    },
+    {
+      "id": "studio-yebisu/awesome-codex-ppt-skills-ja",
+      "name": "AI スライド制作スキル集（日本語版）",
+      "category": "graphics",
+      "flag": "JP",
+      "tags": [
+        "日本語",
+        "Presentation"
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "repo": "xerj-org/xerj",
+      "featured": true,
+      "summary": "用 Rust 索引代码、文档和日志，为 Agent 提供检索接口。",
+      "detail": "自动索引、混合检索、符号与行号定位，兼容 MCP；无需反复向模型送入整仓库内容。",
+      "note": "Apache-2.0；10月17日有扩展包预发布。性能提升属项目方声明，未独立复测。",
+      "metric": {
+        "type": "total",
+        "value": 7756,
+        "display": "7,756",
+        "verified": true,
+        "sourceUrl": "https://github.com/xerj-org/xerj",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "anthropics/claude-plugins-official",
+      "featured": true,
+      "summary": "Anthropic 管理的 Claude Code 官方及第三方插件目录。",
+      "detail": "包含命令、MCP、Agent 与 Skills，可直接从插件市场安装。",
+      "note": "仓库 Apache-2.0；无 GitHub Release；插件的授权和安全性须逐个检查。",
+      "metric": {
+        "type": "total",
+        "value": 41686,
+        "display": "41,686",
+        "verified": true,
+        "sourceUrl": "https://github.com/anthropics/claude-plugins-official",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "stablyai/orca",
+      "featured": true,
+      "summary": "在桌面工作台并行运行多种 AI 编码代理。",
+      "detail": "用独立 Git worktree 并行运行 Claude Code、Codex、OpenCode 等，提供终端、差异审查及手机端控制。",
+      "note": "MIT；Release v1.4.229（10月17日）。",
+      "metric": {
+        "type": "total",
+        "value": 95351,
+        "display": "95,351",
+        "verified": true,
+        "sourceUrl": "https://github.com/stablyai/orca",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "HKUDS/CLI-Anything",
+      "featured": true,
+      "summary": "把桌面软件的功能封装成可供 Agent 调用的 CLI。",
+      "detail": "提供自动生成 CLI harness 的方法、CLI-Hub 和部分应用的真实操作示例。",
+      "note": "Apache-2.0；Release v0.4.0（6月25日），并非所有软件均已支持。",
+      "metric": {
+        "type": "total",
+        "value": 54032,
+        "display": "54,032",
+        "verified": true,
+        "sourceUrl": "https://github.com/HKUDS/CLI-Anything",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "debpalash/VoiceStudio",
+      "featured": true,
+      "summary": "本地语音克隆、视频配音、转写与有声书制作工具。",
+      "detail": "桌面端支持声音设计、配音、转录、批量处理和本地 API/MCP；README 宣称 646 种语言，效果依模型而异。",
+      "note": "AGPL-3.0；Release v0.5.6（9月23日），硬件要求与模型相关。",
+      "metric": {
+        "type": "total",
+        "value": 73229,
+        "display": "73,229",
+        "verified": true,
+        "sourceUrl": "https://github.com/debpalash/VoiceStudio",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "onehumanbeing/esp32-iphone-agent",
+      "featured": true,
+      "summary": "借助 ESP32-S3 与视觉模型操作真实 iPhone。",
+      "detail": "新版主线通过 AirPlay 获取画面、BLE 与手机应用通信，并通过 USB HID 完成输入操作。",
+      "note": "MIT；10月11日创建。v0.1.0 Release 是旧版架构；新版需 iOS 18+。",
+      "metric": {
+        "type": "total",
+        "value": 2990,
+        "display": "2,990",
+        "verified": true,
+        "sourceUrl": "https://github.com/onehumanbeing/esp32-iphone-agent",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "feder-cr/git-ai",
+      "featured": true,
+      "summary": "针对多编码代理并发提交的服务器端版本控制实现。",
+      "detail": "支持稀疏对象读取、服务器端历史查询、并发落地与变更日志；独立参考 Scion 的公开设计。",
+      "note": "10月15日创建，v0.1.0；README 称 MIT，GitHub 未自动识别；需要 Go 1.26。",
+      "metric": {
+        "type": "total",
+        "value": 1133,
+        "display": "1,133",
+        "verified": true,
+        "sourceUrl": "https://github.com/feder-cr/git-ai",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "kanaemi-app/Kanaemi",
+      "featured": true,
+      "summary": "跨 Windows、macOS、Linux 操作一致的日语输入法。",
+      "detail": "基于 SKK 思路，左右 Shift 切换模式，分号触发按需汉字转换，本地处理输入。",
+      "note": "MIT；10月17日发布 v0.9.1。",
+      "metric": {
+        "type": "total",
+        "value": 14,
+        "display": "14",
+        "verified": true,
+        "sourceUrl": "https://github.com/kanaemi-app/Kanaemi",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "opengeos/RustGIS",
+      "featured": true,
+      "summary": "纯 Rust 地理信息系统，提供桌面与网页版本。",
+      "detail": "支持地图图层、地理数据分析、脚本化操作和 WebAssembly 运行。",
+      "note": "Apache-2.0；10月10日创建，v0.3.0 于10月16日发布。",
+      "metric": {
+        "type": "total",
+        "value": 1481,
+        "display": "1,481",
+        "verified": true,
+        "sourceUrl": "https://github.com/opengeos/RustGIS",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "Ebony-Vinyl/dsh-our-free-model",
+      "featured": true,
+      "summary": "为 DeepSeek Harness 提供上游免费模型路由及本地 API。",
+      "detail": "从 OpenCode Zen、Kilo 等读取模型清单并探测可用性，附 Token 用量面板与转发接口。",
+      "note": "MIT；v2.5.2（10月17日）。免费、不限量系仓库声明，不保证上游配额、地域和长期可用性。",
+      "metric": {
+        "type": "total",
+        "value": 21742,
+        "display": "21,742",
+        "verified": true,
+        "sourceUrl": "https://github.com/Ebony-Vinyl/dsh-our-free-model",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "K-Dense-AI/scientific-agent-skills",
+      "featured": false,
+      "summary": "包含 177 个科研 Agent Skills 与科学数据库入口。",
+      "detail": "",
+      "note": "仓库 MIT，但部分 Skills 许可不同；Release v2.72.0（10月1日）。",
+      "metric": {
+        "type": "total",
+        "value": 52214,
+        "display": "52,214",
+        "verified": true,
+        "sourceUrl": "https://github.com/K-Dense-AI/scientific-agent-skills",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "MadsLorentzen/ai-job-search",
+      "featured": false,
+      "summary": "Claude Code 求职助手，可评估职位并制作匹配简历及求职信。",
+      "detail": "",
+      "note": "MIT；v1.7.2（9月29日），职位源适配偏向丹麦。",
+      "metric": {
+        "type": "total",
+        "value": 50297,
+        "display": "50,297",
+        "verified": true,
+        "sourceUrl": "https://github.com/MadsLorentzen/ai-job-search",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "affaan-m/ECC",
+      "featured": false,
+      "summary": "编码 Agent 的技能、记忆、规则与工程实践合集。",
+      "detail": "",
+      "note": "MIT；Release v2.2.3（10月1日）。",
+      "metric": {
+        "type": "total",
+        "value": 282447,
+        "display": "282,447",
+        "verified": true,
+        "sourceUrl": "https://github.com/affaan-m/ECC",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "android/skills",
+      "featured": false,
+      "summary": "Android 官方维护的开发 Agent Skills。",
+      "detail": "",
+      "note": "Apache-2.0；未发现 GitHub Release；可通过 Android CLI 安装。",
+      "metric": {
+        "type": "total",
+        "value": 8403,
+        "display": "8,403",
+        "verified": true,
+        "sourceUrl": "https://github.com/android/skills",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "YuriyLin/PaperRead",
+      "featured": false,
+      "summary": "繁体中文论文发现、双语 PDF 阅读与笔记工作台。",
+      "detail": "",
+      "note": "MIT；10月9日创建，v1.4.7（10月16日）；基于 EasyRead。",
+      "metric": {
+        "type": "total",
+        "value": 271,
+        "display": "271",
+        "verified": true,
+        "sourceUrl": "https://github.com/YuriyLin/PaperRead",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "studio-yebisu/awesome-codex-ppt-skills-ja",
+      "featured": false,
+      "summary": "日语整理 209 个 AI 幻灯片工具与 Skills 的分类目录。",
+      "detail": "",
+      "note": "10月12日创建；无 Release，许可证未被 GitHub 自动识别；目录不自动更新。",
+      "metric": {
+        "type": "total",
+        "value": 10,
+        "display": "10",
+        "verified": true,
+        "sourceUrl": "https://github.com/studio-yebisu/awesome-codex-ppt-skills-ja",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "liseami/CCBaga",
+      "featured": false,
+      "summary": "Rust/Tauri 跨平台开发环境及 Claude Code 本地配置管理工具。",
+      "detail": "",
+      "note": "MIT；10月11日创建，Release v0.2.48（10月15日）。",
+      "metric": {
+        "type": "total",
+        "value": 2567,
+        "display": "2,567",
+        "verified": true,
+        "sourceUrl": "https://github.com/liseami/CCBaga",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    },
+    {
+      "repo": "morluto/rea",
+      "featured": false,
+      "summary": "Agent 用于分析应用行为和二进制的软件工具。",
+      "detail": "",
+      "note": "MIT；rea-agents-6.5.0（10月14日）；此前已有介绍。",
+      "metric": {
+        "type": "total",
+        "value": 307123,
+        "display": "307,123",
+        "verified": true,
+        "sourceUrl": "https://github.com/morluto/rea",
+        "capturedAt": "2026-10-17T23:07:59.581Z"
+      }
+    }
+  ]
+}
