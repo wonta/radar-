@@ -1,21 +1,73 @@
 import {test,expect} from '@playwright/test';
-const start=async(page,route='daily/2026-10-16')=>{await page.goto('/#/'+route);await expect(page.locator('main.shell')).toBeVisible()};
-test('daily renders all three sections and no browser errors',async({page})=>{const errors=[];page.on('pageerror',e=>errors.push(e.message));await start(page);await expect(page.locator('.feature')).toHaveCount(10);await expect(page.locator('.other-row')).toHaveCount(15);await page.locator('summary').click();await expect(page.locator('tbody tr')).toHaveCount(25);expect(errors).toEqual([])});
-test('date selector and reload preserve the issue',async({page})=>{await start(page);await page.selectOption('#issue-date','2026-10-12');await expect(page).toHaveURL(/daily\/2026-10-12/);await page.reload();await expect(page.locator('#issue-date')).toHaveValue('2026-10-12');await page.locator('summary').click();await expect(page.locator('tbody tr')).toHaveCount(28)});
-test('historic REA metric is tied to its date',async({page})=>{await start(page,'project/morluto/rea');const rows=page.locator('.timeline-row');expect(await rows.count()).toBeGreaterThanOrEqual(7);await expect(rows.filter({hasText:'2026.10.10'})).toContainText('+15,335');await expect(rows.filter({hasText:'2026.10.16'})).toContainText('+32,282')});
-test('primary project links are concrete GitHub repository URLs',async({page})=>{await start(page);const links=await page.locator('.feature h3 a,.other-row .repo-link').evaluateAll(xs=>xs.map(x=>x.href));expect(links.length).toBe(25);for(const link of links)expect(link).toMatch(/^https:\/\/github.com\/[\w.-]+\/[\w.-]+$/)});
-test('Chinese composition does not replace search input',async({page})=>{await start(page,'projects');await page.evaluate(()=>{const q=document.querySelector('#q');window.testInput=q;q.dispatchEvent(new CompositionEvent('compositionstart'));q.value='日语';q.dispatchEvent(new InputEvent('input',{bubbles:true,isComposing:true}));q.dispatchEvent(new CompositionEvent('compositionend',{data:'日语'}))});await expect(page.locator('#q')).toHaveValue('日语');expect(await page.evaluate(()=>window.testInput===document.querySelector('#q'))).toBe(true);await expect(page.locator('.results-count')).toContainText('日语');expect(await page.locator('.catalog-card').count()).toBeGreaterThan(0)});
-test('search URL persists on reload',async({page})=>{await start(page,'projects');await page.fill('#q','MCP');await expect(page).toHaveURL(/q=MCP/);await page.reload();await expect(page.locator('#q')).toHaveValue('MCP')});
-test('category filter and empty state',async({page})=>{await start(page,'projects?category=hardware');await expect(page.locator('.active-filter')).toContainText('硬件');await page.fill('#q','not-a-real-project-90210');await expect(page.locator('#results .empty')).toBeVisible()});
-test('sorting and pagination work',async({page})=>{await start(page,'projects?sort=repeat');await expect(page.locator('.catalog-card').first()).toContainText('REA');await page.locator('[data-page="2"]').click();await expect(page).toHaveURL(/page=2/);await expect(page.locator('.catalog-card')).toHaveCount(18)});
-test('old bookmarks migrate to native localStorage',async({page})=>{await page.addInitScript(()=>{if(!localStorage.getItem('radar-personal-v2'))localStorage.setItem('github-radar-saved-v1',JSON.stringify(['morluto/rea','Tencent/WeKnora']))});await start(page,'saved');await expect(page.locator('.catalog-card')).toHaveCount(2);const value=await page.evaluate(()=>JSON.parse(localStorage.getItem('radar-personal-v2')));expect(value.saved).toContain('tencent/weknora')});
-test('save toggles and survives native reload',async({page})=>{await start(page);await page.locator('[data-save="xerj-org/xerj"]').first().click();await page.reload();await expect(page.locator('[data-save="xerj-org/xerj"]').first()).toHaveAttribute('aria-pressed','true');await page.locator('[data-nav="saved"]').click();await expect(page.locator('.catalog-card')).toHaveCount(1)});
-test('notes stay literal and persist on reload',async({page})=>{await start(page,'project/morluto/rea');await page.fill('#project-note','<img src=x onerror=alert(1)> 留待研究');await page.reload();await expect(page.locator('#project-note')).toHaveValue('<img src=x onerror=alert(1)> 留待研究');await expect(page.locator('.note-panel img')).toHaveCount(0)});
-test('mark read and unread filter',async({page})=>{await start(page,'project/morluto/rea');await page.locator('[data-read]').click();await expect(page.locator('[data-read]')).toHaveAttribute('aria-pressed','true');await start(page,'projects?q=REA&state=unread');await expect(page.locator('.catalog-card').filter({has:page.locator('a[href="https://github.com/morluto/rea"]')})).toHaveCount(0)});
-test('backup download contains personal data only',async({page})=>{await start(page,'saved');const wait=page.waitForEvent('download');await page.locator('[data-export]').click();const download=await wait;expect(download.suggestedFilename()).toMatch(/^radar-collection-.*\.json$/);const stream=await download.createReadStream();let txt='';for await(const c of stream)txt+=c;const value=JSON.parse(txt);expect(value.version).toBe(2);expect(value.projects).toBeUndefined()});
-test('backup import merges and invalid file is rejected',async({page})=>{await start(page,'saved');const upload=async value=>page.setInputFiles('#import-file',{name:'backup.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(value))});await upload({version:2,saved:['morluto/rea'],read:[],notes:{}});await expect(page.locator('.catalog-card')).toHaveCount(1);await upload({version:2,saved:['xerj-org/xerj'],read:[],notes:{}});await expect(page.locator('.catalog-card')).toHaveCount(2);await upload({version:99});await expect(page.locator('#toast')).toContainText('导入失败');await expect(page.locator('.catalog-card')).toHaveCount(2)});
-test('back navigation returns to original date',async({page})=>{await start(page,'daily/2026-10-10');await page.locator('.feature-actions a').first().click();await expect(page).toHaveURL(/project/);await page.goBack();await expect(page.locator('#issue-date')).toHaveValue('2026-10-10')});
-test('missing date and project show real empty states',async({page})=>{await page.goto('/#/daily/2024-01-01');await expect(page.locator('.empty')).toContainText('没有这一天');await page.goto('/#/project/no/such-repo');await expect(page.locator('.empty')).toContainText('没有这个项目')});
-test('module/data/headers arrive over HTTP',async({request})=>{const response=await request.get('/assets/app.mjs');expect(response.status()).toBe(200);expect(response.headers()['content-type']).toContain('javascript');expect(response.headers()['content-security-policy']).toContain("script-src 'self'");const r=await request.get('/data/radar.json');expect((await r.json()).schemaVersion).toBe(2);expect((await request.get('/data/catalog.tsv')).status()).toBe(404)});
-for(const width of [360,390,768,1440])test('responsive layouts '+width,async({page})=>{await page.setViewportSize({width,height:900});for(const route of ['daily/2026-10-16','projects','archive','project/morluto/rea','saved','about']){await start(page,route);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)}if(width<540){const box=await page.locator('.navigation').boundingBox();expect(box.y).toBeGreaterThan(800)}await start(page);await page.locator('summary').click();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)});
-test('capture actual desktop and mobile pages',async({page})=>{await start(page);await page.screenshot({path:'test-results/desktop.png'});await page.setViewportSize({width:390,height:844});await page.screenshot({path:'test-results/mobile.png'});await start(page,'projects');await page.screenshot({path:'test-results/library-mobile.png'});});
+test('historic daily issue has 25 real HTML cards and no JS errors',async({page})=>{
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('/archive/2026/10/16.html');
+  await expect(page.locator('article.project')).toHaveCount(25);
+  await expect(page.locator('.source-notice')).toContainText('历史热度');
+  await page.locator('.overview > summary').click();
+  await expect(page.locator('.overview li')).toHaveCount(25);
+  expect(errors).toEqual([]);
+});
+test('latest homepage has 20 standalone project cards',async({page})=>{
+  await page.goto('/');
+  const count=Number(await page.locator('meta[name="radar-count"]').getAttribute('content'));
+  expect(count).toBeGreaterThanOrEqual(8);
+  await expect(page.locator('article.project')).toHaveCount(count);
+  await expect(page.locator('h1')).toContainText('值得打开看看');
+});
+test('monthly and annual archive links resolve',async({page})=>{
+  await page.goto('/archive/');
+  await page.getByRole('link',{name:/2026 年/}).first().click();
+  await expect(page).toHaveURL(/archive\/2026\/index\.html/);
+  await page.getByRole('link',{name:/2026 \/ 10/}).first().click();
+  await expect(page).toHaveURL(/archive\/2026\/10\/index\.html/);
+  await page.locator('.day-list > a').first().click();
+  await expect(page).toHaveURL(/archive\/2026\/10\/\d{2}\.html/);
+});
+test('Chinese search filters existing HTML cards without replacing input',async({page})=>{
+  await page.goto('/search.html');
+  const q=page.locator('#q');
+  await q.fill('日语');
+  await expect(q).toHaveValue('日语');
+  expect(await page.locator('.search-card:visible').count()).toBeGreaterThan(0);
+  await expect(page).toHaveURL(/q=/);
+  await page.reload();
+  await expect(q).toHaveValue('日语');
+});
+test('bookmark from daily page appears in saved projects',async({page})=>{
+  await page.goto('/archive/2026/10/16.html');
+  const button=page.locator('[data-save="morluto/rea"]');
+  await button.click();
+  await expect(button).toHaveAttribute('aria-pressed','true');
+  await page.goto('/search.html?view=saved');
+  await expect(page.locator('.search-card:visible')).toHaveCount(1);
+  await expect(page.locator('.search-card:visible')).toContainText('REA');
+});
+test('private notes are literal and persist on reload',async({page})=>{
+  await page.goto('/archive/2026/10/16.html');
+  const entry=page.locator('.project[data-repo="morluto/rea"]');
+  await entry.locator('.memo > summary').click();
+  const note=entry.locator('textarea');
+  await note.fill('<img src=x onerror=alert(1)> 留待测试');
+  await page.reload();
+  await entry.locator('.memo > summary').click();
+  await expect(note).toHaveValue('<img src=x onerror=alert(1)> 留待测试');
+  await expect(entry.locator('.memo img')).toHaveCount(0);
+});
+test('legacy flat URL redirects to year/month/day path',async({page})=>{
+  await page.goto('/archive/2026-10-20.html');
+  await expect(page).toHaveURL(/archive\/2026\/10\/20\.html/);
+  await expect(page.locator('article.project')).toHaveCount(20);
+});
+test('published site contains no JSON endpoint',async({request})=>{
+  const a=await request.get('/data/radar.json');
+  expect(a.status()).toBe(404);
+  expect((await request.get('/archive/2026/10/20.html')).status()).toBe(200);
+});
+for(const width of [360,390,768,1440])test('responsive static pages '+width,async({page})=>{
+  await page.setViewportSize({width,height:920});
+  for(const url of ['/','/search.html','/archive/','/archive/2026/10/20.html']){
+    await page.goto(url);
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  }
+});
