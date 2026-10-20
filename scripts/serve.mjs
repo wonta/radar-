@@ -11,7 +11,8 @@ http.createServer((req,res)=>{
   for(const [name,value] of Object.entries(headers))res.setHeader(name,value);
   if(!['GET','HEAD'].includes(req.method)){res.writeHead(405);return res.end();}
   let decoded;try{decoded=decodeURIComponent(new URL(req.url,'http://localhost').pathname);}catch{res.writeHead(400);return res.end();}
-  const requested=decoded.endsWith('/')?decoded+'index.html':decoded;
+  const localPath=decoded.startsWith('/radar-/')?decoded.slice('/radar-'.length):decoded;
+  const requested=localPath.endsWith('/')?localPath+'index.html':localPath;
   let file=path.resolve(root,'.'+requested);
   if(!file.startsWith(root+path.sep)){res.writeHead(403);return res.end();}
   if(!fs.existsSync(file)||!fs.statSync(file).isFile()) {
