@@ -1,11 +1,11 @@
 import {test,expect} from '@playwright/test';
-test('historic daily issue has 24 real HTML cards and no JS errors',async({page})=>{
+test('historic daily issue has 25 real HTML cards and no JS errors',async({page})=>{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto('/archive/2026/10/16.html');
-  await expect(page.locator('article.project')).toHaveCount(24);
+  await expect(page.locator('article.project')).toHaveCount(25);
   await expect(page.locator('.source-notice')).toContainText('历史热度');
   await page.locator('.overview > summary').click();
-  await expect(page.locator('.overview li')).toHaveCount(24);
+  await expect(page.locator('.overview li')).toHaveCount(25);
   expect(errors).toEqual([]);
 });
 test('latest homepage has 20 standalone project cards',async({page})=>{
