@@ -40,5 +40,9 @@ export const CURATED = new Map([
 ['fatcorn753/discord-casino-bot','面向熟人 Discord 群的虚拟游戏币娱乐机器人。','包含骰子、弹珠机、老虎机和虚拟商店等小游戏，使用虚拟货币而非现实资金。'],
 ['justaresearcher/gpu-unlock-ada','Linux 内核模块，在 NVIDIA 驱动加载前尝试解锁部分 Ada 显卡的 Tensor 指令吞吐。','作者报告 RTX 4090 的部分 FP16/BF16 指令测试吞吐约翻倍；其他型号仍属实验，不能据此推断真实应用速度翻倍。'],
 ['ethanarbuckle/fairplay-decrypt','用于研究 Apple App Store IPA 的 FairPlay 加密格式与离线解密流程。','通过合法拥有的账户凭据派生密钥处理应用包，使用前应确认授权和适用范围。']
+['simbasjungles/free-my-tv','为 Google TV、LG webOS 和三星 Tizen 提供简洁、无推荐广告的电视首页。','可替换原厂首页并提供还原入口；各品牌系统支持程度需按设备型号确认。'],
+['pengchujin/aerial-tv','面向国产 Android TV 的无广告桌面和航拍屏保。','提供接近 tvOS 的电视首页体验；在线视频屏保依赖网络，并非所有电视型号都有实测。'],
+['ly05010419/macnativegames','把自有 Switch 游戏资源适配为 Apple Silicon 平台的原生运行程序。','通过 ARM64 代码适配和 Metal 图形映射实现移植；需要自己提供有权使用的游戏资源和密钥。'],
+['xiaoyang111222/cn-math-taxonomy','整理中文中小学数学知识点及先修关系的知识图谱。','可辅助构建练习路径和教学检索；初稿包含 AI 生成内容，需要人工校对。'],
 ].map(([id,summary,detail])=>[id,{summary,detail}]));
 export const hasReadableChinese = str => (String(str).match(/[\u4e00-\u9fff]/g)||[]).length >= 6;
