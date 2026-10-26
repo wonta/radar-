@@ -35,6 +35,10 @@ jobs:
         run: node scripts/daily-scout.mjs
       - name: Build indexes, site and verify snapshots
         run: npm run check
+      - name: Verify Chinese translation against the public API
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix-chinese-daily-copy-20261027'
+        run: |
+          node --input-type=module -e "import {translateToChinese} from './scripts/translate.mjs'; const result=await translateToChinese('A self-hosted web dashboard for managing local AI agents'); console.log(result); if (!/[\u4e00-\u9fff]{2,}/.test(result)) process.exit(1)"
       - name: Install browser regression tools
         if: github.event_name == 'push' || github.event_name == 'pull_request'
         run: npm install --no-save --package-lock=false --ignore-scripts @playwright/test@1.64.1
