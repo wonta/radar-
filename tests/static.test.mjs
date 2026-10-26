@@ -60,3 +60,14 @@ test('legacy published flat URLs get a compatibility redirect',()=>{
   const script=fs.readFileSync('dist/assets/site.js','utf8');
   assert.match(script,/archive.*location\.replace|location\.replace.*archive/s);
 });
+
+test('automated issue cards are concise Chinese introductions without collection logs',()=>{
+  for(const day of [24,25,26]) {
+    const html=file('2026-10-'+day);
+    assert.doesNotMatch(html,/README 摘录|发现来源：|近期 Release：|自动候选项目|尚未人工核验/);
+    const summaries=[...html.matchAll(/<article class="project"[^>]*data-summary="([^"]+)"/g)];
+    assert.equal(summaries.length,20);
+    for(const match of summaries)assert.match(match[1],/[\u4e00-\u9fff]{2,}/);
+    assert.doesNotMatch(html,/<p class="project-note">/);
+  }
+});
