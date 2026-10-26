@@ -110,7 +110,7 @@ export function issuePage(issue) {
   const sourceLabel = issue.source === 'legacy-newsletter'
     ? '历史内容按原始记录恢复；历史热度未经重新核验。'
     : issue.source === 'github-actions-scout'
-      ? 'GitHub Actions 自动侦察候选项目；简介来自仓库资料，尚未人工复核。'
+      ? ''
       : '项目资料为编辑整理；功能及限制仍应以仓库说明为准。';
   const body = `
     <div class="eyebrow"><span class="dot"></span> DAILY OPEN SOURCE RADAR <span class="dash">/</span> ${esc(dateLabel)}</div>
@@ -118,7 +118,7 @@ export function issuePage(issue) {
       <h1>今天，有哪些项目<br><em>值得打开看看。</em></h1>
       <p class="intro-subtitle">每日 GitHub 项目雷达 · ${esc(issue.date)} · ${entries.length} 个项目</p>
     </div><a class="button button-light" href="${prefix}archive/${year}/${month}/index.html">查看本月归档 ↗</a></div>
-    <p class="source-notice">${esc(sourceLabel)}</p>
+    ${sourceLabel ? `<p class="source-notice">${esc(sourceLabel)}</p>` : ''}
     <details class="overview"><summary>本期项目速览 <span>${entries.length} 个项目</span><span class="overview-hint">展开查看全部名称</span></summary>
       <ol>${entries.map(e => `<li><a href="https://github.com/${e.project.id}" target="_blank" rel="noopener noreferrer">${esc(e.project.name || e.project.id)}</a><span>${esc(e.summary)}</span></li>`).join('')}</ol>
     </details>

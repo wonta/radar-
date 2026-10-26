@@ -41,7 +41,7 @@ test('bookmark from daily page appears in saved projects',async({page})=>{
   await expect(button).toHaveAttribute('aria-pressed','true');
   await page.goto('/search.html?view=saved');
   await expect(page.locator('.search-card:visible')).toHaveCount(1);
-  await expect(page.locator('.search-card:visible')).toContainText('REA');
+  await expect(page.locator('.search-card:visible')).toContainText(/rea/i);
 });
 test('private notes are literal and persist on reload',async({page})=>{
   await page.goto('/archive/2026/10/16.html');

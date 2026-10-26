@@ -1,91 +1,139 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {issuePage,archivePath} from './site.mjs';
+import {CURATED,hasReadableChinese} from './curated-zh.mjs';
+import {translateToChinese,clipBytes} from './translate.mjs';
 
 const token=process.env.GITHUB_TOKEN;
 if(!token)throw Error('GITHUB_TOKEN is required');
 const now=new Date();
-const parts=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'})
-  .formatToParts(now);
-const part=type=>parts.find(p=>p.type===type)?.value;
-const date=`${part('year')}-${part('month')}-${part('day')}`;
+const dateParts=new Intl.DateTimeFormat('en-US',{
+  timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'
+}).formatToParts(now);
+const part=type=>dateParts.find(p=>p.type===type).value;
+const date=[part('year'),part('month'),part('day')].join('-');
 const target=archivePath(date);
-if(fs.existsSync(target)){console.log('Today already published: '+target);process.exit(0);}
-const headers={Authorization:'Bearer '+token,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','User-Agent':'radar-daily-scout'};
+if(fs.existsSync(target)){console.log('Existing daily HTML: '+target);process.exit(0);}
+
+const headers={
+  Authorization:'Bearer '+token,
+  Accept:'application/vnd.github+json',
+  'X-GitHub-Api-Version':'2022-11-28',
+  'User-Agent':'radar-daily-scout'
+};
 async function api(url) {
   const response=await fetch(url,{headers});
-  if(!response.ok)throw Error(`${response.status} ${url}: ${(await response.text()).slice(0,180)}`);
+  if(!response.ok)throw Error(response.status+' '+url+' '+(await response.text()).slice(0,120));
   return response.json();
 }
-const isoDaysAgo=n=>new Date(Date.now()-n*86400000).toISOString().slice(0,10);
+const seen=new Set();
+for(const year of fs.readdirSync('archive').filter(x=>/^\d{4}$/.test(x))) {
+  for(const month of fs.readdirSync(path.join('archive',year)).filter(x=>/^(0[1-9]|1[0-2])$/.test(x))) {
+    for(const file of fs.readdirSync(path.join('archive',year,month)).filter(x=>/^\d{2}\.html$/.test(x))) {
+      const html=fs.readFileSync(path.join('archive',year,month,file),'utf8');
+      for(const match of html.matchAll(/<article class="project"[^>]*data-repo="([^"]+)"/g))
+        seen.add(match[1].toLowerCase());
+    }
+  }
+}
+const daysAgo=n=>new Date(now.valueOf()-n*86400000).toISOString().slice(0,10);
 const searches=[
-  {group:'全球高关注项目',q:`pushed:>=${isoDaysAgo(2)} stars:>1000`,sort:'stars'},
-  {group:'开发工具与自托管',q:`topic:self-hosted pushed:>=${isoDaysAgo(7)} stars:>25`,sort:'updated'},
-  {group:'日语与日本相关',q:`topic:japanese pushed:>=${isoDaysAgo(7)}`,sort:'updated'},
-  {group:'近期新项目',q:`created:>=${isoDaysAgo(7)} stars:>10`,sort:'stars'}
+  {q:'created:>='+daysAgo(7)+' stars:>10',sort:'stars'},
+  {q:'topic:self-hosted pushed:>='+daysAgo(5)+' stars:>25',sort:'updated'},
+  {q:'topic:japanese pushed:>='+daysAgo(5),sort:'updated'},
+  {q:'topic:ai-agent pushed:>='+daysAgo(5)+' stars:>15',sort:'updated'},
+  {q:'pushed:>='+daysAgo(2)+' stars:>300',sort:'updated'}
 ];
-const chosen=[],seen=new Set();
+const candidates=[];
 for(const group of searches) {
   try {
-    const url='https://api.github.com/search/repositories?q='+encodeURIComponent(group.q)+'&sort='+group.sort+'&order=desc&per_page=30';
-    const result=await api(url);
-    for(const repo of result.items||[]) {
-      if(chosen.filter(x=>x.group===group.group).length>=5)break;
-      if(repo.archived||repo.fork||seen.has(repo.full_name.toLowerCase()))continue;
-      seen.add(repo.full_name.toLowerCase());
-      chosen.push({repo,group:group.group});
+    const url='https://api.github.com/search/repositories?q='+encodeURIComponent(group.q)+
+      '&sort='+group.sort+'&order=desc&per_page=60';
+    const data=await api(url);
+    for(const repo of data.items||[]) {
+      const id=repo.full_name.toLowerCase();
+      if(!repo.fork&&!repo.archived&&!seen.has(id)&&repo.description){
+        seen.add(id);candidates.push(repo);
+      }
     }
-  } catch(error) { console.error('Search failed:',group.group,error.message); }
+  } catch(error) {console.warn('Repository search:',error.message);}
 }
-if(chosen.length<8)throw Error('Insufficient candidate repositories; not publishing an empty issue');
-const categoryWords=[
-  [/agent|llm|ai|mcp|chatbot/,'ai'],[/self.host|homelab|docker|server/,'selfhost'],
-  [/game|emulator|recomp/,'games'],[/security|pentest|reverse.engineer/,'security'],
-  [/hardware|firmware|iot/,'hardware'],[/image|video|design|graphics/,'graphics'],
-  [/data|database|vector|analytics/,'data'],[/learn|education|japanese/,'learning']
+if(!candidates.length)throw Error('No new repository candidates');
+const categories=[
+  [/agent|llm|ai|mcp|chatbot/,'ai'],
+  [/self.host|homelab|docker|server/,'selfhost'],
+  [/game|emulator/,'games'],
+  [/security|pentest|reverse.engineer/,'security'],
+  [/hardware|firmware|iot/,'hardware'],
+  [/image|video|design|graphics/,'graphics'],
+  [/data|database|vector|analytics/,'data'],
+  [/learn|education|japanese/,'learning']
 ];
-function category(repo) {
-  const haystack=(repo.topics||[]).join(' ').toLowerCase();
-  return categoryWords.find(([re])=>re.test(haystack))?.[1]||'dev';
+const category=repo=>categories.find(([re])=>re.test((repo.topics||[]).join(' ').toLowerCase()))?.[1]||'dev';
+function featureParagraph(markdown) {
+  const lines=markdown.split(/\r?\n/);
+  const i=lines.findIndex(line=>/^#{1,3}\s*(?:key\s+)?(?:features?|主要功能|功能|特性)\s*:?\s*$/i.test(line.trim()));
+  if(i<0)return '';
+  const bullets=[];
+  for(const line of lines.slice(i+1,i+24)) {
+    if(/^#{1,3}\s/.test(line))break;
+    if(!/^\s*[-*+]\s+/.test(line))continue;
+    const clean=line.replace(/^\s*[-*+]\s+/,'').replace(/<[^>]*>/g,' ')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g,'$1').replace(/[\x60*_>]/g,'')
+      .replace(/https?:\/\/\S+/g,'').replace(/\s+/g,' ').trim();
+    if(clean.length>=20 && clean.length<250)bullets.push(clean);
+    if(bullets.length===2)break;
+  }
+  return bullets.join('；');
 }
-function readmeExcerpt(raw) {
-  const cleaned=raw.replace(/```[\s\S]*?```/g,' ').replace(/<[^>]+>/g,' ')
-    .replace(/!\[[^\]]*\]\([^)]*\)/g,' ').replace(/\[([^\]]+)\]\([^)]+\)/g,'$1')
-    .replace(/[`*_>#|]/g,' ').replace(/\r/g,'');
-  return cleaned.split(/\n+/).map(line=>line.trim())
-    .filter(line=>line.length>55 && line.length<800 && !/^(https?:|badge|install|usage|license|copyright)/i.test(line))
-    .slice(0,2).join(' ').slice(0,400);
+let translatedBytes=0;
+const maxTranslateBytes=4400;
+async function chinese(text,limit) {
+  const sample=clipBytes(text,limit);
+  if(!sample)return '';
+  if(hasReadableChinese(sample))return sample;
+  const size=Buffer.byteLength(sample,'utf8');
+  if(translatedBytes+size>maxTranslateBytes)return '';
+  translatedBytes+=size;
+  try {return (await translateToChinese(sample,{limit})).slice(0,190);}
+  catch(error) {console.warn('Chinese translation unavailable:',error.message);return '';}
 }
 const entries=[];
-for(const {repo,group} of chosen) {
-  let readme='',release='';
-  try {
-    const response=await fetch('https://api.github.com/repos/'+repo.full_name+'/readme',{
-      headers:{...headers,Accept:'application/vnd.github.raw+json'}
-    });
-    if(response.ok)readme=(await response.text()).slice(0,20000);
-  } catch(error) {console.warn('README unavailable:',repo.full_name,error.message);}
-  try{
-    const info=await api('https://api.github.com/repos/'+repo.full_name+'/releases/latest');
-    release=info.tag_name||'';
-  }catch{}
-  const summary=(repo.description||'仓库未提供可核实的简短介绍').replace(/[\r\n|]/g,' ').slice(0,220);
-  const excerpt=readmeExcerpt(readme);
+for(const repo of candidates) {
+  if(entries.length>=20)break;
+  const curated=CURATED.get(repo.full_name.toLowerCase());
+  const summary=curated?.summary || await chinese(repo.description,240);
+  if(!hasReadableChinese(summary))continue;
+  let detail=curated?.detail || '';
+  if(!detail && entries.length<8 && translatedBytes<maxTranslateBytes-350) {
+    try {
+      const res=await fetch('https://api.github.com/repos/'+repo.full_name+'/readme',{
+        headers:{...headers,Accept:'application/vnd.github.raw+json'}
+      });
+      if(res.ok) {
+        const raw=(await res.text()).slice(0,16000);
+        const features=featureParagraph(raw);
+        if(features) {
+          const translated=await chinese(features,190);
+          if(hasReadableChinese(translated) && translated!==summary) detail=translated;
+        }
+      }
+    } catch(error) {console.warn('README features unavailable:',repo.full_name,error.message);}
+  }
   const project={
-    id:repo.full_name,name:repo.name,category:category(repo),flag:'',
-    tags:(repo.topics||[]).slice(0,4)
+    id:repo.full_name,name:repo.name,category:category(repo),
+    flag:'',tags:(repo.topics||[]).slice(0,3)
   };
   entries.push({
-    project,repo:repo.full_name,featured:entries.length<10,
-    summary,
-    detail:excerpt ? 'README 摘录（原文，未经人工翻译与验证）：'+excerpt : '未能从 README 提取可靠的功能细节；请阅读仓库原文。',
-    note:'发现来源：'+group+'。'+(release?'近期 Release：'+release+'。':'')+
-      '自动候选项目；功能、许可和可部署性尚未人工核验。',
-    metric:{type:'total',value:repo.stargazers_count,display:repo.stargazers_count.toLocaleString('en-US'),
-      verified:true,sourceUrl:repo.html_url,capturedAt:now.toISOString()}
+    project,repo:repo.full_name,featured:entries.length<8,summary,detail,
+    metric:{
+      type:'total',value:repo.stargazers_count,
+      display:repo.stargazers_count.toLocaleString('en-US'),
+      verified:true,sourceUrl:repo.html_url,capturedAt:now.toISOString()
+    }
   });
 }
-const html=issuePage({date,source:'github-actions-scout',entries});
+if(entries.length<6)throw Error('Fewer than six new projects with meaningful Chinese summaries; no English-only issue published');
 fs.mkdirSync(path.dirname(target),{recursive:true});
-fs.writeFileSync(target,html,{flag:'wx'});
-console.log('Generated HTML issue '+target+' with '+entries.length+' projects');
+fs.writeFileSync(target,issuePage({date,source:'github-actions-scout',entries}),{flag:'wx'});
+console.log('Published '+entries.length+' Chinese project entries to '+target);
