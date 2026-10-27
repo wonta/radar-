@@ -86,8 +86,9 @@ for(const year of fs.readdirSync('archive').filter(x=>/^\d{4}$/.test(x))){
         '<h1>这一期，有哪些项目<br><em>值得打开看看。</em></h1>');
       next=next.replace(/每日 GitHub 项目雷达 · \d{4}-\d{2}-\d{2} · \d+ 个项目/g,
         '收录 '+declared+' 个 GitHub 项目 · 持续归档');
-      next=next.replace(/(<span class="dash">\/</span>)\s*(\d{4} \/ \d{2} \/ \d{2})(<\/div>)/,
-        (_,prefix,label,end)=>prefix+' <time datetime="'+year+'-'+month+'-'+filename.slice(0,2)+'">'+label+'</time>'+end);
+      const datePart=year+' / '+month+' / '+filename.slice(0,2);
+      next=next.replace('<span class="dash">/</span> '+datePart+'</div>',
+        '<span class="dash">/</span> <time datetime="'+year+'-'+month+'-'+filename.slice(0,2)+'">'+datePart+'</time></div>');
       next=next.replace('展开查看全部名称','展开后可跳到对应项目');
       let linkIndex=0;
       next=next.replace(/(<details class="overview">[\s\S]*?<ol>)([\s\S]*?)(<\/ol>[\s\S]*?<\/details>)/,
