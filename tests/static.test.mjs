@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
-import {archivePath,validDate,validRepo,esc} from '../scripts/site.mjs';
+import {archivePath,validDate,validRepo,esc,issuePage} from '../scripts/site.mjs';
 
 const file = date => fs.readFileSync(archivePath(date),'utf8');
 const count = date => Number(file(date).match(/<meta name="radar-count" content="(\d+)">/)[1]);
@@ -204,4 +204,22 @@ test('secondary type color contrast is sufficient on paper and white surfaces',(
     assert.ok(contrast(hex(token),'#f7f8f4')>=4.5,'paper contrast '+token);
     assert.ok(contrast(hex(token),'#ffffff')>=4.5,'white contrast '+token);
   }
+});
+
+test('future daily issues use the same readable structure and direct anchors',()=>{
+  const html=issuePage({date:'2026-11-01',source:'github-actions-scout',entries:[{
+    project:{id:'example/fictional-tool',name:'example-tool',category:'dev',tags:['japanese'],flag:''},
+    summary:'读取真实资料并组织成可查找的项目内容。',
+    detail:'支持按用途整理内容，提供本地检索和必要的访问控制。',
+    featured:true,
+    metric:{type:'total',value:28,display:'28'}
+  }]});
+  assert.match(html,/id="project-01"/);
+  assert.match(html,/href="#project-01"/);
+  assert.match(html,/这一期，有哪些项目/);
+  assert.match(html,/★ 28 Stars/);
+  assert.match(html,/aria-label="日本相关项目"/);
+  assert.match(html,/datetime="2026-11-01"/);
+  assert.doesNotMatch(html,/class="repo-id"|class="project-bottom"|私人笔记|data-search=/);
+  assert.match(html,/href="\.\.\/\.\.\/\.\.\/assets\/site\.css"/);
 });
