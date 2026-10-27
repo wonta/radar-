@@ -116,3 +116,26 @@ test('Stars, small national-topic flags and concise header work on desktop and m
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   }
 });
+
+test('temporary screenshots of Stars, flags, long descriptions on desktop and mobile',async({page})=>{
+  const shot=async(name)=>{
+    const b=await page.screenshot({type:'jpeg',quality:45,fullPage:false,animations:'disabled'});
+    console.log('VISUALLAYOUT_'+name+'_START:'+b.toString('base64')+':VISUALLAYOUT_'+name+'_END');
+  };
+  await page.setViewportSize({width:1440,height:950});
+  await page.goto('/archive/2026/10/26.html');
+  await page.locator('article.project[data-repo="cromford-ai/cromford"]').scrollIntoViewIfNeeded();
+  await shot('DESKTOP_CROMFORD');
+  await page.locator('article.project[data-repo="togatoga/karukan"]').scrollIntoViewIfNeeded();
+  await shot('DESKTOP_FLAG');
+  await page.goto('/search.html?q=intentic');
+  await shot('DESKTOP_SEARCH');
+  await page.setViewportSize({width:390,height:844});
+  await page.goto('/archive/2026/10/26.html');
+  await page.locator('article.project[data-repo="cromford-ai/cromford"]').scrollIntoViewIfNeeded();
+  await shot('MOBILE_CROMFORD');
+  await page.locator('article.project[data-repo="togatoga/karukan"]').scrollIntoViewIfNeeded();
+  await shot('MOBILE_FLAG');
+  await page.goto('/search.html?q=intentic');
+  await shot('MOBILE_SEARCH');
+});
