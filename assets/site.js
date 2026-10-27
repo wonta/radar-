@@ -53,27 +53,55 @@
       button.textContent=chosen?'★ 已收藏':'☆ 收藏';
     });
   }
+  function highlightNav() {
+    const path=location.pathname;
+    const view=new URLSearchParams(location.search).get('view');
+    const active=path.endsWith('/search.html')?(view==='saved'?'我的收藏':'项目搜索'):
+      path.includes('/archive/')?'往期归档':'最新日报';
+    document.querySelectorAll('.nav a').forEach(link=>{
+      if(link.textContent.trim()===active)link.setAttribute('aria-current','page');
+      else link.removeAttribute('aria-current');
+    });
+  }
+  highlightNav();
+
   const search=document.querySelector('#q');
   const category=document.querySelector('#category');
   const onlySaved=document.querySelector('#saved-only');
-  const cards=Array.from(document.querySelectorAll('.search-card'));
   const count=document.querySelector('#results-count');
   const empty=document.querySelector('#search-empty');
-  function filter() {
+  const more=document.querySelector('#load-more');
+  const PAGE_SIZE=12;
+  let visibleLimit=PAGE_SIZE;
+  let composing=false;
+  const categories=Object.fromEntries(Array.from(category?.options||[]).map(o=>[o.value,o.textContent]));
+  const cards=Array.from(document.querySelectorAll('.search-card')).map(node=>({
+    node,
+    text:(node.textContent+' '+(categories[node.dataset.category]||'')).toLocaleLowerCase()
+  }));
+
+  function filter(reset=false) {
     if(!search)return;
+    if(reset)visibleLimit=PAGE_SIZE;
     const q=search.value.trim().toLocaleLowerCase();
-    const cat=category?.value || '';
-    let visible=0;
-    for(const el of cards) {
-      const match=(!q || el.dataset.search.includes(q)) &&
-        (!cat || el.dataset.category===cat) &&
-        (!onlySaved?.checked || isSaved(el.dataset.repo));
-      el.hidden=!match;
-      if(match)visible++;
+    const cat=category?.value||'';
+    let matched=0;
+    for(const {node,text} of cards) {
+      const isMatch=(!q||text.includes(q))&&
+        (!cat||node.dataset.category===cat)&&
+        (!onlySaved?.checked||isSaved(node.dataset.repo));
+      if(isMatch)matched++;
+      node.hidden=!isMatch||matched>visibleLimit;
     }
-    if(count)count.textContent=visible+' / '+cards.length+' 个项目';
-    if(empty)empty.hidden=visible!==0;
+    const shown=Math.min(visibleLimit,matched);
+    if(count)count.textContent='找到 '+matched+' 个项目 · 当前显示 '+shown+' 个';
+    if(empty)empty.hidden=matched!==0;
+    if(more){
+      more.hidden=matched<=visibleLimit;
+      more.textContent='显示更多项目（剩余 '+Math.max(0,matched-visibleLimit)+' 个）';
+    }
   }
+
   function syncQuery() {
     if(!search)return;
     const params=new URLSearchParams(location.search);
@@ -82,15 +110,29 @@
     if(onlySaved?.checked)params.set('view','saved');else params.delete('view');
     const query=params.toString();
     history.replaceState(null,'',location.pathname+(query?'?'+query:''));
+    highlightNav();
   }
   if(search) {
     const params=new URLSearchParams(location.search);
     search.value=params.get('q')||'';
     if(category)category.value=params.get('category')||'';
     if(onlySaved)onlySaved.checked=params.get('view')==='saved';
-    search.addEventListener('input',()=>{syncQuery();filter();});
-    category?.addEventListener('change',()=>{syncQuery();filter();});
-    onlySaved?.addEventListener('change',()=>{syncQuery();filter();});
+    search.addEventListener('compositionstart',()=>{composing=true;});
+    search.addEventListener('compositionend',()=>{
+      composing=false;
+      syncQuery();
+      filter(true);
+    });
+    search.addEventListener('input',()=>{
+      if(composing)return;
+      syncQuery();filter(true);
+    });
+    category?.addEventListener('change',()=>{syncQuery();filter(true);});
+    onlySaved?.addEventListener('change',()=>{syncQuery();filter(true);});
+    more?.addEventListener('click',()=>{
+      visibleLimit+=PAGE_SIZE;
+      filter();
+    });
     filter();
   }
   document.addEventListener('click',event => {
