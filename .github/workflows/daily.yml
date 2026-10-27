@@ -11,7 +11,7 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: radar-pages
+  group: radar-visual-qa
   cancel-in-progress: false
 jobs:
   build:
@@ -38,9 +38,11 @@ jobs:
       - name: Install browser regression tools
         if: github.event_name == 'push' || github.event_name == 'pull_request'
         run: npm install --no-save --package-lock=false --ignore-scripts @playwright/test@1.64.1
-      - name: Install Chromium
-        if: github.event_name == 'push' || github.event_name == 'pull_request'
-        run: npx playwright install --with-deps chromium
+      - name: Use runner's preinstalled Chrome
+        if: github.event_name == 'pull_request'
+        run: |
+          which google-chrome || which google-chrome-stable
+          google-chrome --version || google-chrome-stable --version
       - name: Browser regression
         if: github.event_name == 'push' || github.event_name == 'pull_request'
         run: npx playwright test
