@@ -33,7 +33,7 @@
     <details class="overview"><summary>本期项目速览 <span>18 个项目</span><span class="overview-hint">展开查看全部名称</span></summary>
       <ol><li><a href="https://github.com/xerj-org/xerj" target="_blank" rel="noopener noreferrer">XERJ</a><span>用 Rust 索引代码、文档和日志，为 Agent 提供检索接口。</span></li><li><a href="https://github.com/anthropics/claude-plugins-official" target="_blank" rel="noopener noreferrer">claude-plugins-official</a><span>Anthropic 管理的 Claude Code 官方及第三方插件目录。</span></li><li><a href="https://github.com/stablyai/orca" target="_blank" rel="noopener noreferrer">Orca</a><span>在桌面工作台并行运行多种 AI 编码代理。</span></li><li><a href="https://github.com/HKUDS/CLI-Anything" target="_blank" rel="noopener noreferrer">CLI-Anything</a><span>把桌面软件的功能封装成可供 Agent 调用的 CLI。</span></li><li><a href="https://github.com/debpalash/VoiceStudio" target="_blank" rel="noopener noreferrer">VoiceStudio</a><span>本地语音克隆、视频配音、转写与有声书制作工具。</span></li><li><a href="https://github.com/onehumanbeing/esp32-iphone-agent" target="_blank" rel="noopener noreferrer">ESP32 iPhone Agent</a><span>借助 ESP32-S3 与视觉模型操作真实 iPhone。</span></li><li><a href="https://github.com/feder-cr/git-ai" target="_blank" rel="noopener noreferrer">gitai</a><span>针对多编码代理并发提交的服务器端版本控制实现。</span></li><li><a href="https://github.com/kanaemi-app/kanaemi" target="_blank" rel="noopener noreferrer">Kanaemi</a><span>跨 Windows、macOS、Linux 操作一致的日语输入法。</span></li><li><a href="https://github.com/opengeos/RustGIS" target="_blank" rel="noopener noreferrer">RustGIS</a><span>纯 Rust 地理信息系统，提供桌面与网页版本。</span></li><li><a href="https://github.com/Ebony-Vinyl/dsh-our-free-model" target="_blank" rel="noopener noreferrer">dsh-our-free-model</a><span>为 DeepSeek Harness 提供上游免费模型路由及本地 API。</span></li><li><a href="https://github.com/K-Dense-AI/scientific-agent-skills" target="_blank" rel="noopener noreferrer">scientific-agent-skills</a><span>包含 177 个科研 Agent Skills 与科学数据库入口。</span></li><li><a href="https://github.com/MadsLorentzen/ai-job-search" target="_blank" rel="noopener noreferrer">AI Job Search</a><span>Claude Code 求职助手，可评估职位并制作匹配简历及求职信。</span></li><li><a href="https://github.com/affaan-m/ECC" target="_blank" rel="noopener noreferrer">ECC</a><span>编码 Agent 的技能、记忆、规则与工程实践合集。</span></li><li><a href="https://github.com/android/skills" target="_blank" rel="noopener noreferrer">Android Skills</a><span>Android 官方维护的开发 Agent Skills。</span></li><li><a href="https://github.com/YuriyLin/PaperRead" target="_blank" rel="noopener noreferrer">PaperRead</a><span>繁体中文论文发现、双语 PDF 阅读与笔记工作台。</span></li><li><a href="https://github.com/studio-yebisu/awesome-codex-ppt-skills-ja" target="_blank" rel="noopener noreferrer">AI スライド制作スキル集（日本語版）</a><span>日语整理 209 个 AI 幻灯片工具与 Skills 的分类目录。</span></li><li><a href="https://github.com/liseami/CCBaga" target="_blank" rel="noopener noreferrer">CCBaga</a><span>Rust/Tauri 跨平台开发环境及 Claude Code 本地配置管理工具。</span></li><li><a href="https://github.com/morluto/rea" target="_blank" rel="noopener noreferrer">REA</a><span>Agent 用于分析应用行为和二进制的软件工具。</span></li></ol>
     </details>
-    <section class="issue-section"><div class="section-title"><h2>今日重点</h2><span>10 个项目</span></div><article class="project" data-repo="xerj-org/xerj" data-name="XERJ" data-summary="用 Rust 索引代码、文档和日志，为 Agent 提供检索接口。" data-detail="自动索引、混合检索、符号与行号定位，兼容 MCP；无需反复向模型送入整仓库内容。" data-category="dev" data-tags="MCP Search Local" data-date="2026-10-18" data-featured="true">
+    <section class="issue-section"><div class="section-title"><h2>今日重点</h2><span>10 个项目</span></div><article class="project" data-repo="xerj-org/xerj" data-name="XERJ" data-summary="用 Rust 索引代码、文档和日志，为 Agent 提供检索接口。" data-detail="使用 Rust 建立本地代码、PDF、日志和结构化资料索引，让 Coding Agent 通过 MCP 查询相关文件、符号和精确行号，而非每次把整个项目读进上下文。支持 BM25 词法检索及可选的混合/向量检索，并提供兼容部分 Elasticsearch 的接口。适合多仓库知识查询；启用神经检索会增加额外模型与资源需求。" data-category="dev" data-date="2026-10-18" data-featured="true">
     <div class="project-head">
       <span class="ordinal">01</span>
       <div class="project-heading">
@@ -43,14 +43,12 @@
       <button class="save-button" type="button" data-save="xerj-org/xerj" aria-pressed="false" aria-label="收藏 XERJ">☆ 收藏</button>
     </div>
     <p class="project-summary">用 Rust 索引代码、文档和日志，为 Agent 提供检索接口。</p>
-    <p class="project-detail">自动索引、混合检索、符号与行号定位，兼容 MCP；无需反复向模型送入整仓库内容。</p>
+    <p class="project-detail">使用 Rust 建立本地代码、PDF、日志和结构化资料索引，让 Coding Agent 通过 MCP 查询相关文件、符号和精确行号，而非每次把整个项目读进上下文。支持 BM25 词法检索及可选的混合/向量检索，并提供兼容部分 Elasticsearch 的接口。适合多仓库知识查询；启用神经检索会增加额外模型与资源需求。</p>
     <p class="project-note">Apache-2.0；10月17日有扩展包预发布。性能提升属项目方声明，未独立复测。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">开发工具</span><span class="tag">MCP</span><span class="tag">Search</span><span class="tag">Local</span></div>
       <span class="metric">7,756 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="xerj-org/xerj" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="anthropics/claude-plugins-official" data-name="claude-plugins-official" data-summary="Anthropic 管理的 Claude Code 官方及第三方插件目录。" data-detail="包含命令、MCP、Agent 与 Skills，可直接从插件市场安装。" data-category="dev" data-tags="Claude Code Plugins Tools" data-date="2026-10-18" data-featured="true">
+    </article><article class="project" data-repo="anthropics/claude-plugins-official" data-name="claude-plugins-official" data-summary="Anthropic 管理的 Claude Code 官方及第三方插件目录。" data-detail="Anthropic 官方维护的 Claude Code 插件市场目录，集中展示可安装的命令、Skills、Agents 与 MCP 集成。开发者可以按任务选择插件，或参考官方组织方式制作自己的扩展；适合减少手动复制提示词和配置。市场包含第三方项目，安装前仍需检查来源、执行脚本、访问权限及兼容版本。" data-category="dev" data-date="2026-10-18" data-featured="true">
     <div class="project-head">
       <span class="ordinal">02</span>
       <div class="project-heading">
@@ -60,14 +58,12 @@
       <button class="save-button" type="button" data-save="anthropics/claude-plugins-official" aria-pressed="false" aria-label="收藏 claude-plugins-official">☆ 收藏</button>
     </div>
     <p class="project-summary">Anthropic 管理的 Claude Code 官方及第三方插件目录。</p>
-    <p class="project-detail">包含命令、MCP、Agent 与 Skills，可直接从插件市场安装。</p>
+    <p class="project-detail">Anthropic 官方维护的 Claude Code 插件市场目录，集中展示可安装的命令、Skills、Agents 与 MCP 集成。开发者可以按任务选择插件，或参考官方组织方式制作自己的扩展；适合减少手动复制提示词和配置。市场包含第三方项目，安装前仍需检查来源、执行脚本、访问权限及兼容版本。</p>
     <p class="project-note">仓库 Apache-2.0；无 GitHub Release；插件的授权和安全性须逐个检查。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">开发工具</span><span class="tag">Claude Code</span><span class="tag">Plugins</span><span class="tag">Tools</span></div>
       <span class="metric">41,686 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="anthropics/claude-plugins-official" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="stablyai/orca" data-name="Orca" data-summary="在桌面工作台并行运行多种 AI 编码代理。" data-detail="用独立 Git worktree 并行运行 Claude Code、Codex、OpenCode 等，提供终端、差异审查及手机端控制。" data-category="dev" data-tags="Coding Agent Worktree Desktop" data-date="2026-10-18" data-featured="true">
+    </article><article class="project" data-repo="stablyai/orca" data-name="Orca" data-summary="在桌面工作台并行运行多种 AI 编码代理。" data-detail="让多套 Codex、Claude Code、OpenCode 等编码 Agent 在独立 Git worktree 里并排工作，通过桌面界面查看终端、差异和任务进展，还能从手机跟进。适合让不同模型并行尝试实现方法，再集中选择、审查和合并。代理订阅、执行费用、权限和跨分支冲突仍由使用者管理。" data-category="dev" data-date="2026-10-18" data-featured="true">
     <div class="project-head">
       <span class="ordinal">03</span>
       <div class="project-heading">
@@ -77,14 +73,12 @@
       <button class="save-button" type="button" data-save="stablyai/orca" aria-pressed="false" aria-label="收藏 Orca">☆ 收藏</button>
     </div>
     <p class="project-summary">在桌面工作台并行运行多种 AI 编码代理。</p>
-    <p class="project-detail">用独立 Git worktree 并行运行 Claude Code、Codex、OpenCode 等，提供终端、差异审查及手机端控制。</p>
+    <p class="project-detail">让多套 Codex、Claude Code、OpenCode 等编码 Agent 在独立 Git worktree 里并排工作，通过桌面界面查看终端、差异和任务进展，还能从手机跟进。适合让不同模型并行尝试实现方法，再集中选择、审查和合并。代理订阅、执行费用、权限和跨分支冲突仍由使用者管理。</p>
     <p class="project-note">MIT；Release v1.4.229（10月17日）。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">开发工具</span><span class="tag">Coding Agent</span><span class="tag">Worktree</span><span class="tag">Desktop</span></div>
       <span class="metric">95,351 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="stablyai/orca" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="HKUDS/CLI-Anything" data-name="CLI-Anything" data-summary="把桌面软件的功能封装成可供 Agent 调用的 CLI。" data-detail="提供自动生成 CLI harness 的方法、CLI-Hub 和部分应用的真实操作示例。" data-category="ai" data-tags="CLI Automation Desktop" data-date="2026-10-18" data-featured="true">
+    </article><article class="project" data-repo="HKUDS/CLI-Anything" data-name="CLI-Anything" data-summary="把桌面软件的功能封装成可供 Agent 调用的 CLI。" data-detail="把原本只能通过图形界面操作的软件转换为适合 AI Agent 调用的命令行入口，围绕办公、图形、建模等应用提供对应适配和测试。目标是让助手调用确定性的命令去执行导出、修改等任务，而不是仅靠截图猜测按钮位置。需要目标软件实际安装与其可用接口；不同适配的功能覆盖和稳定性并不一致。" data-category="ai" data-date="2026-10-18" data-featured="true">
     <div class="project-head">
       <span class="ordinal">04</span>
       <div class="project-heading">
@@ -94,14 +88,12 @@
       <button class="save-button" type="button" data-save="hkuds/cli-anything" aria-pressed="false" aria-label="收藏 CLI-Anything">☆ 收藏</button>
     </div>
     <p class="project-summary">把桌面软件的功能封装成可供 Agent 调用的 CLI。</p>
-    <p class="project-detail">提供自动生成 CLI harness 的方法、CLI-Hub 和部分应用的真实操作示例。</p>
+    <p class="project-detail">把原本只能通过图形界面操作的软件转换为适合 AI Agent 调用的命令行入口，围绕办公、图形、建模等应用提供对应适配和测试。目标是让助手调用确定性的命令去执行导出、修改等任务，而不是仅靠截图猜测按钮位置。需要目标软件实际安装与其可用接口；不同适配的功能覆盖和稳定性并不一致。</p>
     <p class="project-note">Apache-2.0；Release v0.4.0（6月25日），并非所有软件均已支持。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">AI / Agent</span><span class="tag">CLI</span><span class="tag">Automation</span><span class="tag">Desktop</span></div>
       <span class="metric">54,032 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="hkuds/cli-anything" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="debpalash/VoiceStudio" data-name="VoiceStudio" data-summary="本地语音克隆、视频配音、转写与有声书制作工具。" data-detail="桌面端支持声音设计、配音、转录、批量处理和本地 API/MCP；README 宣称 646 种语言，效果依模型而异。" data-category="graphics" data-tags="Audio Local AI MCP" data-date="2026-10-18" data-featured="true">
+    </article><article class="project" data-repo="debpalash/VoiceStudio" data-name="VoiceStudio" data-summary="本地语音克隆、视频配音、转写与有声书制作工具。" data-detail="提供本地语音克隆与声音创作工作台，把说话人样本、文本配音、转录和音频/视频配音任务集中管理。支持长文本分段、有声书制作、批量转换及本地 API，适合视频作者和播客后期。模型、语种和音质依具体语音引擎而异，克隆他人声音应取得授权，GPU 性能也会影响生成速度。" data-category="graphics" data-date="2026-10-18" data-featured="true">
     <div class="project-head">
       <span class="ordinal">05</span>
       <div class="project-heading">
@@ -111,14 +103,12 @@
       <button class="save-button" type="button" data-save="debpalash/voicestudio" aria-pressed="false" aria-label="收藏 VoiceStudio">☆ 收藏</button>
     </div>
     <p class="project-summary">本地语音克隆、视频配音、转写与有声书制作工具。</p>
-    <p class="project-detail">桌面端支持声音设计、配音、转录、批量处理和本地 API/MCP；README 宣称 646 种语言，效果依模型而异。</p>
+    <p class="project-detail">提供本地语音克隆与声音创作工作台，把说话人样本、文本配音、转录和音频/视频配音任务集中管理。支持长文本分段、有声书制作、批量转换及本地 API，适合视频作者和播客后期。模型、语种和音质依具体语音引擎而异，克隆他人声音应取得授权，GPU 性能也会影响生成速度。</p>
     <p class="project-note">AGPL-3.0；Release v0.5.6（9月23日），硬件要求与模型相关。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">图形与创作</span><span class="tag">Audio</span><span class="tag">Local AI</span><span class="tag">MCP</span></div>
       <span class="metric">73,229 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="debpalash/voicestudio" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="onehumanbeing/esp32-iphone-agent" data-name="ESP32 iPhone Agent" data-summary="借助 ESP32-S3 与视觉模型操作真实 iPhone。" data-detail="新版主线通过 AirPlay 获取画面、BLE 与手机应用通信，并通过 USB HID 完成输入操作。" data-category="hardware" data-tags="ESP32 iPhone Agent" data-date="2026-10-18" data-featured="true">
+    </article><article class="project" data-repo="onehumanbeing/esp32-iphone-agent" data-name="ESP32 iPhone Agent" data-summary="借助 ESP32-S3 与视觉模型操作真实 iPhone。" data-detail="让 AI 借助 ESP32-S3 等硬件操作真实 iPhone：使用 AirPlay 获取画面，再通过 USB 模拟输入设备发送点击、滑动与文字操作。适合在受控环境研究移动端自动化或远程测试，不以 iOS 越狱为前提。需要额外硬件和屏幕镜像链路，可靠性受设备连接、输入焦点及 App 防自动化机制影响。" data-category="hardware" data-date="2026-10-18" data-featured="true">
     <div class="project-head">
       <span class="ordinal">06</span>
       <div class="project-heading">
@@ -128,14 +118,12 @@
       <button class="save-button" type="button" data-save="onehumanbeing/esp32-iphone-agent" aria-pressed="false" aria-label="收藏 ESP32 iPhone Agent">☆ 收藏</button>
     </div>
     <p class="project-summary">借助 ESP32-S3 与视觉模型操作真实 iPhone。</p>
-    <p class="project-detail">新版主线通过 AirPlay 获取画面、BLE 与手机应用通信，并通过 USB HID 完成输入操作。</p>
+    <p class="project-detail">让 AI 借助 ESP32-S3 等硬件操作真实 iPhone：使用 AirPlay 获取画面，再通过 USB 模拟输入设备发送点击、滑动与文字操作。适合在受控环境研究移动端自动化或远程测试，不以 iOS 越狱为前提。需要额外硬件和屏幕镜像链路，可靠性受设备连接、输入焦点及 App 防自动化机制影响。</p>
     <p class="project-note">MIT；10月11日创建。v0.1.0 Release 是旧版架构；新版需 iOS 18+。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">硬件 / IoT</span><span class="tag">ESP32</span><span class="tag">iPhone</span><span class="tag">Agent</span></div>
       <span class="metric">2,990 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="onehumanbeing/esp32-iphone-agent" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="feder-cr/git-ai" data-name="gitai" data-summary="针对多编码代理并发提交的服务器端版本控制实现。" data-detail="支持稀疏对象读取、服务器端历史查询、并发落地与变更日志；独立参考 Scion 的公开设计。" data-category="dev" data-tags="Go Git Agent Infrastructure" data-date="2026-10-18" data-featured="true">
+    </article><article class="project" data-repo="feder-cr/git-ai" data-name="gitai" data-summary="针对多编码代理并发提交的服务器端版本控制实现。" data-detail="面向多 Coding Agent 并发开发的服务器端版本控制实验，关注按需获取仓库对象、变更集提交和服务端历史操作，减少复制完整仓库的开销。可用于研究 Scion 风格的代理协作存储，而不只是给普通 Git 加一个聊天界面。生产迁移前必须验证数据一致性、权限控制及与现有 CI 的兼容。" data-category="dev" data-date="2026-10-18" data-featured="true">
     <div class="project-head">
       <span class="ordinal">07</span>
       <div class="project-heading">
@@ -145,14 +133,12 @@
       <button class="save-button" type="button" data-save="feder-cr/git-ai" aria-pressed="false" aria-label="收藏 gitai">☆ 收藏</button>
     </div>
     <p class="project-summary">针对多编码代理并发提交的服务器端版本控制实现。</p>
-    <p class="project-detail">支持稀疏对象读取、服务器端历史查询、并发落地与变更日志；独立参考 Scion 的公开设计。</p>
+    <p class="project-detail">面向多 Coding Agent 并发开发的服务器端版本控制实验，关注按需获取仓库对象、变更集提交和服务端历史操作，减少复制完整仓库的开销。可用于研究 Scion 风格的代理协作存储，而不只是给普通 Git 加一个聊天界面。生产迁移前必须验证数据一致性、权限控制及与现有 CI 的兼容。</p>
     <p class="project-note">10月15日创建，v0.1.0；README 称 MIT，GitHub 未自动识别；需要 Go 1.26。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">开发工具</span><span class="tag">Go</span><span class="tag">Git</span><span class="tag">Agent Infrastructure</span></div>
       <span class="metric">1,133 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="feder-cr/git-ai" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="kanaemi-app/kanaemi" data-name="Kanaemi" data-summary="跨 Windows、macOS、Linux 操作一致的日语输入法。" data-detail="基于 SKK 思路，左右 Shift 切换模式，分号触发按需汉字转换，本地处理输入。" data-category="dev" data-tags="Rust IME Japanese" data-date="2026-10-18" data-featured="true">
+    </article><article class="project" data-repo="kanaemi-app/kanaemi" data-name="Kanaemi" data-summary="跨 Windows、macOS、Linux 操作一致的日语输入法。" data-detail="采用 SKK 思路的跨平台日语输入法项目，侧重一致的转换按键、用户辞典与本地候选处理，让熟悉 SKK 的用户在不同操作系统保持类似输入体验。适合日语重度输入和输入法开发者。切换到新输入法可能需要导入辞典与重新适应按键；各平台安装方式和输入框兼容性需检查。" data-category="dev" data-date="2026-10-18" data-featured="true">
     <div class="project-head">
       <span class="ordinal">08</span>
       <div class="project-heading">
@@ -162,14 +148,12 @@
       <button class="save-button" type="button" data-save="kanaemi-app/kanaemi" aria-pressed="false" aria-label="收藏 Kanaemi">☆ 收藏</button>
     </div>
     <p class="project-summary">跨 Windows、macOS、Linux 操作一致的日语输入法。</p>
-    <p class="project-detail">基于 SKK 思路，左右 Shift 切换模式，分号触发按需汉字转换，本地处理输入。</p>
+    <p class="project-detail">采用 SKK 思路的跨平台日语输入法项目，侧重一致的转换按键、用户辞典与本地候选处理，让熟悉 SKK 的用户在不同操作系统保持类似输入体验。适合日语重度输入和输入法开发者。切换到新输入法可能需要导入辞典与重新适应按键；各平台安装方式和输入框兼容性需检查。</p>
     <p class="project-note">MIT；10月17日发布 v0.9.1。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">开发工具</span><span class="tag">Rust</span><span class="tag">IME</span><span class="tag">Japanese</span></div>
       <span class="metric">14 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="kanaemi-app/kanaemi" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="opengeos/RustGIS" data-name="RustGIS" data-summary="纯 Rust 地理信息系统，提供桌面与网页版本。" data-detail="支持地图图层、地理数据分析、脚本化操作和 WebAssembly 运行。" data-category="data" data-tags="Rust GIS WebAssembly" data-date="2026-10-18" data-featured="true">
+    </article><article class="project" data-repo="opengeos/RustGIS" data-name="RustGIS" data-summary="纯 Rust 地理信息系统，提供桌面与网页版本。" data-detail="尝试使用纯 Rust 构建地理信息系统，提供桌面应用与网页/WASM 运行路径，支持地图图层展示、空间数据处理和脚本化操作。适合学习 GIS 渲染、地理数据格式和跨端应用架构。项目成熟度与常见 GIS 格式支持需要逐项确认，不能直接当作 QGIS 的完全替代品。" data-category="data" data-date="2026-10-18" data-featured="true">
     <div class="project-head">
       <span class="ordinal">09</span>
       <div class="project-heading">
@@ -179,14 +163,12 @@
       <button class="save-button" type="button" data-save="opengeos/rustgis" aria-pressed="false" aria-label="收藏 RustGIS">☆ 收藏</button>
     </div>
     <p class="project-summary">纯 Rust 地理信息系统，提供桌面与网页版本。</p>
-    <p class="project-detail">支持地图图层、地理数据分析、脚本化操作和 WebAssembly 运行。</p>
+    <p class="project-detail">尝试使用纯 Rust 构建地理信息系统，提供桌面应用与网页/WASM 运行路径，支持地图图层展示、空间数据处理和脚本化操作。适合学习 GIS 渲染、地理数据格式和跨端应用架构。项目成熟度与常见 GIS 格式支持需要逐项确认，不能直接当作 QGIS 的完全替代品。</p>
     <p class="project-note">Apache-2.0；10月10日创建，v0.3.0 于10月16日发布。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">数据与商业</span><span class="tag">Rust</span><span class="tag">GIS</span><span class="tag">WebAssembly</span></div>
       <span class="metric">1,481 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="opengeos/rustgis" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="Ebony-Vinyl/dsh-our-free-model" data-name="dsh-our-free-model" data-summary="为 DeepSeek Harness 提供上游免费模型路由及本地 API。" data-detail="从 OpenCode Zen、Kilo 等读取模型清单并探测可用性，附 Token 用量面板与转发接口。" data-category="ai" data-tags="中文 DeepSeek Harness Free Models" data-date="2026-10-18" data-featured="true">
+    </article><article class="project" data-repo="Ebony-Vinyl/dsh-our-free-model" data-name="dsh-our-free-model" data-summary="为 DeepSeek Harness 提供上游免费模型路由及本地 API。" data-detail="为 DeepSeek Harness 等 Agent 工作流提供可选择的上游免费模型来源与本地 API 中转。可以读取 OpenCode Zen、Kilo 等服务的模型目录，探测可用性并统计 Token 使用情况，方便实验不同模型的响应。免费额度和模型列表会经常变化，接入第三方路由前需核对隐私、服务条款和访问稳定性。" data-category="ai" data-date="2026-10-18" data-featured="true">
     <div class="project-head">
       <span class="ordinal">10</span>
       <div class="project-heading">
@@ -196,15 +178,13 @@
       <button class="save-button" type="button" data-save="ebony-vinyl/dsh-our-free-model" aria-pressed="false" aria-label="收藏 dsh-our-free-model">☆ 收藏</button>
     </div>
     <p class="project-summary">为 DeepSeek Harness 提供上游免费模型路由及本地 API。</p>
-    <p class="project-detail">从 OpenCode Zen、Kilo 等读取模型清单并探测可用性，附 Token 用量面板与转发接口。</p>
+    <p class="project-detail">为 DeepSeek Harness 等 Agent 工作流提供可选择的上游免费模型来源与本地 API 中转。可以读取 OpenCode Zen、Kilo 等服务的模型目录，探测可用性并统计 Token 使用情况，方便实验不同模型的响应。免费额度和模型列表会经常变化，接入第三方路由前需核对隐私、服务条款和访问稳定性。</p>
     <p class="project-note">MIT；v2.5.2（10月17日）。免费、不限量系仓库声明，不保证上游配额、地域和长期可用性。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">AI / Agent</span><span class="tag">中文</span><span class="tag">DeepSeek Harness</span><span class="tag">Free Models</span></div>
       <span class="metric">21,742 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="ebony-vinyl/dsh-our-free-model" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article></section>
-    <section class="issue-section"><div class="section-title"><h2>更多发现</h2><span>8 个项目</span></div><article class="project" data-repo="K-Dense-AI/scientific-agent-skills" data-name="scientific-agent-skills" data-summary="包含 177 个科研 Agent Skills 与科学数据库入口。" data-detail="" data-category="learning" data-tags="Science Agent Data" data-date="2026-10-18" data-featured="false">
+    </article></section>
+    <section class="issue-section"><div class="section-title"><h2>更多发现</h2><span>8 个项目</span></div><article class="project" data-repo="K-Dense-AI/scientific-agent-skills" data-name="scientific-agent-skills" data-summary="包含 177 个科研 Agent Skills 与科学数据库入口。" data-detail="围绕科研流程整理可复用的 AI Agent 技能，涵盖基因组学、药物发现、蛋白质组学、显微图像、临床研究及科研数据处理。各技能提供领域工作步骤、工具选择与结果整理约束，适合让模型辅助文献和实验数据工作。它不是一套统一运行的软件，相关分析仍需安装领域工具并核对科学有效性，不应用于未经授权的患者个体决策。" data-category="learning" data-date="2026-10-18" data-featured="false">
     <div class="project-head">
       <span class="ordinal">11</span>
       <div class="project-heading">
@@ -216,12 +196,11 @@
     <p class="project-summary">包含 177 个科研 Agent Skills 与科学数据库入口。</p>
     
     <p class="project-note">仓库 MIT，但部分 Skills 许可不同；Release v2.72.0（10月1日）。</p>
+    <p class="project-detail">围绕科研流程整理可复用的 AI Agent 技能，涵盖基因组学、药物发现、蛋白质组学、显微图像、临床研究及科研数据处理。各技能提供领域工作步骤、工具选择与结果整理约束，适合让模型辅助文献和实验数据工作。它不是一套统一运行的软件，相关分析仍需安装领域工具并核对科学有效性，不应用于未经授权的患者个体决策。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">学习与研究</span><span class="tag">Science</span><span class="tag">Agent</span><span class="tag">Data</span></div>
       <span class="metric">52,214 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="k-dense-ai/scientific-agent-skills" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="MadsLorentzen/ai-job-search" data-name="AI Job Search" data-summary="Claude Code 求职助手，可评估职位并制作匹配简历及求职信。" data-detail="" data-category="ai" data-tags="Career Claude Code" data-date="2026-10-18" data-featured="false">
+    </article><article class="project" data-repo="MadsLorentzen/ai-job-search" data-name="AI Job Search" data-summary="Claude Code 求职助手，可评估职位并制作匹配简历及求职信。" data-detail="结合 Claude Code 整理职位要求、比较求职者技能与岗位匹配度，并辅助生成针对性简历和求职信。适合需要持续申请不同岗位又希望保留岗位分析记录的求职者。AI 输出必须基于真实经历，不能捏造学历或工作成果；招聘网站的抓取权限和自动投递规则也要遵守。" data-category="ai" data-date="2026-10-18" data-featured="false">
     <div class="project-head">
       <span class="ordinal">12</span>
       <div class="project-heading">
@@ -233,12 +212,11 @@
     <p class="project-summary">Claude Code 求职助手，可评估职位并制作匹配简历及求职信。</p>
     
     <p class="project-note">MIT；v1.7.2（9月29日），职位源适配偏向丹麦。</p>
+    <p class="project-detail">结合 Claude Code 整理职位要求、比较求职者技能与岗位匹配度，并辅助生成针对性简历和求职信。适合需要持续申请不同岗位又希望保留岗位分析记录的求职者。AI 输出必须基于真实经历，不能捏造学历或工作成果；招聘网站的抓取权限和自动投递规则也要遵守。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">AI / Agent</span><span class="tag">Career</span><span class="tag">Claude Code</span></div>
       <span class="metric">50,297 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="madslorentzen/ai-job-search" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="affaan-m/ECC" data-name="ECC" data-summary="编码 Agent 的技能、记忆、规则与工程实践合集。" data-detail="" data-category="dev" data-tags="Agent Workflow Security" data-date="2026-10-18" data-featured="false">
+    </article><article class="project" data-repo="affaan-m/ECC" data-name="ECC" data-summary="编码 Agent 的技能、记忆、规则与工程实践合集。" data-detail="围绕 Claude Code、Codex 和 OpenCode 整理一套工程化代理约定，包括任务分解、代码审查、测试验证、上下文记忆、安全检查和重复工作自动化。更像可选的实践模板库，而不是新的 AI 模型或推理引擎。适合把团队常用规范放进 Agent 工作流，具体规则要按项目大小和团队习惯裁剪。" data-category="dev" data-date="2026-10-18" data-featured="false">
     <div class="project-head">
       <span class="ordinal">13</span>
       <div class="project-heading">
@@ -250,12 +228,11 @@
     <p class="project-summary">编码 Agent 的技能、记忆、规则与工程实践合集。</p>
     
     <p class="project-note">MIT；Release v2.2.3（10月1日）。</p>
+    <p class="project-detail">围绕 Claude Code、Codex 和 OpenCode 整理一套工程化代理约定，包括任务分解、代码审查、测试验证、上下文记忆、安全检查和重复工作自动化。更像可选的实践模板库，而不是新的 AI 模型或推理引擎。适合把团队常用规范放进 Agent 工作流，具体规则要按项目大小和团队习惯裁剪。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">开发工具</span><span class="tag">Agent</span><span class="tag">Workflow</span><span class="tag">Security</span></div>
       <span class="metric">282,447 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="affaan-m/ecc" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="android/skills" data-name="Android Skills" data-summary="Android 官方维护的开发 Agent Skills。" data-detail="" data-category="dev" data-tags="Android Skills" data-date="2026-10-18" data-featured="false">
+    </article><article class="project" data-repo="android/skills" data-name="Android Skills" data-summary="Android 官方维护的开发 Agent Skills。" data-detail="Android 官方整理的 Agent Skills 与开发工具调用指引，帮助编码助手理解 Android 项目的构建、调试和常见操作，并提供安装脚本给支持的 Agent。可按项目或指定代理安装，适合让自动化开发流程遵循 Android 官方工具链。它不是 Android Studio 的替代品，具体构建和测试仍依赖 SDK、设备或模拟器。" data-category="dev" data-date="2026-10-18" data-featured="false">
     <div class="project-head">
       <span class="ordinal">14</span>
       <div class="project-heading">
@@ -267,12 +244,11 @@
     <p class="project-summary">Android 官方维护的开发 Agent Skills。</p>
     
     <p class="project-note">Apache-2.0；未发现 GitHub Release；可通过 Android CLI 安装。</p>
+    <p class="project-detail">Android 官方整理的 Agent Skills 与开发工具调用指引，帮助编码助手理解 Android 项目的构建、调试和常见操作，并提供安装脚本给支持的 Agent。可按项目或指定代理安装，适合让自动化开发流程遵循 Android 官方工具链。它不是 Android Studio 的替代品，具体构建和测试仍依赖 SDK、设备或模拟器。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">开发工具</span><span class="tag">Android</span><span class="tag">Skills</span></div>
       <span class="metric">8,403 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="android/skills" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="YuriyLin/PaperRead" data-name="PaperRead" data-summary="繁体中文论文发现、双语 PDF 阅读与笔记工作台。" data-detail="" data-category="learning" data-tags="繁體中文 PDF Research" data-date="2026-10-18" data-featured="false">
+    </article><article class="project" data-repo="YuriyLin/PaperRead" data-name="PaperRead" data-summary="繁体中文论文发现、双语 PDF 阅读与笔记工作台。" data-detail="面向中文科研阅读的桌面工作台，可导入目录或 Zotero 文献库，管理论文摘要、阅读清单和研究路线，并在 PDF 中高亮、手写标注和整理图表。支持 AI 辅助精读与写入 Obsidian，也可把研究笔记和概念关系导出。适合长期研究项目；OCR、AI 推断和引用出处需要核对，Windows 安装包的代码签名状态也应注意。" data-category="learning" data-date="2026-10-18" data-featured="false">
     <div class="project-head">
       <span class="ordinal">15</span>
       <div class="project-heading">
@@ -284,12 +260,11 @@
     <p class="project-summary">繁体中文论文发现、双语 PDF 阅读与笔记工作台。</p>
     
     <p class="project-note">MIT；10月9日创建，v1.4.7（10月16日）；基于 EasyRead。</p>
+    <p class="project-detail">面向中文科研阅读的桌面工作台，可导入目录或 Zotero 文献库，管理论文摘要、阅读清单和研究路线，并在 PDF 中高亮、手写标注和整理图表。支持 AI 辅助精读与写入 Obsidian，也可把研究笔记和概念关系导出。适合长期研究项目；OCR、AI 推断和引用出处需要核对，Windows 安装包的代码签名状态也应注意。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">学习与研究</span><span class="tag">繁體中文</span><span class="tag">PDF</span><span class="tag">Research</span></div>
       <span class="metric">271 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="yuriylin/paperread" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="studio-yebisu/awesome-codex-ppt-skills-ja" data-name="AI スライド制作スキル集（日本語版）" data-summary="日语整理 209 个 AI 幻灯片工具与 Skills 的分类目录。" data-detail="" data-category="graphics" data-tags="日本語 Presentation" data-date="2026-10-18" data-featured="false">
+    </article><article class="project" data-repo="studio-yebisu/awesome-codex-ppt-skills-ja" data-name="AI スライド制作スキル集（日本語版）" data-summary="日语整理 209 个 AI 幻灯片工具与 Skills 的分类目录。" data-detail="用日语整理适合 Codex 与其他 AI 助手制作幻灯片的工具、Skills 和资源链接，按演示类型及用途分类，帮助用户挑选生成网页 PPT、原生 PPTX 或视觉排版方案。它是工具目录而非单独的 PPT 生成器；项目数量和链接可用性会变化，选择时应检查源码、授权与导出可编辑性。" data-category="graphics" data-date="2026-10-18" data-featured="false">
     <div class="project-head">
       <span class="ordinal">16</span>
       <div class="project-heading">
@@ -301,12 +276,11 @@
     <p class="project-summary">日语整理 209 个 AI 幻灯片工具与 Skills 的分类目录。</p>
     
     <p class="project-note">10月12日创建；无 Release，许可证未被 GitHub 自动识别；目录不自动更新。</p>
+    <p class="project-detail">用日语整理适合 Codex 与其他 AI 助手制作幻灯片的工具、Skills 和资源链接，按演示类型及用途分类，帮助用户挑选生成网页 PPT、原生 PPTX 或视觉排版方案。它是工具目录而非单独的 PPT 生成器；项目数量和链接可用性会变化，选择时应检查源码、授权与导出可编辑性。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">图形与创作</span><span class="tag">日本語</span><span class="tag">Presentation</span></div>
       <span class="metric">10 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="studio-yebisu/awesome-codex-ppt-skills-ja" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="liseami/CCBaga" data-name="CCBaga" data-summary="Rust/Tauri 跨平台开发环境及 Claude Code 本地配置管理工具。" data-detail="" data-category="dev" data-tags="Tauri Rust Claude Code" data-date="2026-10-18" data-featured="false">
+    </article><article class="project" data-repo="liseami/CCBaga" data-name="CCBaga" data-summary="Rust/Tauri 跨平台开发环境及 Claude Code 本地配置管理工具。" data-detail="围绕 Claude Code 提供本地开发环境管理界面，集中检查 CLI 安装状态、切换账户或配置，并记录不同身份与会话的开发工作。适合在多项目之间频繁调整 Claude Code 环境的用户。涉及登录凭据和本地配置文件，导入、备份和独立浏览器功能需要按官方流程确认，避免误覆盖现有设置。" data-category="dev" data-date="2026-10-18" data-featured="false">
     <div class="project-head">
       <span class="ordinal">17</span>
       <div class="project-heading">
@@ -318,12 +292,11 @@
     <p class="project-summary">Rust/Tauri 跨平台开发环境及 Claude Code 本地配置管理工具。</p>
     
     <p class="project-note">MIT；10月11日创建，Release v0.2.48（10月15日）。</p>
+    <p class="project-detail">围绕 Claude Code 提供本地开发环境管理界面，集中检查 CLI 安装状态、切换账户或配置，并记录不同身份与会话的开发工作。适合在多项目之间频繁调整 Claude Code 环境的用户。涉及登录凭据和本地配置文件，导入、备份和独立浏览器功能需要按官方流程确认，避免误覆盖现有设置。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">开发工具</span><span class="tag">Tauri</span><span class="tag">Rust</span><span class="tag">Claude Code</span></div>
       <span class="metric">2,567 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="liseami/ccbaga" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article><article class="project" data-repo="morluto/rea" data-name="REA" data-summary="Agent 用于分析应用行为和二进制的软件工具。" data-detail="" data-category="security" data-tags="MCP Agent Reverse Engineering" data-date="2026-10-18" data-featured="false">
+    </article><article class="project" data-repo="morluto/rea" data-name="REA" data-summary="Agent 用于分析应用行为和二进制的软件工具。" data-detail="通过 MCP 把 Claude Code、Codex 等 AI Agent 与逆向分析工具连接起来，让智能体调查没有源代码的软件。原生程序可结合 Ghidra、Hopper 或 IDA 查看伪代码、汇编、字符串、函数调用和交叉引用；Electron/JavaScript 可追踪模块、路由、preload 与 IPC；Android APK 可结合 JADX 检查清单、类和方法；网页可观察脚本和网络请求。适合研究某个软件功能的实际实现路径，并把调查证据交给编程助手复现。需要 Node.js/npm，部分目标还要安装 JDK、JADX 或原生分析器；工具不会自动恢复完整源码。" data-category="security" data-date="2026-10-18" data-featured="false">
     <div class="project-head">
       <span class="ordinal">18</span>
       <div class="project-heading">
@@ -335,12 +308,11 @@
     <p class="project-summary">Agent 用于分析应用行为和二进制的软件工具。</p>
     
     <p class="project-note">MIT；rea-agents-6.5.0（10月14日）；此前已有介绍。</p>
+    <p class="project-detail">通过 MCP 把 Claude Code、Codex 等 AI Agent 与逆向分析工具连接起来，让智能体调查没有源代码的软件。原生程序可结合 Ghidra、Hopper 或 IDA 查看伪代码、汇编、字符串、函数调用和交叉引用；Electron/JavaScript 可追踪模块、路由、preload 与 IPC；Android APK 可结合 JADX 检查清单、类和方法；网页可观察脚本和网络请求。适合研究某个软件功能的实际实现路径，并把调查证据交给编程助手复现。需要 Node.js/npm，部分目标还要安装 JDK、JADX 或原生分析器；工具不会自动恢复完整源码。</p>
     <div class="project-bottom">
-      <div class="tags"><span class="tag">安全与逆向</span><span class="tag">MCP</span><span class="tag">Agent</span><span class="tag">Reverse Engineering</span></div>
       <span class="metric">307,123 Stars</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="morluto/rea" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
-  </article></section>
+    </article></section>
     <div class="issue-end"><a href="../../../archive/2026/10/index.html">← 返回 2026 年 10 月</a><a href="../../../search.html">搜索全部历史项目 →</a></div></main>
   <footer class="footer container"><span>radar · 每天一页，持续归档</span><span>独立项目 · 非 GitHub 官方 · 收藏和笔记仅在此浏览器保存</span></footer>
 </body>
