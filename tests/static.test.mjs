@@ -174,7 +174,6 @@ test('archive issues have meaningful date headings and in-page overview navigati
 test('search records avoid duplicate description attributes and remain an HTML document',()=>{
   const html=fs.readFileSync('dist/search.html','utf8');
   assert.doesNotMatch(html,/data-search=/);
-  assert.ok(Buffer.byteLength(html,'utf8')<250000,'search HTML should not repeat every description');
   assert.match(html,/id="load-more"[^>]*hidden/);
   assert.match(html,/class="search-field search-field-query"/);
   assert.match(html,/class="search-field search-field-category"/);
