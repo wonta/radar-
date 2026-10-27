@@ -186,6 +186,8 @@ test('archive indexes provide useful navigation without oversized duplicated dat
   assert.match(all,/class="archive-recent"/);
   assert.match(year,/class="archive-grid archive-grid-compact"/);
   assert.match(year,/class="archive-recent"/);
+  assert.match(all,/href="\.\.\/archive\/2026\/10\/26\.html"/);
+  assert.match(year,/href="\.\.\/\.\.\/archive\/2026\/10\/26\.html"/);
   assert.match(month,/26 日 <small>周一<\/small>/);
   assert.match(month,/aria-label="2026-10-26，20 个开源项目"/);
   assert.doesNotMatch(month,/<small>2026-10-26<\/small>/);
