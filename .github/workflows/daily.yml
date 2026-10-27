@@ -11,8 +11,8 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: radar-pages
-  cancel-in-progress: false
+  group: radar-pages-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   build:
     runs-on: ubuntu-latest
