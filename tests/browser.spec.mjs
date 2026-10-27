@@ -39,6 +39,7 @@ test('bookmark from daily page appears in saved projects',async({page})=>{
   const button=page.locator('[data-save="morluto/rea"]');
   await button.click();
   await expect(button).toHaveAttribute('aria-pressed','true');
+  await expect(button).toHaveAttribute('aria-label',/取消收藏/);
   await page.goto('/search.html?view=saved');
   await expect(page.locator('.search-card:visible')).toHaveCount(1);
   await expect(page.locator('.search-card:visible')).toContainText(/rea/i);
@@ -166,6 +167,7 @@ test('search loads readable results progressively and preserves filtering',async
   await expect(page.locator('.search-card:visible')).toHaveCount(1);
   await page.locator('#q').fill('a-unique-query-not-present-1234567');
   await expect(page.locator('#search-empty')).toBeVisible();
+  await expect(page.locator('#search-empty')).toContainText('调整关键词或分类');
 });
 test('filter labels are above the corresponding input on phones and desktop',async({page})=>{
   for(const width of [360,390,768,1440]){
@@ -266,4 +268,16 @@ test('DESIGN AUDIT temporary screenshots + layout measurements',async({page})=>{
   await shot('MOBILE_MONTH');
   await page.goto('/archive/2026/');
   await shot('MOBILE_YEAR');
+});
+
+test('empty saved search has actionable guidance and bookmarking labels are accessible',async({page})=>{
+  await page.goto('/search.html?view=saved');
+  await expect(page.locator('#search-empty')).toContainText('在日报中点击');
+  await page.goto('/archive/2026/10/26.html');
+  const button=page.locator('.project[data-repo="intentic/intentic"] .save-button');
+  await expect(button).toHaveAttribute('aria-label',/收藏 intentic/);
+  await button.click();
+  await expect(button).toHaveAttribute('aria-label',/取消收藏 intentic/);
+  await button.click();
+  await expect(button).toHaveAttribute('aria-label',/收藏 intentic/);
 });
