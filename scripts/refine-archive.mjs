@@ -46,6 +46,7 @@ for(const year of fs.readdirSync('archive').filter(x=>/^\d{4}$/.test(x))){
         }
         let body=inside
           .replace(/<div class="tags">[\s\S]*?<\/div>\s*/g,'')
+          .replace(/<span class="tag">[\s\S]*?<\/span>\s*/g,'')
           .replace(/<details class="memo">[\s\S]*?<\/details>\s*/g,'');
         if(editorial){
           if(/<p class="project-detail">[\s\S]*?<\/p>/.test(body)){
