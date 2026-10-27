@@ -51,6 +51,9 @@
       const chosen=isSaved(button.dataset.save);
       button.setAttribute('aria-pressed',String(chosen));
       button.textContent=chosen?'★ 已收藏':'☆ 收藏';
+      const card=button.closest('.project,.search-card');
+      const name=card?.dataset.name||card?.querySelector('h2,h3')?.textContent.replace('↗','').trim()||button.dataset.save;
+      button.setAttribute('aria-label',(chosen?'取消收藏 ':'收藏 ')+name);
     });
   }
   function highlightNav() {
@@ -95,7 +98,12 @@
     }
     const shown=Math.min(visibleLimit,matched);
     if(count)count.textContent='找到 '+matched+' 个项目 · 当前显示 '+shown+' 个';
-    if(empty)empty.hidden=matched!==0;
+    if(empty){
+      empty.hidden=matched!==0;
+      empty.textContent=onlySaved?.checked
+        ?'没有符合当前筛选条件的收藏项目。可以在日报中点击“☆ 收藏”。'
+        :'没有找到符合条件的项目，请调整关键词或分类。';
+    }
     if(more){
       more.hidden=matched<=visibleLimit;
       more.textContent='显示更多项目（剩余 '+Math.max(0,matched-visibleLimit)+' 个）';
