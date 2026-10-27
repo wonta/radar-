@@ -71,3 +71,25 @@ for(const width of [360,390,768,1440])test('responsive static pages '+width,asyn
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   }
 });
+
+test('readability: first daily project is visible early on desktop and mobile',async({page})=>{
+  await page.setViewportSize({width:1440,height:960});
+  await page.goto('/');
+  const desktop=await page.locator('article.project').first().boundingBox();
+  expect(desktop).not.toBeNull();
+  expect(desktop.y).toBeLessThan(530);
+  await page.setViewportSize({width:390,height:844});
+  await page.reload();
+  const mobile=await page.locator('article.project').first().boundingBox();
+  expect(mobile).not.toBeNull();
+  expect(mobile.y).toBeLessThan(510);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+test('readability: search results appear on the first mobile screen',async({page})=>{
+  await page.setViewportSize({width:390,height:844});
+  await page.goto('/search.html');
+  const first=await page.locator('article.search-card').first().boundingBox();
+  expect(first).not.toBeNull();
+  expect(first.y).toBeLessThan(610);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
