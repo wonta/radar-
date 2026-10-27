@@ -2,7 +2,7 @@ export const CURATED = new Map([
 ['freecodecamp/freecodecamp','提供免费互动编程课程与实践题，覆盖 Web 开发、计算机科学等主题。','开源课程和练习平台，可按模块自学并完成认证项目；适合系统补基础知识。'],
 ['ebookfoundation/free-programming-books','按语言和主题整理可免费阅读的编程书籍、课程及资源。','提供可搜索的资源目录；属于资料导航，外部链接和授权条件应分别核对。'],
 ['openclaw/openclaw','可在自己的电脑上运行、通过常用聊天软件调用的 AI 助手。','支持消息渠道与工具操作，适合自动化日常任务；开放文件或系统权限前应评估执行风险。'],
-['morluto/rea','让编程 Agent 从应用行为到本地二进制程序开展逆向分析。','整合多种逆向调查能力，适用于有授权的软件研究；分析深度取决于工具和目标环境。'],
+['morluto/rea','REA｜通过 MCP 将逆向工具接入 Claude Code、Codex 等 AI Agent，让智能体调查没有源码的软件功能。','原生程序可查看反编译伪代码、汇编、字符串、函数调用和交叉引用；Electron/JavaScript 可追踪模块、路由、preload 与 IPC；Android APK 可结合 JADX 检查清单、类和方法，网页则可观察脚本与网络请求。例如调查某应用的搜索或复制功能，Agent 可以沿调用链寻找实现位置，给出对应证据并辅助复现。需要 Node.js/npm；原生和 APK 深度分析另需 Ghidra、Hopper、IDA 或 JADX/JDK，不能保证还原完整源码。'],
 ['nilbuild/developer-roadmap','交互式开发者学习路线图，按技术和岗位组织知识点。','可点击路线节点查看文章和练习资源，适合规划学习路径。'],
 ['tedix-hq/tedix','集中管理交给 AI 助手处理的任务，只把关键决策交还给用户。','可结合 Claude、ChatGPT、Codex 等工具安排工作，减少反复查看各个对话窗口。'],
 ['bredrumb/tomoribot','高度可配置的 Discord AI 机器人，支持人设、记忆和工具调用。','面向群组对话与个人助手场景；部署时需限制机器人权限并考虑模型费用。'],
