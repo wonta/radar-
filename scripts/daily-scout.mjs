@@ -3,6 +3,8 @@ import path from 'node:path';
 import {issuePage,archivePath} from './site.mjs';
 import {CURATED,hasReadableChinese} from './curated-zh.mjs';
 import {translateToChinese,clipBytes} from './translate.mjs';
+import {extractReadmeFacts} from './readme-facts.mjs';
+import {EDITORIAL_RECENT} from './editorial-recent.mjs';
 
 const token=process.env.GITHUB_TOKEN;
 if(!token)throw Error('GITHUB_TOKEN is required');
@@ -70,24 +72,8 @@ const categories=[
   [/learn|education|japanese/,'learning']
 ];
 const category=repo=>categories.find(([re])=>re.test((repo.topics||[]).join(' ').toLowerCase()))?.[1]||'dev';
-function featureParagraph(markdown) {
-  const lines=markdown.split(/\r?\n/);
-  const i=lines.findIndex(line=>/^#{1,3}\s*(?:key\s+)?(?:features?|主要功能|功能|特性)\s*:?\s*$/i.test(line.trim()));
-  if(i<0)return '';
-  const bullets=[];
-  for(const line of lines.slice(i+1,i+24)) {
-    if(/^#{1,3}\s/.test(line))break;
-    if(!/^\s*[-*+]\s+/.test(line))continue;
-    const clean=line.replace(/^\s*[-*+]\s+/,'').replace(/<[^>]*>/g,' ')
-      .replace(/\[([^\]]+)\]\([^)]+\)/g,'$1').replace(/[\x60*_>]/g,'')
-      .replace(/https?:\/\/\S+/g,'').replace(/\s+/g,' ').trim();
-    if(clean.length>=20 && clean.length<250)bullets.push(clean);
-    if(bullets.length===2)break;
-  }
-  return bullets.join('；');
-}
 let translatedBytes=0;
-const maxTranslateBytes=4400;
+const maxTranslateBytes=7600;
 async function chinese(text,limit) {
   const sample=clipBytes(text,limit);
   if(!sample)return '';
@@ -100,26 +86,27 @@ async function chinese(text,limit) {
 }
 const entries=[];
 for(const repo of candidates) {
-  if(entries.length>=20)break;
+  if(entries.length>=14)break;
   const curated=CURATED.get(repo.full_name.toLowerCase());
   const summary=curated?.summary || await chinese(repo.description,240);
   if(!hasReadableChinese(summary))continue;
-  let detail=curated?.detail || '';
-  if(!detail && entries.length<8 && translatedBytes<maxTranslateBytes-350) {
+  let detail=EDITORIAL_RECENT.get(repo.full_name.toLowerCase()) || curated?.detail || '';
+  if(!detail && translatedBytes<maxTranslateBytes-450) {
     try {
       const res=await fetch('https://api.github.com/repos/'+repo.full_name+'/readme',{
         headers:{...headers,Accept:'application/vnd.github.raw+json'}
       });
       if(res.ok) {
         const raw=(await res.text()).slice(0,16000);
-        const features=featureParagraph(raw);
+        const features=extractReadmeFacts(raw);
         if(features) {
-          const translated=await chinese(features,190);
-          if(hasReadableChinese(translated) && translated!==summary) detail=translated;
+          const translated=await chinese(features,380);
+          if(hasReadableChinese(translated) && translated.length>=60 && translated!==summary) detail=translated;
         }
       }
     } catch(error) {console.warn('README features unavailable:',repo.full_name,error.message);}
   }
+  if(!hasReadableChinese(detail) || detail.length<60)continue;
   const project={
     id:repo.full_name,name:repo.name,category:category(repo),
     flag:'',tags:(repo.topics||[]).slice(0,3)
@@ -133,7 +120,7 @@ for(const repo of candidates) {
     }
   });
 }
-if(entries.length<6)throw Error('Fewer than six new projects with meaningful Chinese summaries; no English-only issue published');
+if(entries.length<4)throw Error('Not enough new projects with concrete Chinese functions from README; declining to publish vague excerpts');
 fs.mkdirSync(path.dirname(target),{recursive:true});
 fs.writeFileSync(target,issuePage({date,source:'github-actions-scout',entries}),{flag:'wx'});
 console.log('Published '+entries.length+' Chinese project entries to '+target);

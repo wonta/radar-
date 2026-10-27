@@ -1,3 +1,4 @@
+import {EDITORIAL_RECENT} from './editorial-recent.mjs';
 export const CURATED = new Map([
 ['freecodecamp/freecodecamp','提供免费互动编程课程与实践题，覆盖 Web 开发、计算机科学等主题。','开源课程和练习平台，可按模块自学并完成认证项目；适合系统补基础知识。'],
 ['ebookfoundation/free-programming-books','按语言和主题整理可免费阅读的编程书籍、课程及资源。','提供可搜索的资源目录；属于资料导航，外部链接和授权条件应分别核对。'],
@@ -46,3 +47,7 @@ export const CURATED = new Map([
 ['xiaoyang111222/cn-math-taxonomy','整理中文中小学数学知识点及先修关系的知识图谱。','可辅助构建练习路径和教学检索；初稿包含 AI 生成内容，需要人工校对。'],
 ].map(([id,summary,detail])=>[id,{summary,detail}]));
 export const hasReadableChinese = str => (String(str).match(/[\u4e00-\u9fff]/g)||[]).length >= 6;
+
+for(const [id,detail] of EDITORIAL_RECENT){
+  if(CURATED.has(id))CURATED.get(id).detail=detail;
+}

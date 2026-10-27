@@ -34,7 +34,6 @@ for (const y of fs.readdirSync(root, {withFileTypes:true}).filter(e => e.isDirec
           summary: fields['data-summary'] || '',
           detail: fields['data-detail'] || '',
           category: fields['data-category'] || 'dev',
-          tags: fields['data-tags'] || '',
           date, file
         });
       }
@@ -85,11 +84,13 @@ const list = [...projects.values()];
 const options = Object.entries(CATEGORIES).map(([id,name])=>`<option value="${esc(id)}">${esc(name)}</option>`).join('');
 const cards = list.map(p => {
   const href = p.file;
-  const search = [p.id,p.name,p.summary,p.detail,p.tags,CATEGORIES[p.category]||''].join(' ').toLowerCase();
+  const search = [p.id,p.name,p.summary,p.detail,CATEGORIES[p.category]||''].join(' ').toLowerCase();
   return `<article class="search-card" data-search="${esc(search)}" data-category="${esc(p.category)}" data-repo="${esc(p.id.toLowerCase())}">
     <div class="search-card-title"><h2><a href="https://github.com/${p.id}" target="_blank" rel="noopener noreferrer">${esc(p.name)} ↗</a></h2><button class="save-button" type="button" data-save="${esc(p.id.toLowerCase())}" aria-pressed="false">☆ 收藏</button></div>
-    <p class="repo-id">${esc(p.id)}</p><p>${esc(p.summary)}</p>
-    <div class="search-card-foot"><span class="tag">${esc(CATEGORIES[p.category]||'开发工具')}</span><a href="${href}">${esc(p.date)} 的日报 →</a></div>
+    <p class="repo-id">${esc(p.id)}</p>
+    <p class="search-summary">${esc(p.summary)}</p>
+    ${p.detail && p.detail !== p.summary ? `<p class="search-detail">${esc(p.detail)}</p>` : ''}
+    <div class="search-card-foot"><a href="${href}">${esc(p.date)} 的日报 →</a></div>
   </article>`;
 }).join('');
 const searchBody = archiveHead('PROJECT LIBRARY / SEARCH','项目搜索','按项目名称、用途、关键词与分类查找历史日报中的开源项目。') +

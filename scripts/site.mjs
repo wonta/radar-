@@ -55,7 +55,7 @@ export function shell({title, body, prefix = '', head = '', description = '中�
     </nav>
   </div></header>
   <main class="container main" id="main">${body}</main>
-  <footer class="footer container"><span>radar · 每天一页，持续归档</span><span>独立项目 · 非 GitHub 官方 · 收藏和笔记仅在此浏览器保存</span></footer>
+  <footer class="footer container"><span>radar · 每天一页，持续归档</span><span>独立项目 · 非 GitHub 官方 · 收藏仅保存在当前浏览器</span></footer>
 </body>
 </html>
 `;
@@ -65,14 +65,12 @@ function card(e, index) {
   if (!p || !validRepo(p.id) || !e.summary) throw Error('Invalid project entry: ' + (e.repo || '?'));
   const id = p.id;
   const repoUrl = 'https://github.com/' + id;
-  const tags = Array.isArray(p.tags) ? p.tags : [];
   const meta = [
     ['data-repo', id], ['data-name', p.name || id.split('/')[1]],
     ['data-summary', e.summary], ['data-detail', e.detail || ''],
-    ['data-category', p.category || 'dev'], ['data-tags', tags.join(' ')],
+    ['data-category', p.category || 'dev'],
     ['data-date', e.date || ''], ['data-featured', String(!!e.featured)]
   ].map(([k,v]) => `${k}="${esc(v)}"`).join(' ');
-  const category = CATEGORIES[p.category] || '开发工具';
   const flag = p.flag ? `<span class="flag">${esc(p.flag)}</span>` : '';
   return `<article class="project" ${meta}>
     <div class="project-head">
@@ -87,10 +85,8 @@ function card(e, index) {
     ${e.detail ? `<p class="project-detail">${esc(e.detail)}</p>` : ''}
     ${e.note ? `<p class="project-note">${esc(e.note)}</p>` : ''}
     <div class="project-bottom">
-      <div class="tags"><span class="tag">${esc(category)}</span>${tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
       <span class="metric">${esc(metricText(e.metric))}${e.metric?.verified === false ? ' <small>历史记录·未核验</small>' : ''}</span>
     </div>
-    <details class="memo"><summary>私人笔记</summary><label>仅保存在当前浏览器<textarea data-note="${esc(id.toLowerCase())}" maxlength="2000" placeholder="使用经验、配置方法、待测试事项…"></textarea></label></details>
   </article>`;
 }
 export function issuePage(issue) {

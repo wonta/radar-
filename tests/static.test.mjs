@@ -84,3 +84,22 @@ test('REA page explains concrete analysis targets and tools instead of generic b
     assert.doesNotMatch(card,/整合多种逆向调查能力/);
   }
 });
+
+test('all dated archives have no visible tag pills or personal notes',()=>{
+  for(const year of ['2026'])for(const month of ['10']){
+    const dir='archive/'+year+'/'+month;
+    for(const filename of fs.readdirSync(dir).filter(x=>/^\d{2}\.html$/.test(x))){
+      const html=fs.readFileSync(dir+'/'+filename,'utf8');
+      assert.doesNotMatch(html,/<div class="tags">|<span class="tag">|class="memo"|私人笔记|data-note=|data-tags=/);
+    }
+  }
+});
+test('recent published issue has substantial individual Chinese project descriptions',()=>{
+  const html=file('2026-10-26');
+  const cards=[...html.matchAll(/<article class="project"([\s\S]*?)<\/article>/g)];
+  assert.equal(cards.length,20);
+  for(const [,card] of cards){
+    const detail=card.match(/data-detail="([^"]*)"/)?.[1]||'';
+    assert.ok(detail.length>=100,'short project description: '+card.slice(0,90));
+  }
+});
