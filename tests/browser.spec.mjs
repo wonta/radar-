@@ -71,3 +71,28 @@ for(const width of [360,390,768,1440])test('responsive static pages '+width,asyn
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   }
 });
+
+test('visual QA screenshots - desktop and mobile top, content, search, archive',async({page})=>{
+  const capture=async(name)=> {
+    const jpeg=await page.screenshot({type:'jpeg',quality:36,fullPage:false,animations:'disabled'});
+    console.log('VISUAL_'+name+'_START:'+jpeg.toString('base64')+':VISUAL_'+name+'_END');
+  };
+  await page.setViewportSize({width:1440,height:960});
+  await page.goto('/');
+  await capture('DESKTOP_HOME');
+  await page.locator('.project').first().scrollIntoViewIfNeeded();
+  await capture('DESKTOP_PROJECT');
+  await page.goto('/search.html');
+  await capture('DESKTOP_SEARCH');
+  await page.goto('/archive/2026/10/');
+  await capture('DESKTOP_ARCHIVE');
+  await page.setViewportSize({width:390,height:844});
+  await page.goto('/');
+  await capture('MOBILE_HOME');
+  await page.locator('.project').first().scrollIntoViewIfNeeded();
+  await capture('MOBILE_PROJECT');
+  await page.goto('/search.html');
+  await capture('MOBILE_SEARCH');
+  await page.goto('/archive/2026/10/');
+  await capture('MOBILE_ARCHIVE');
+});
