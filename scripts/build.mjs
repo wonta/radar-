@@ -1,7 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
-import {esc,unesc,shell,CATEGORIES,validDate,validRepo,archivePath} from './site.mjs';
+import {esc,unesc,shell,CATEGORIES,validDate,validRepo,archivePath,metricBadge} from './site.mjs';
+import {flagMarkup} from './flags.mjs';
 
 const LOCKED = {
   'catalog.tsv': 'aac59154e2ff3deec9038cc46af5cc540c93512e54d5363ab89dd13f36cf216c',
@@ -34,6 +35,8 @@ for (const y of fs.readdirSync(root, {withFileTypes:true}).filter(e => e.isDirec
           summary: fields['data-summary'] || '',
           detail: fields['data-detail'] || '',
           category: fields['data-category'] || 'dev',
+          flag: fields['data-flag'] || '',
+          metric: fields['data-metric'] || '',
           date, file
         });
       }
@@ -86,8 +89,16 @@ const cards = list.map(p => {
   const href = p.file;
   const search = [p.id,p.name,p.summary,p.detail,CATEGORIES[p.category]||''].join(' ').toLowerCase();
   return `<article class="search-card" data-search="${esc(search)}" data-category="${esc(p.category)}" data-repo="${esc(p.id.toLowerCase())}">
-    <div class="search-card-title"><h2><a href="https://github.com/${p.id}" target="_blank" rel="noopener noreferrer">${esc(p.name)} ↗</a></h2><button class="save-button" type="button" data-save="${esc(p.id.toLowerCase())}" aria-pressed="false">☆ 收藏</button></div>
-    <p class="repo-id">${esc(p.id)}</p>
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/${p.id}" target="_blank" rel="noopener noreferrer">${esc(p.name)} ↗</a></h2>
+          ${flagMarkup(p.flag)}
+          ${metricBadge(p.metric)}
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="${esc(p.id.toLowerCase())}" aria-pressed="false">☆ 收藏</button>
+    </div>
     <p class="search-summary">${esc(p.summary)}</p>
     ${p.detail && p.detail !== p.summary ? `<p class="search-detail">${esc(p.detail)}</p>` : ''}
     <div class="search-card-foot"><a href="${href}">${esc(p.date)} 的日报 →</a></div>

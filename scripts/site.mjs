@@ -1,3 +1,4 @@
+import {flagForRepo,flagMarkup} from './flags.mjs';
 export const CATEGORIES = Object.freeze({
   ai: 'AI / Agent', selfhost: '自托管', dev: '开发工具',
   graphics: '图形与创作', hardware: '硬件 / IoT', games: '游戏与模拟器',
@@ -27,6 +28,11 @@ export function metricText(metric) {
   if (!metric || metric.type === 'new') return '新项目';
   if (metric.type === 'daily') return '+' + Number(metric.value).toLocaleString('en-US') + ' / 日';
   return (metric.display || Number(metric.value).toLocaleString('en-US')) + ' Stars';
+}
+export function metricBadge(value) {
+  const text=String(value||'').replace(/^★\s*/,'').trim();
+  if(!text)return '';
+  return '<span class="metric">'+(text==='新项目'?'新项目':'★ '+esc(text))+'</span>';
 }
 export function shell({title, body, prefix = '', head = '', description = '中文 GitHub 开源项目日报：项目功能、实际用途、注意事项和历史归档。'}) {
   return `<!doctype html>
@@ -68,25 +74,26 @@ function card(e, index) {
   const meta = [
     ['data-repo', id], ['data-name', p.name || id.split('/')[1]],
     ['data-summary', e.summary], ['data-detail', e.detail || ''],
-    ['data-category', p.category || 'dev'],
+    ['data-category', p.category || 'dev'], ['data-flag', flag], ['data-metric', metric],
     ['data-date', e.date || ''], ['data-featured', String(!!e.featured)]
   ].map(([k,v]) => `${k}="${esc(v)}"`).join(' ');
-  const flag = p.flag ? `<span class="flag">${esc(p.flag)}</span>` : '';
+  const flag=flagForRepo(id,p.flag,p.tags);
+  const metric=metricText(e.metric);
   return `<article class="project" ${meta}>
     <div class="project-head">
       <span class="ordinal">${String(index + 1).padStart(2, '0')}</span>
       <div class="project-heading">
-        <h3><a href="${repoUrl}" target="_blank" rel="noopener noreferrer">${esc(p.name || id.split('/')[1])}<span class="external" aria-hidden="true">↗</span></a></h3>
-        <div class="repo-id">${esc(id)} ${flag}</div>
+        <div class="project-title-line">
+          <h3><a href="${repoUrl}" target="_blank" rel="noopener noreferrer">${esc(p.name || id.split('/')[1])}<span class="external" aria-hidden="true">↗</span></a></h3>
+          ${flagMarkup(flag)}
+          ${metricBadge(metric)}
+        </div>
       </div>
       <button class="save-button" type="button" data-save="${esc(id.toLowerCase())}" aria-pressed="false" aria-label="收藏 ${esc(p.name || id)}">☆ 收藏</button>
     </div>
     <p class="project-summary">${esc(e.summary)}</p>
     ${e.detail ? `<p class="project-detail">${esc(e.detail)}</p>` : ''}
     ${e.note ? `<p class="project-note">${esc(e.note)}</p>` : ''}
-    <div class="project-bottom">
-      <span class="metric">${esc(metricText(e.metric))}${e.metric?.verified === false ? ' <small>历史记录·未核验</small>' : ''}</span>
-    </div>
   </article>`;
 }
 export function issuePage(issue) {
