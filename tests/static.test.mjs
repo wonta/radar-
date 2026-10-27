@@ -143,3 +143,14 @@ test('28 Stars and intentic evidence appear next to project names and in search'
   assert.doesNotMatch(result,/class="repo-id"/);
   assert.match(result,/class="project-title-line"[\s\S]*?class="metric"/);
 });
+
+test('description typography collapses blank lines without discarding details',()=>{
+  const css=fs.readFileSync('dist/assets/site.css','utf8');
+  assert.match(css,/\.project-detail\{[^}]*white-space:normal\}/);
+  assert.match(css,/\.search-card \.search-detail\{[^}]*white-space:normal\}/);
+  const html=file('2026-10-26');
+  const cromford=html.match(/<article class="project" data-repo="cromford-ai\/cromford"[\s\S]*?<\/article>/)?.[0];
+  assert.ok(cromford);
+  assert.match(cromford,/每个阶段可指定不同模型/);
+  assert.match(cromford,/进入合并、部署验证和线上复查/);
+});

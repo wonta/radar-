@@ -116,3 +116,20 @@ test('Stars, small national-topic flags and concise header work on desktop and m
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   }
 });
+
+test('project descriptions do not render blank lines in daily or search cards',async({page})=>{
+  for(const width of [390,1440]){
+    await page.setViewportSize({width,height:900});
+    await page.goto('/archive/2026/10/26.html');
+    const daily=page.locator('article.project[data-repo="cromford-ai/cromford"] .project-detail');
+    await expect(daily).toContainText('每个阶段可指定不同模型');
+    const dailyStyle=await daily.evaluate(el=>getComputedStyle(el).whiteSpace);
+    expect(dailyStyle).toBe('normal');
+    await page.goto('/search.html?q=cromford');
+    const search=page.locator('.search-card[data-repo="cromford-ai/cromford"] .search-detail');
+    await expect(search).toContainText('每个阶段可指定不同模型');
+    const searchStyle=await search.evaluate(el=>getComputedStyle(el).whiteSpace);
+    expect(searchStyle).toBe('normal');
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  }
+});
