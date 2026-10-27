@@ -180,6 +180,16 @@ test('filter labels are above the corresponding input on phones and desktop',asy
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   }
 });
+test('archive quick links resolve from both year and all-years pages',async({page})=>{
+  await page.goto('/archive/');
+  await page.locator('.archive-recent-list a').first().click();
+  await expect(page).toHaveURL(/\/archive\/2026\/10\/26\.html$/);
+  await expect(page.locator('article.project')).toHaveCount(20);
+  await page.goto('/archive/2026/');
+  await page.locator('.archive-recent-list a').first().click();
+  await expect(page).toHaveURL(/\/archive\/2026\/10\/26\.html$/);
+});
+
 test('historic date wording, weekday archive and current page navigation are accurate',async({page})=>{
   await page.goto('/archive/2026/10/16.html');
   await expect(page.locator('h1')).toContainText('这一期');
