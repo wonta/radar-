@@ -71,3 +71,16 @@ test('automated issue cards are concise Chinese introductions without collection
     assert.doesNotMatch(html,/<p class="project-note">/);
   }
 });
+
+test('REA page explains concrete analysis targets and tools instead of generic boilerplate',()=>{
+  for(const day of [24,25,26]){
+    const html=file('2026-10-'+day);
+    const card=html.match(/<article class="project" data-repo="morluto\/rea"[\s\S]*?<\/article>/)?.[0];
+    assert.ok(card,'missing REA card');
+    assert.match(card,/Ghidra/);
+    assert.match(card,/Electron\/JavaScript/);
+    assert.match(card,/JADX/);
+    assert.match(card,/preload/);
+    assert.doesNotMatch(card,/整合多种逆向调查能力/);
+  }
+});
