@@ -134,6 +134,82 @@ test('project descriptions do not render blank lines in daily or search cards',a
   }
 });
 
+
+test('a daily overview jumps to its own rich project description',async({page})=>{
+  await page.goto('/archive/2026/10/16.html');
+  await page.locator('.overview > summary').click();
+  const link=page.locator('.overview ol li a').nth(7);
+  await expect(link).toHaveAttribute('href','#project-08');
+  await link.click();
+  await expect(page).toHaveURL(/#project-08$/);
+  const target=page.locator('article#project-08');
+  await expect(target).toBeVisible();
+  const top=await target.evaluate(el=>el.getBoundingClientRect().top);
+  expect(top).toBeGreaterThanOrEqual(70);
+  expect(top).toBeLessThan(250);
+});
+test('search loads readable results progressively and preserves filtering',async({page})=>{
+  await page.goto('/search.html');
+  await expect(page.locator('.search-card:visible')).toHaveCount(12);
+  await expect(page.locator('#results-count')).toContainText('234 个项目');
+  await expect(page.locator('#load-more')).toBeVisible();
+  await page.locator('#load-more').click();
+  await expect(page.locator('.search-card:visible')).toHaveCount(24);
+  await page.locator('#q').fill('intentic');
+  await expect(page.locator('.search-card:visible')).toHaveCount(1);
+  await expect(page.locator('#load-more')).toBeHidden();
+  await expect(page.locator('.search-card:visible .search-detail')).toContainText('独立 Git worktree');
+  await page.reload();
+  await expect(page.locator('#q')).toHaveValue('intentic');
+  await expect(page.locator('.search-card:visible')).toHaveCount(1);
+  await page.locator('#q').fill('a-unique-query-not-present-1234567');
+  await expect(page.locator('#search-empty')).toBeVisible();
+});
+test('filter labels are above the corresponding input on phones and desktop',async({page})=>{
+  for(const width of [360,390,768,1440]){
+    await page.setViewportSize({width,height:920});
+    await page.goto('/search.html');
+    for(const [labelId,inputId] of [['q','q'],['category','category']]){
+      const l=await page.locator('label[for="'+labelId+'"]').boundingBox();
+      const input=await page.locator('#'+inputId).boundingBox();
+      expect(l&&input).toBeTruthy();
+      expect(l.y+l.height).toBeLessThanOrEqual(input.y+2);
+      expect(l.x).toBeGreaterThanOrEqual(input.x-2);
+    }
+    await expect(page.locator('#q')).toBeVisible();
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  }
+});
+test('historic date wording, weekday archive and current page navigation are accurate',async({page})=>{
+  await page.goto('/archive/2026/10/16.html');
+  await expect(page.locator('h1')).toContainText('这一期');
+  await expect(page.locator('.nav a[aria-current="page"]')).toHaveText('往期归档');
+  await page.goto('/archive/2026/10/');
+  const monday=page.locator('.day-list a[href="26.html"]');
+  await expect(monday).toContainText('周一');
+  await expect(monday).toHaveAttribute('aria-label','2026-10-26，20 个开源项目');
+  await page.goto('/search.html?view=saved');
+  await expect(page.locator('.nav a[aria-current="page"]')).toHaveText('我的收藏');
+  await page.goto('/');
+  await expect(page.locator('.nav a[aria-current="page"]')).toHaveText('最新日报');
+});
+test('responsive visual hierarchy is readable without overlapping headings',async({page})=>{
+  for(const width of [360,390,768,1440]){
+    await page.setViewportSize({width,height:920});
+    for(const path of ['/','/search.html','/archive/','/archive/2026/','/archive/2026/10/']){
+      await page.goto(path);
+      const hasOverlap=await page.evaluate(()=>{
+        const items=[...document.querySelectorAll('.search-card:visible,.archive-card,.project:visible')];
+        return items.some(el=>{
+          const r=el.getBoundingClientRect();
+          return r.width>innerWidth||r.left<0||r.right>innerWidth+1;
+        });
+      });
+      expect(hasOverlap).toBe(false);
+      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+    }
+  }
+});
 test('DESIGN AUDIT temporary screenshots + layout measurements',async({page})=>{
   const shot=async(name)=>{
     const metrics=await page.evaluate(()=>{

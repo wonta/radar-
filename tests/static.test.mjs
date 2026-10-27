@@ -34,7 +34,8 @@ test('latest home and month/year indexes link to independent HTML',()=>{
 test('search database is rendered as HTML, not a JSON request',()=>{
   const html=fs.readFileSync('dist/search.html','utf8');
   assert.match(html,/morluto\/rea/);
-  assert.match(html,/data-search=/);
+  assert.match(html,/class="search-card"/);
+  assert.doesNotMatch(html,/data-search=/);
   assert.match(html,/id="saved-only"/);
   assert.doesNotMatch(html,/radar\.json/);
 });
@@ -153,4 +154,51 @@ test('description typography collapses blank lines without discarding details',(
   assert.ok(cromford);
   assert.match(cromford,/每个阶段可指定不同模型/);
   assert.match(cromford,/进入合并、部署验证和线上复查/);
+});
+
+test('archive issues have meaningful date headings and in-page overview navigation',()=>{
+  const path='archive/2026/10';
+  const files=fs.readdirSync(path).filter(f=>/^\d{2}\.html$/.test(f));
+  assert.ok(files.length>=16);
+  for(const name of files){
+    const html=fs.readFileSync(path+'/'+name,'utf8');
+    assert.doesNotMatch(html,/<h1>今天，/);
+    assert.match(html,/<h1>这一期，有哪些项目/);
+    const ids=[...html.matchAll(/<article class="project"[^>]*id="(project-\d{2})"/g)].map(m=>m[1]);
+    const anchors=[...html.matchAll(/<li><a href="#(project-\d{2})"/g)].map(m=>m[1]);
+    assert.equal(ids.length,Number(html.match(/name="radar-count" content="(\d+)"/)?.[1]),name);
+    assert.equal(new Set(ids).size,ids.length,name);
+    assert.deepEqual(anchors,ids,name);
+  }
+});
+test('search records avoid duplicate description attributes and remain an HTML document',()=>{
+  const html=fs.readFileSync('dist/search.html','utf8');
+  assert.doesNotMatch(html,/data-search=/);
+  assert.ok(Buffer.byteLength(html,'utf8')<250000,'search HTML should not repeat every description');
+  assert.match(html,/id="load-more"[^>]*hidden/);
+  assert.match(html,/class="search-field search-field-query"/);
+  assert.match(html,/class="search-field search-field-category"/);
+  assert.equal((html.match(/class="search-card"/g)||[]).length,234);
+});
+test('archive indexes provide useful navigation without oversized duplicated dates',()=>{
+  const all=fs.readFileSync('dist/archive/index.html','utf8');
+  const year=fs.readFileSync('dist/archive/2026/index.html','utf8');
+  const month=fs.readFileSync('dist/archive/2026/10/index.html','utf8');
+  assert.match(all,/class="archive-recent"/);
+  assert.match(year,/class="archive-grid archive-grid-compact"/);
+  assert.match(year,/class="archive-recent"/);
+  assert.match(month,/26 日 <small>周一<\/small>/);
+  assert.match(month,/aria-label="2026-10-26，20 个开源项目"/);
+  assert.doesNotMatch(month,/<small>2026-10-26<\/small>/);
+});
+test('secondary type color contrast is sufficient on paper and white surfaces',()=>{
+  const css=fs.readFileSync('dist/assets/site.css','utf8');
+  const hex=k=>css.match(new RegExp(k+':(#[a-fA-F0-9]{6})'))?.[1];
+  const light=color=>{const n=[1,3,5].map(i=>parseInt(color.slice(i,i+2),16)/255).map(v=>v<=0.04045?v/12.92:Math.pow((v+0.055)/1.055,2.4));return 0.2126*n[0]+0.7152*n[1]+0.0722*n[2]};
+  const contrast=(a,b)=>{const aa=light(a),bb=light(b);return (Math.max(aa,bb)+0.05)/(Math.min(aa,bb)+0.05)};
+  for(const token of ['--muted','--accent']){
+    assert.ok(hex(token),'missing '+token);
+    assert.ok(contrast(hex(token),'#f7f8f4')>=4.5,'paper contrast '+token);
+    assert.ok(contrast(hex(token),'#ffffff')>=4.5,'white contrast '+token);
+  }
 });
