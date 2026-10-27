@@ -133,3 +133,49 @@ test('project descriptions do not render blank lines in daily or search cards',a
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   }
 });
+
+test('DESIGN AUDIT temporary screenshots + layout measurements',async({page})=>{
+  const shot=async(name)=>{
+    const metrics=await page.evaluate(()=>{
+      const q=selector=>{
+        const el=document.querySelector(selector);
+        if(!el)return null;
+        const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
+        return {x:Math.round(r.x),y:Math.round(r.y),width:Math.round(r.width),height:Math.round(r.height),font:cs.fontSize,lineHeight:cs.lineHeight,display:cs.display};
+      };
+      return {
+        viewport:{width:innerWidth,height:innerHeight},bodyWidth:document.documentElement.scrollWidth,
+        header:q('.header'),brand:q('.brand'),nav:q('.nav'),hero:q('.issue-intro'),overview:q('.overview'),
+        firstProject:q('.project'),firstSummary:q('.project-summary'),firstDetail:q('.project-detail'),
+        searchIntro:q('.archive-intro'),searchTools:q('.search-tools'),searchField:q('#q'),
+        searchLabel:q('label[for="q"]'),categoryLabel:q('label[for="category"]'),category:q('#category'),
+        firstSearch:q('.search-card'),secondSearch:q('.search-card:nth-child(2)'),
+        firstArchive:q('.archive-card'),firstDay:q('.day-list > a'),
+        searchCards:document.querySelectorAll('.search-card').length
+      };
+    });
+    console.log('AUDITMETRICS_'+name+':'+JSON.stringify(metrics)+':END');
+    const data=await page.screenshot({type:'jpeg',quality:38,fullPage:false,animations:'disabled'});
+    console.log('AUDITSHOT_'+name+'_START:'+data.toString('base64')+':AUDITSHOT_'+name+'_END');
+  };
+  await page.setViewportSize({width:1440,height:920});
+  await page.goto('/');
+  await shot('DESKTOP_HOME');
+  await page.locator('.project').first().scrollIntoViewIfNeeded();
+  await shot('DESKTOP_PROJECT');
+  await page.goto('/search.html');
+  await shot('DESKTOP_SEARCH');
+  await page.goto('/archive/2026/');
+  await shot('DESKTOP_YEAR');
+  await page.setViewportSize({width:390,height:844});
+  await page.goto('/');
+  await shot('MOBILE_HOME');
+  await page.locator('.project').first().scrollIntoViewIfNeeded();
+  await shot('MOBILE_PROJECT');
+  await page.goto('/search.html');
+  await shot('MOBILE_SEARCH');
+  await page.goto('/archive/2026/10/');
+  await shot('MOBILE_MONTH');
+  await page.goto('/archive/2026/');
+  await shot('MOBILE_YEAR');
+});
