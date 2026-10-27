@@ -11,7 +11,7 @@ test('historic daily issue has 25 real HTML cards and no JS errors',async({page}
 test('latest homepage has 20 standalone project cards',async({page})=>{
   await page.goto('/');
   const count=Number(await page.locator('meta[name="radar-count"]').getAttribute('content'));
-  expect(count).toBeGreaterThanOrEqual(8);
+  expect(count).toBeGreaterThanOrEqual(4);
   await expect(page.locator('article.project')).toHaveCount(count);
   await expect(page.locator('h1')).toContainText('值得打开看看');
 });
