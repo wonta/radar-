@@ -66,7 +66,7 @@ for (const year of years) {
   const monthsList = months(year);
   const body = archiveHead('ARCHIVE / '+year,year+' 年归档','选择月份查看当月日报。') +
     `<p class="crumb"><a href="../index.html">← 所有年份</a></p><div class="archive-grid${monthsList.length<=2?' archive-grid-compact':''}">` +
-    monthsList.map(m => linkCard(m+'/index.html',year+' / '+m,year+' 年 '+m+' 月',days.filter(d=>d.date.startsWith(year+'-'+m+'-')).length,'月度归档')).join('')+'</div>'+
+    monthsList.map(m => {const monthDays=days.filter(d=>d.date.startsWith(year+'-'+m+'-'));return linkCard(m+'/index.html',m+' 月','最近更新 '+monthDays[0].date,monthDays.length,'月度归档');}).join('')+'</div>'+
     recentList(days.filter(d=>d.date.startsWith(year)).slice(0,5),'../../');
   writeIfChanged(`archive/${year}/index.html`,shell({title:year+' 年归档',body,prefix:'../../'}));
   for (const month of monthsList) {
