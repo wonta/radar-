@@ -5,6 +5,7 @@ import {EDITORIAL_OLDER_B} from './editorial-older-b.mjs';
 import {EDITORIAL_OLDER_C} from './editorial-older-c.mjs';
 import {EDITORIAL_MIDDLE} from './editorial-middle.mjs';
 import {EDITORIAL_RECENT} from './editorial-recent.mjs';
+import {EDITORIAL_20261027} from './editorial-20261027.mjs';
 import {esc,unesc,metricBadge} from './site.mjs';
 import {flagForRepo,flagMarkup} from './flags.mjs';
 
@@ -35,7 +36,8 @@ for(const year of fs.readdirSync('archive').filter(x=>/^\d{4}$/.test(x))){
         const id=attr(attrs,'data-repo').toLowerCase();
         if(!id)throw Error('Project id missing in '+file);
         cards.add(id);
-        const editorial=EDITORIAL.get(id);
+        const latest=EDITORIAL_20261027.get(id);
+        const editorial=latest?.detail||EDITORIAL.get(id);
         const original=attr(attrs,'data-detail');
         const detail=editorial||original;
         if(!editorial)untouched.add(id);
@@ -48,6 +50,10 @@ for(const year of fs.readdirSync('archive').filter(x=>/^\d{4}$/.test(x))){
           .replace(/\sdata-flag="[^"]*"/g,'')
           .replace(/\sdata-metric="[^"]*"/g,'')+
           ' data-flag="'+esc(flag)+'" data-metric="'+esc(metric)+'"';
+        if(latest){
+          if(!/\sdata-summary="/.test(newAttrs))throw Error('Missing summary attribute for '+id);
+          newAttrs=newAttrs.replace(/\sdata-summary="[^"]*"/,' data-summary="'+esc(latest.summary)+'"');
+        }
         if(/\sdata-detail="/.test(newAttrs)){
           newAttrs=newAttrs.replace(/\sdata-detail="[^"]*"/g,' data-detail="'+esc(detail)+'"');
         }else{
@@ -67,6 +73,11 @@ for(const year of fs.readdirSync('archive').filter(x=>/^\d{4}$/.test(x))){
           body=body.replace(/<div class="project-title-line">[\s\S]*?<\/div>/,line);
         }else{
           body=body.replace(title,line);
+        }
+        if(latest){
+          if(!/<p class="project-summary">[\s\S]*?<\/p>/.test(body))throw Error('Missing summary paragraph for '+id);
+          body=body.replace(/<p class="project-summary">[\s\S]*?<\/p>/,
+            '<p class="project-summary">'+esc(latest.summary)+'</p>');
         }
         if(editorial){
           if(/<p class="project-detail">[\s\S]*?<\/p>/.test(body)){
