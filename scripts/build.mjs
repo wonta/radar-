@@ -60,14 +60,14 @@ function writeIfChanged(file,value) {
 const recentList=(items,prefix='')=>`<section class="archive-recent"><h2>最近日报</h2><div class="archive-recent-list">${items.map(d=>`<a href="${prefix}${d.file}"><time datetime="${d.date}">${esc(d.date)}</time><span>${d.count} 个项目</span><span aria-hidden="true">→</span></a>`).join('')}</div></section>`;
 const allBody = archiveHead('ARCHIVE / ALL YEARS','历史日报','按年份和月份查找日报，也可以直接打开最近一期。') +
   `<div class="archive-grid${years.length<=2?' archive-grid-compact':''}">${years.map(y => linkCard(y+'/index.html',y+' 年',months(y).length+' 个月份',days.filter(d=>d.date.startsWith(y)).length,'年度归档')).join('')}</div>`+
-  recentList(days.slice(0,5));
+  recentList(days.slice(0,5),'../');
 writeIfChanged('archive/index.html',shell({title:'历史归档',body:allBody,prefix:'../'}));
 for (const year of years) {
   const monthsList = months(year);
   const body = archiveHead('ARCHIVE / '+year,year+' 年归档','选择月份查看当月日报。') +
     `<p class="crumb"><a href="../index.html">← 所有年份</a></p><div class="archive-grid${monthsList.length<=2?' archive-grid-compact':''}">` +
     monthsList.map(m => linkCard(m+'/index.html',year+' / '+m,year+' 年 '+m+' 月',days.filter(d=>d.date.startsWith(year+'-'+m+'-')).length,'月度归档')).join('')+'</div>'+
-    recentList(days.filter(d=>d.date.startsWith(year)).slice(0,5),'../');
+    recentList(days.filter(d=>d.date.startsWith(year)).slice(0,5),'../../');
   writeIfChanged(`archive/${year}/index.html`,shell({title:year+' 年归档',body,prefix:'../../'}));
   for (const month of monthsList) {
     const items = days.filter(d=>d.date.startsWith(year+'-'+month+'-'));
