@@ -30,7 +30,7 @@ for(const year of fs.readdirSync('archive').filter(x=>/^\d{4}$/.test(x))){
       const file=path.join(dir,filename);
       const html=fs.readFileSync(file,'utf8');
       let matchCount=0;
-      const next=html.replace(/<article class="project"([^>]*)>([\s\S]*?)<\/article>/g,(full,attrs,inside)=>{
+      let next=html.replace(/<article class="project"([^>]*)>([\s\S]*?)<\/article>/g,(full,attrs,inside)=>{
         matchCount++;
         const id=attr(attrs,'data-repo').toLowerCase();
         if(!id)throw Error('Project id missing in '+file);
@@ -77,10 +77,29 @@ for(const year of fs.readdirSync('archive').filter(x=>/^\d{4}$/.test(x))){
               m=>m+'\n    <p class="project-detail">'+esc(editorial)+'</p>');
           }
         }
-        return '<article class="project"'+newAttrs+'>'+body+'</article>';
+        newAttrs=newAttrs.replace(/\sid="[^"]*"/g,'');
+        return '<article class="project"'+newAttrs+' id="project-'+String(matchCount).padStart(2,'0')+'">'+body+'</article>';
       });
       const declared=Number(html.match(/<meta name="radar-count" content="(\d+)">/)?.[1]);
       if(matchCount!==declared)throw Error('Cannot safely update every project in '+file);
+      next=next.replace('<h1>今天，有哪些项目<br><em>值得打开看看。</em></h1>',
+        '<h1>这一期，有哪些项目<br><em>值得打开看看。</em></h1>');
+      next=next.replace(/每日 GitHub 项目雷达 · \d{4}-\d{2}-\d{2} · \d+ 个项目/g,
+        '收录 '+declared+' 个 GitHub 项目 · 持续归档');
+      next=next.replace(/(<span class="dash">\/</span>)\s*(\d{4} \/ \d{2} \/ \d{2})(<\/div>)/,
+        (_,prefix,label,end)=>prefix+' <time datetime="'+year+'-'+month+'-'+filename.slice(0,2)+'">'+label+'</time>'+end);
+      next=next.replace('展开查看全部名称','展开后可跳到对应项目');
+      let linkIndex=0;
+      next=next.replace(/(<details class="overview">[\s\S]*?<ol>)([\s\S]*?)(<\/ol>[\s\S]*?<\/details>)/,
+        (_,opening,list,ending)=>{
+          const converted=list.replace(/<li><a href="https:\/\/github\.com\/[^"]+"[^>]*>/g,()=>{
+            linkIndex++;
+            return '<li><a href="#project-'+String(linkIndex).padStart(2,'0')+'">';
+          });
+          if(linkIndex && linkIndex!==matchCount)throw Error('Overview count mismatch in '+file);
+          return opening+converted+ending;
+        });
+      if(!linkIndex && !next.includes('href="#project-01"'))throw Error('Overview anchors missing in '+file);
       if(next!==html){fs.writeFileSync(file,next);changed++;}
       seen+=matchCount;
     }
