@@ -185,6 +185,8 @@ test('archive indexes provide useful navigation without oversized duplicated dat
   const month=fs.readFileSync('dist/archive/2026/10/index.html','utf8');
   assert.match(all,/class="archive-recent"/);
   assert.match(year,/class="archive-grid archive-grid-compact"/);
+  assert.match(year,/>10 月<\/strong>/);
+  assert.doesNotMatch(year,/<span class="archive-desc">2026 年 10 月<\/span>/);
   assert.match(year,/class="archive-recent"/);
   assert.match(all,/href="\.\.\/archive\/2026\/10\/26\.html"/);
   assert.match(year,/href="\.\.\/\.\.\/archive\/2026\/10\/26\.html"/);
