@@ -77,7 +77,7 @@
   const categories=Object.fromEntries(Array.from(category?.options||[]).map(o=>[o.value,o.textContent]));
   const cards=Array.from(document.querySelectorAll('.search-card')).map(node=>({
     node,
-    text:(node.textContent+' '+(categories[node.dataset.category]||'')).toLocaleLowerCase()
+    text:(node.dataset.repo+' '+node.textContent+' '+(categories[node.dataset.category]||'')).toLocaleLowerCase()
   }));
 
   function filter(reset=false) {

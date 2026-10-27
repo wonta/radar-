@@ -144,9 +144,9 @@ test('a daily overview jumps to its own rich project description',async({page})=
   await expect(page).toHaveURL(/#project-08$/);
   const target=page.locator('article#project-08');
   await expect(target).toBeVisible();
+  await expect.poll(async()=>Math.round(await target.evaluate(el=>el.getBoundingClientRect().top))).toBeLessThan(250);
   const top=await target.evaluate(el=>el.getBoundingClientRect().top);
   expect(top).toBeGreaterThanOrEqual(70);
-  expect(top).toBeLessThan(250);
 });
 test('search loads readable results progressively and preserves filtering',async({page})=>{
   await page.goto('/search.html');
@@ -209,7 +209,7 @@ test('responsive visual hierarchy is readable without overlapping headings',asyn
     for(const path of ['/','/search.html','/archive/','/archive/2026/','/archive/2026/10/']){
       await page.goto(path);
       const hasOverlap=await page.evaluate(()=>{
-        const items=[...document.querySelectorAll('.search-card:visible,.archive-card,.project:visible')];
+        const items=[...document.querySelectorAll('.search-card,.archive-card,.project')].filter(el=>!el.hidden&&getComputedStyle(el).display!=='none'&&el.getClientRects().length>0);
         return items.some(el=>{
           const r=el.getBoundingClientRect();
           return r.width>innerWidth||r.left<0||r.right>innerWidth+1;
