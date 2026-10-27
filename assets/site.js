@@ -22,7 +22,7 @@
     }
   }
   const STORE = 'radar-personal-v2';
-  let personal = {version:2,saved:[],read:[],notes:{}};
+  let personal = {version:2,saved:[],read:[]};
   try {
     let saved = localStorage.getItem(STORE);
     if (!saved) {
@@ -35,7 +35,6 @@
       const parsed = JSON.parse(saved);
       if (parsed && parsed.version === 2 && Array.isArray(parsed.saved)) {
         personal.saved=parsed.saved;
-        if (parsed.notes && typeof parsed.notes === 'object' && !Array.isArray(parsed.notes)) personal.notes=parsed.notes;
         if (Array.isArray(parsed.read)) personal.read=parsed.read;
       }
     }
@@ -102,16 +101,6 @@
     if(isSaved(id))personal.saved=personal.saved.filter(v=>v!==id);
     else personal.saved.push(id);
     persist();refresh();filter();
-  });
-  document.querySelectorAll('[data-note]').forEach(el => {
-    const id=el.dataset.note;
-    if(!validRepo(id))return;
-    el.value=typeof personal.notes[id]==='string'?personal.notes[id].slice(0,2000):'';
-    el.addEventListener('input',()=>{
-      if(el.value)personal.notes[id]=el.value.slice(0,2000);
-      else delete personal.notes[id];
-      persist();
-    });
   });
   refresh();
 })();

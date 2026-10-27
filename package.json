@@ -7,7 +7,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "build": "node scripts/build.mjs",
+    "build": "node scripts/refine-archive.mjs && node scripts/build.mjs",
     "test": "node --test tests/static.test.mjs tests/translate.test.mjs",
     "check": "npm run build && npm test"
   }

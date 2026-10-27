@@ -43,16 +43,18 @@ test('bookmark from daily page appears in saved projects',async({page})=>{
   await expect(page.locator('.search-card:visible')).toHaveCount(1);
   await expect(page.locator('.search-card:visible')).toContainText(/rea/i);
 });
-test('private notes are literal and persist on reload',async({page})=>{
-  await page.goto('/archive/2026/10/16.html');
-  const entry=page.locator('.project[data-repo="morluto/rea"]');
-  await entry.locator('.memo > summary').click();
-  const note=entry.locator('textarea');
-  await note.fill('<img src=x onerror=alert(1)> 留待测试');
-  await page.reload();
-  await entry.locator('.memo > summary').click();
-  await expect(note).toHaveValue('<img src=x onerror=alert(1)> 留待测试');
-  await expect(entry.locator('.memo img')).toHaveCount(0);
+test('daily projects use descriptions instead of tags and private notes',async({page})=>{
+  await page.goto('/archive/2026/10/26.html');
+  await expect(page.locator('article.project')).toHaveCount(20);
+  await expect(page.locator('.project .tags,.project .tag,.project .memo,.project [data-note]')).toHaveCount(0);
+  await expect(page.locator('article.project[data-repo="nitrobass24/seedsync"] .project-detail')).toContainText('校验');
+  await expect(page.locator('article.project[data-repo="morluto/rea"] .project-detail')).toContainText('Ghidra');
+});
+test('search shows expanded project detail without tag pills',async({page})=>{
+  await page.goto('/search.html?q=nitrobass24');
+  await expect(page.locator('.search-card:visible')).toHaveCount(1);
+  await expect(page.locator('.search-card:visible .search-detail')).toContainText('Sonarr');
+  await expect(page.locator('.search-card .tag')).toHaveCount(0);
 });
 test('legacy flat URL redirects to year/month/day path',async({page})=>{
   await page.goto('/archive/2026-10-20.html');
