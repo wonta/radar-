@@ -95,3 +95,22 @@ test('readability: search results appear on the first mobile screen',async({page
   expect(first.y).toBeLessThan(610);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
+
+test('temporary visual QA for expanded project descriptions',async({page})=>{
+  const capture=async(name)=>{
+    const shot=await page.screenshot({type:'jpeg',quality:46,fullPage:false,animations:'disabled'});
+    console.log('RICH_'+name+'_START:'+shot.toString('base64')+':RICH_'+name+'_END');
+  };
+  await page.setViewportSize({width:1440,height:960});
+  await page.goto('/archive/2026/10/26.html');
+  await page.locator('article.project[data-repo="nitrobass24/seedsync"]').scrollIntoViewIfNeeded();
+  await capture('DESKTOP_PROJECT');
+  await page.goto('/search.html?q=nitrobass24');
+  await capture('DESKTOP_SEARCH');
+  await page.setViewportSize({width:390,height:844});
+  await page.goto('/archive/2026/10/26.html');
+  await page.locator('article.project[data-repo="nitrobass24/seedsync"]').scrollIntoViewIfNeeded();
+  await capture('MOBILE_PROJECT');
+  await page.goto('/search.html?q=nitrobass24');
+  await capture('MOBILE_SEARCH');
+});
