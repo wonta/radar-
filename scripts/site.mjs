@@ -71,14 +71,14 @@ function card(e, index) {
   if (!p || !validRepo(p.id) || !e.summary) throw Error('Invalid project entry: ' + (e.repo || '?'));
   const id = p.id;
   const repoUrl = 'https://github.com/' + id;
+  const flag=flagForRepo(id,p.flag,p.tags);
+  const metric=metricText(e.metric);
   const meta = [
     ['data-repo', id], ['data-name', p.name || id.split('/')[1]],
     ['data-summary', e.summary], ['data-detail', e.detail || ''],
     ['data-category', p.category || 'dev'], ['data-flag', flag], ['data-metric', metric],
     ['data-date', e.date || ''], ['data-featured', String(!!e.featured)]
   ].map(([k,v]) => `${k}="${esc(v)}"`).join(' ');
-  const flag=flagForRepo(id,p.flag,p.tags);
-  const metric=metricText(e.metric);
   return `<article class="project" ${meta}>
     <div class="project-head">
       <span class="ordinal">${String(index + 1).padStart(2, '0')}</span>
