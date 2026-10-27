@@ -5,7 +5,8 @@ import {EDITORIAL_OLDER_B} from './editorial-older-b.mjs';
 import {EDITORIAL_OLDER_C} from './editorial-older-c.mjs';
 import {EDITORIAL_MIDDLE} from './editorial-middle.mjs';
 import {EDITORIAL_RECENT} from './editorial-recent.mjs';
-import {esc,unesc} from './site.mjs';
+import {esc,unesc,metricBadge} from './site.mjs';
+import {flagForRepo,flagMarkup} from './flags.mjs';
 
 export const EDITORIAL = new Map([
   ...EDITORIAL_OLDER_A,
@@ -38,7 +39,15 @@ for(const year of fs.readdirSync('archive').filter(x=>/^\d{4}$/.test(x))){
         const original=attr(attrs,'data-detail');
         const detail=editorial||original;
         if(!editorial)untouched.add(id);
-        let newAttrs=attrs.replace(/\sdata-tags="[^"]*"/g,'');
+        const rawMetric=inside.match(/<span class="metric">([\s\S]*?)<\/span>/)?.[1]||'';
+        const metric=attr(attrs,'data-metric')||unesc(rawMetric.replace(/<small>[\s\S]*?<\/small>/g,'').replace(/<[^>]+>/g,'').replace(/^\s*★\s*/,'').trim());
+        if(!metric)throw Error('Missing original Stars data in '+file+': '+id);
+        const oldFlag=attr(attrs,'data-flag')||inside.match(/<span class="flag">([^<]+)<\/span>/)?.[1]||'';
+        const flag=flagForRepo(id,oldFlag);
+        let newAttrs=attrs.replace(/\sdata-tags="[^"]*"/g,'')
+          .replace(/\sdata-flag="[^"]*"/g,'')
+          .replace(/\sdata-metric="[^"]*"/g,'')+
+          ' data-flag="'+esc(flag)+'" data-metric="'+esc(metric)+'"';
         if(/\sdata-detail="/.test(newAttrs)){
           newAttrs=newAttrs.replace(/\sdata-detail="[^"]*"/g,' data-detail="'+esc(detail)+'"');
         }else{
@@ -47,14 +56,25 @@ for(const year of fs.readdirSync('archive').filter(x=>/^\d{4}$/.test(x))){
         let body=inside
           .replace(/<div class="tags">[\s\S]*?<\/div>\s*/g,'')
           .replace(/<span class="tag">[\s\S]*?<\/span>\s*/g,'')
-          .replace(/<details class="memo">[\s\S]*?<\/details>\s*/g,'');
+          .replace(/<details class="memo">[\s\S]*?<\/details>\s*/g,'')
+          .replace(/<div class="repo-id">[\s\S]*?<\/div>\s*/g,'')
+          .replace(/<div class="project-bottom">[\s\S]*?<\/div>\s*/g,'');
+        const title=body.match(/<h3>[\s\S]*?<\/h3>/)?.[0];
+        if(!title)throw Error('Missing project title in '+file+': '+id);
+        const line='<div class="project-title-line">'+title+
+          flagMarkup(flag)+metricBadge(metric)+'</div>';
+        if(/<div class="project-title-line">/.test(body)){
+          body=body.replace(/<div class="project-title-line">[\s\S]*?<\/div>/,line);
+        }else{
+          body=body.replace(title,line);
+        }
         if(editorial){
           if(/<p class="project-detail">[\s\S]*?<\/p>/.test(body)){
             body=body.replace(/<p class="project-detail">[\s\S]*?<\/p>/,
               '<p class="project-detail">'+esc(editorial)+'</p>');
           }else{
-            body=body.replace('<div class="project-bottom">',
-              '<p class="project-detail">'+esc(editorial)+'</p>\n    <div class="project-bottom">');
+            body=body.replace(/<p class="project-summary">[\s\S]*?<\/p>/,
+              m=>m+'\n    <p class="project-detail">'+esc(editorial)+'</p>');
           }
         }
         return '<article class="project"'+newAttrs+'>'+body+'</article>';

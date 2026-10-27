@@ -103,3 +103,43 @@ test('recent published issue has substantial individual Chinese project descript
     assert.ok(detail.length>=100,'short project description: '+card.slice(0,90));
   }
 });
+
+test('all issue cards display Stars next to title and omit duplicate repository labels',()=>{
+  const dir='archive/2026/10';
+  for(const fileName of fs.readdirSync(dir).filter(x=>/^\d{2}\.html$/.test(x))){
+    const html=fs.readFileSync(dir+'/'+fileName,'utf8');
+    const cards=[...html.matchAll(/<article class="project"([\s\S]*?)<\/article>/g)];
+    assert.ok(cards.length>0);
+    for(const [,card] of cards){
+      assert.match(card,/data-metric="[^"]+"/);
+      assert.match(card,/class="project-title-line"/);
+      assert.match(card,/class="project-title-line"[\s\S]*?class="metric"/);
+      assert.doesNotMatch(card,/class="repo-id"|class="project-bottom"|<span class="flag">/);
+      assert.equal((card.match(/class="metric"/g)||[]).length,1);
+    }
+  }
+});
+test('historic CN and JP flags are restored as icons without inventing nationality',()=>{
+  const original=file('2026-10-10');
+  assert.match(original,/data-repo="alibaba\/open-code-review"[\s\S]*?aria-label="中文相关项目"/);
+  assert.match(original,/data-repo="CAPCOM-TD-OSS\/REDox"[\s\S]*?aria-label="日本相关项目"/);
+  const latest=file('2026-10-26');
+  assert.match(latest,/data-repo="togatoga\/karukan"[\s\S]*?aria-label="日本相关项目"/);
+});
+test('28 Stars and intentic evidence appear next to project names and in search',()=>{
+  const html=file('2026-10-26');
+  const cromford=html.match(/<article class="project" data-repo="cromford-ai\/cromford"[\s\S]*?<\/article>/)?.[0];
+  assert.ok(cromford);
+  assert.match(cromford,/class="project-title-line"[\s\S]*?★ 28 Stars/);
+  const intentic=html.match(/<article class="project" data-repo="intentic\/intentic"[\s\S]*?<\/article>/)?.[0];
+  assert.ok(intentic);
+  assert.doesNotMatch(intentic,/class="repo-id"/);
+  assert.match(intentic,/独立 Git worktree/);
+  assert.match(intentic,/自动启动代理/);
+  assert.match(intentic,/出站隧道/);
+  const search=fs.readFileSync('dist/search.html','utf8');
+  const result=search.match(/<article class="search-card"[^>]*data-repo="intentic\/intentic"[\s\S]*?<\/article>/)?.[0];
+  assert.ok(result);
+  assert.doesNotMatch(result,/class="repo-id"/);
+  assert.match(result,/class="project-title-line"[\s\S]*?class="metric"/);
+});

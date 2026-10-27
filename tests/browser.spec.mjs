@@ -95,3 +95,24 @@ test('readability: search results appear on the first mobile screen',async({page
   expect(first.y).toBeLessThan(610);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
+
+test('Stars, small national-topic flags and concise header work on desktop and mobile',async({page})=>{
+  for(const width of [390,1440]){
+    await page.setViewportSize({width,height:900});
+    await page.goto('/archive/2026/10/26.html');
+    const target=page.locator('article.project[data-repo="cromford-ai/cromford"]');
+    await expect(target.locator('.project-title-line .metric')).toContainText('28 Stars');
+    await expect(target.locator('.repo-id,.project-bottom')).toHaveCount(0);
+    const jp=page.locator('article.project[data-repo="togatoga/karukan"] .project-title-line .project-flag');
+    await expect(jp).toHaveAttribute('aria-label','日本相关项目');
+    const rich=page.locator('article.project[data-repo="intentic/intentic"] .project-detail');
+    await expect(rich).toContainText('独立 Git worktree');
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+    await page.goto('/search.html?q=intentic');
+    const result=page.locator('.search-card[data-repo="intentic/intentic"]');
+    await expect(result.locator('.project-title-line .metric')).toBeVisible();
+    await expect(result.locator('.repo-id')).toHaveCount(0);
+    await expect(result.locator('.search-detail')).toContainText('出站隧道');
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  }
+});

@@ -38,13 +38,16 @@ jobs:
       - name: Install browser regression tools
         if: github.event_name == 'push' || github.event_name == 'pull_request'
         run: npm install --no-save --package-lock=false --ignore-scripts @playwright/test@1.64.1
-      - name: Use preinstalled Chrome and install CJK fonts for browser QA
+      - name: Use preinstalled Chrome and optional CJK fonts
         if: github.event_name == 'push' || github.event_name == 'pull_request'
+        timeout-minutes: 2
         run: |
           google-chrome --version
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq fonts-noto-cjk >/dev/null
-          fc-cache -f
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            timeout 35s sudo apt-get update -qq || true
+            timeout 45s sudo apt-get install -y -qq fonts-noto-cjk fonts-noto-color-emoji >/dev/null || true
+            fc-cache -f || true
+          fi
       - name: Browser regression
         if: github.event_name == 'push' || github.event_name == 'pull_request'
         run: npx playwright test
