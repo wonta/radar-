@@ -1,10 +1,8 @@
-name: Daily radar HTML and Pages
+name: Publish editor-reviewed radar HTML to Pages
 on:
   push:
     branches: [main]
   pull_request:
-  schedule:
-    - cron: '15 23 * * *' # 08:15 Japan time
   workflow_dispatch:
 permissions:
   contents: write
@@ -28,11 +26,6 @@ jobs:
           node-version: '22'
       - name: Convert the frozen legacy archive and prior daily JSON (one-time)
         run: node scripts/migrate-archive.mjs
-      - name: Gather today's GitHub projects directly to HTML
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/daily-scout.mjs
       - name: Build indexes, site and verify snapshots
         run: npm run check
       - name: Install browser regression tools
