@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "node scripts/refine-archive.mjs && node scripts/build.mjs",
-    "test": "node --test tests/static.test.mjs tests/translate.test.mjs tests/readme-facts.test.mjs",
+    "test": "node --test tests/static.test.mjs tests/translate.test.mjs tests/readme-facts.test.mjs tests/editorial-llm.test.mjs",
     "check": "npm run build && npm test"
   }
 }
