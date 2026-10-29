@@ -5,6 +5,7 @@ import {EDITORIAL_OLDER_B} from './editorial-older-b.mjs';
 import {EDITORIAL_OLDER_C} from './editorial-older-c.mjs';
 import {EDITORIAL_MIDDLE} from './editorial-middle.mjs';
 import {EDITORIAL_RECENT} from './editorial-recent.mjs';
+import {EDITORIAL_20261029} from './editorial-2026-10-29.mjs';
 import {esc,unesc,metricBadge} from './site.mjs';
 import {flagForRepo,flagMarkup} from './flags.mjs';
 
@@ -13,7 +14,8 @@ export const EDITORIAL = new Map([
   ...EDITORIAL_OLDER_B,
   ...EDITORIAL_OLDER_C,
   ...EDITORIAL_MIDDLE,
-  ...EDITORIAL_RECENT
+  ...EDITORIAL_RECENT,
+  ...EDITORIAL_20261029
 ]);
 
 const attr=(src,key)=>{

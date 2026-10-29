@@ -32,6 +32,9 @@ jobs:
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RADAR_LLM_API_URL: ${{ vars.RADAR_LLM_API_URL }}
+          RADAR_LLM_MODEL: ${{ vars.RADAR_LLM_MODEL }}
+          RADAR_LLM_API_KEY: ${{ secrets.RADAR_LLM_API_KEY }}
         run: node scripts/daily-scout.mjs
       - name: Build indexes, site and verify snapshots
         run: npm run check
