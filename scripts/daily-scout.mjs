@@ -2,8 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {issuePage,archivePath} from './site.mjs';
 import {CURATED,hasReadableChinese} from './curated-zh.mjs';
-import {translateToChinese,clipBytes} from './translate.mjs';
-import {extractReadmeFacts} from './readme-facts.mjs';
+import {summarizeProject,hasModelConfig,validateEditorial} from './editorial-llm.mjs';
 import {EDITORIAL_RECENT} from './editorial-recent.mjs';
 
 const token=process.env.GITHUB_TOKEN;
@@ -72,41 +71,27 @@ const categories=[
   [/learn|education|japanese/,'learning']
 ];
 const category=repo=>categories.find(([re])=>re.test((repo.topics||[]).join(' ').toLowerCase()))?.[1]||'dev';
-let translatedBytes=0;
-const maxTranslateBytes=7600;
-async function chinese(text,limit) {
-  const sample=clipBytes(text,limit);
-  if(!sample)return '';
-  if(hasReadableChinese(sample))return sample;
-  const size=Buffer.byteLength(sample,'utf8');
-  if(translatedBytes+size>maxTranslateBytes)return '';
-  translatedBytes+=size;
-  try {return (await translateToChinese(sample,{limit})).slice(0,190);}
-  catch(error) {console.warn('Chinese translation unavailable:',error.message);return '';}
-}
 const entries=[];
+const modelEnabled=hasModelConfig();
+if(!modelEnabled) console.warn('No RADAR_LLM_API_URL/KEY/MODEL: publishing curated projects only; never clipping README.');
 for(const repo of candidates) {
   if(entries.length>=14)break;
   const curated=CURATED.get(repo.full_name.toLowerCase());
-  const summary=curated?.summary || await chinese(repo.description,240);
-  if(!hasReadableChinese(summary))continue;
+  let summary=curated?.summary || '';
   let detail=EDITORIAL_RECENT.get(repo.full_name.toLowerCase()) || curated?.detail || '';
-  if(!detail && translatedBytes<maxTranslateBytes-450) {
+  if(summary && detail) {
+    try { ({summary,detail}=validateEditorial({summary,detail})); }
+    catch(error) {console.warn('Curated material needs review:',repo.full_name,error.message);continue;}
+  } else if(modelEnabled) {
     try {
       const res=await fetch('https://api.github.com/repos/'+repo.full_name+'/readme',{
         headers:{...headers,Accept:'application/vnd.github.raw+json'}
       });
-      if(res.ok) {
-        const raw=(await res.text()).slice(0,16000);
-        const features=extractReadmeFacts(raw);
-        if(features) {
-          const translated=await chinese(features,380);
-          if(hasReadableChinese(translated) && translated.length>=60 && translated!==summary) detail=translated;
-        }
-      }
-    } catch(error) {console.warn('README features unavailable:',repo.full_name,error.message);}
-  }
-  if(!hasReadableChinese(detail) || detail.length<60)continue;
+      if(!res.ok) throw Error('README HTTP '+res.status);
+      const editorial=await summarizeProject({repository:repo.full_name,description:repo.description,readme:await res.text()});
+      ({summary,detail}=editorial);
+    } catch(error) {console.warn('Editorial generation failed:',repo.full_name,error.message);continue;}
+  } else continue;
   const project={
     id:repo.full_name,name:repo.name,category:category(repo),
     flag:'',tags:(repo.topics||[]).slice(0,3)
@@ -120,7 +105,7 @@ for(const repo of candidates) {
     }
   });
 }
-if(entries.length<4)throw Error('Not enough new projects with concrete Chinese functions from README; declining to publish vague excerpts');
+if(entries.length<4){console.log('No publish: fewer than four verified editorial entries; existing daily HTML remains intact.');process.exit(0);}
 fs.mkdirSync(path.dirname(target),{recursive:true});
 fs.writeFileSync(target,issuePage({date,source:'github-actions-scout',entries}),{flag:'wx'});
 console.log('Published '+entries.length+' Chinese project entries to '+target);
