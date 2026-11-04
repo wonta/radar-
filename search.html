@@ -23,7 +23,259 @@
       <a href="search.html?view=saved">我的收藏</a>
     </nav>
   </div></header>
-  <main class="container main" id="main"><div class="eyebrow">PROJECT LIBRARY / SEARCH</div><div class="archive-intro"><h1>项目搜索</h1><p>按项目名称、用途、关键词与分类查找历史日报中的开源项目。</p></div><div class="search-tools"><label for="q">关键词搜索</label><input id="q" type="search" placeholder="输入项目名、用途、MCP、日语……" autocomplete="off"><label for="category">项目分类</label><select id="category"><option value="">全部分类</option><option value="ai">AI / Agent</option><option value="selfhost">自托管</option><option value="dev">开发工具</option><option value="graphics">图形与创作</option><option value="hardware">硬件 / IoT</option><option value="games">游戏与模拟器</option><option value="data">数据与商业</option><option value="security">安全与逆向</option><option value="learning">学习与研究</option></select><label class="saved-filter"><input type="checkbox" id="saved-only"> 仅看我的收藏</label></div><p class="results-count" id="results-count" role="status">276 个项目</p><div class="search-grid" id="search-results"><article class="search-card" data-search="motionsites-ai/claude-skill claude-skill 免费claude技能：让claude构建奖项级别的电影登录页面。由motionsites提供。 让claude构建奖项级别的电影登陆页面，而不是平均的人工智能布局；技能中的40个示例设计中的8个，每个设计都显示在其构建的视频旁边。所有50多个视频都在技能的媒体架上； 40个示例提示： motionsites上最受欢迎的免费提示，人们真正喜欢的设计。claude阅读与每份简报匹配的最接近的2–3份简报 开发工具" data-category="dev" data-repo="motionsites-ai/claude-skill">
+  <main class="container main" id="main"><div class="eyebrow">PROJECT LIBRARY / SEARCH</div><div class="archive-intro"><h1>项目搜索</h1><p>按项目名称、用途、关键词与分类查找历史日报中的开源项目。</p></div><div class="search-tools"><label for="q">关键词搜索</label><input id="q" type="search" placeholder="输入项目名、用途、MCP、日语……" autocomplete="off"><label for="category">项目分类</label><select id="category"><option value="">全部分类</option><option value="ai">AI / Agent</option><option value="selfhost">自托管</option><option value="dev">开发工具</option><option value="graphics">图形与创作</option><option value="hardware">硬件 / IoT</option><option value="games">游戏与模拟器</option><option value="data">数据与商业</option><option value="security">安全与逆向</option><option value="learning">学习与研究</option></select><label class="saved-filter"><input type="checkbox" id="saved-only"> 仅看我的收藏</label></div><p class="results-count" id="results-count" role="status">294 个项目</p><div class="search-grid" id="search-results"><article class="search-card" data-search="wangzan101/mika mika 在 android 手机的独立后台屏幕中操作应用和网页，让 ai 按步骤完成查找、点击、输入及整理任务。 采用 android 原生应用与无线调试配对，在独立的后台显示环境中读取界面、识别控件并执行点击、滑动、输入；用户可以继续操作主屏幕，还能随时查看任务画面。任务可涉及聊天记录整理、网页信息查找和多步应用操作，并由自带浏览器承担网页任务。应用本身支持 android 11 起，但真正操作其他手机应用需要 android 12 或更新版本，首次配置涉及开发者选项和无线调试。模型通过用户选择的 api 或账号接入，不能把“本机操作”理解为模型也完全离线；敏感消息、账户授权和支付环节仍需人工把关。 ai / agent" data-category="ai" data-repo="wangzan101/mika">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/wangzan101/Mika" target="_blank" rel="noopener noreferrer">Mika ↗</a></h2>
+          <span class="project-flag" role="img" title="中文相关项目" aria-label="中文相关项目">🇨🇳</span>
+          <span class="metric">★ 6,601 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="wangzan101/mika" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">在 Android 手机的独立后台屏幕中操作应用和网页，让 AI 按步骤完成查找、点击、输入及整理任务。</p>
+    <p class="search-detail">采用 Android 原生应用与无线调试配对，在独立的后台显示环境中读取界面、识别控件并执行点击、滑动、输入；用户可以继续操作主屏幕，还能随时查看任务画面。任务可涉及聊天记录整理、网页信息查找和多步应用操作，并由自带浏览器承担网页任务。应用本身支持 Android 11 起，但真正操作其他手机应用需要 Android 12 或更新版本，首次配置涉及开发者选项和无线调试。模型通过用户选择的 API 或账号接入，不能把“本机操作”理解为模型也完全离线；敏感消息、账户授权和支付环节仍需人工把关。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="kkkkhazix/agent-autoloop agent-autoloop 给 claude code、codex 等命令行 agent 增加持续接单、任务续跑和人工审批功能，而不必一直守着终端。 系统把定时触发、github webhook 和业务事件转成任务，再按规则派给 cli agent。kernel/rules.ts 定义事件匹配与并发分组，worker/worker.ts 负责启动独立进程、保存进度和恢复回执；飞书、钉钉及桌面通知等通道可以发送需要人作决定的卡片。等待审批时 agent 进程退出，决策记录保存在持久化状态中，回复后继续原会话。适合持续巡检、issue 处理和自动交付流程；目前主要面向 macos/linux，需要 node 24、git 和已配置的 agent，模型额度仍由相应账户承担。 ai / agent" data-category="ai" data-repo="kkkkhazix/agent-autoloop">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/KKKKhazix/agent-autoloop" target="_blank" rel="noopener noreferrer">agent-autoloop ↗</a></h2>
+          <span class="project-flag" role="img" title="中文相关项目" aria-label="中文相关项目">🇨🇳</span>
+          <span class="metric">★ 2,420 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="kkkkhazix/agent-autoloop" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">给 Claude Code、Codex 等命令行 Agent 增加持续接单、任务续跑和人工审批功能，而不必一直守着终端。</p>
+    <p class="search-detail">系统把定时触发、GitHub Webhook 和业务事件转成任务，再按规则派给 CLI Agent。kernel/rules.ts 定义事件匹配与并发分组，worker/worker.ts 负责启动独立进程、保存进度和恢复回执；飞书、钉钉及桌面通知等通道可以发送需要人作决定的卡片。等待审批时 Agent 进程退出，决策记录保存在持久化状态中，回复后继续原会话。适合持续巡检、Issue 处理和自动交付流程；目前主要面向 macOS/Linux，需要 Node 24、Git 和已配置的 Agent，模型额度仍由相应账户承担。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="deepseek-ai/dsh-superagent-prototype dsh-superagent-prototype deepseek 团队公开的自主编码 agent 研究原型，围绕工单、权限与会话管理自动推进 github 开发任务。 这是与 deepseek harness 配合使用的单仓库编码 agent 原型，不是可直接购买或投入生产的完整产品。它监听被授权的 github 事件，也可接入飞书，把需求形成工单，分配独立任务会话和工作目录，在原讨论线程中反馈成果或 pull request。src/core/engine.ts 将事件接收、评估、任务分配、回复和状态变更置于事务化的领域入口，另有人工决策面板。适合研究多轮 agent 自治及授权边界；readme 明确提示代码仍属研究性质，公开版也不等同团队内部实现。 ai / agent" data-category="ai" data-repo="deepseek-ai/dsh-superagent-prototype">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/deepseek-ai/dsh-superagent-prototype" target="_blank" rel="noopener noreferrer">dsh-superagent-prototype ↗</a></h2>
+          <span class="project-flag" role="img" title="中文相关项目" aria-label="中文相关项目">🇨🇳</span>
+          <span class="metric">★ 18,516 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="deepseek-ai/dsh-superagent-prototype" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">DeepSeek 团队公开的自主编码 Agent 研究原型，围绕工单、权限与会话管理自动推进 GitHub 开发任务。</p>
+    <p class="search-detail">这是与 DeepSeek Harness 配合使用的单仓库编码 Agent 原型，不是可直接购买或投入生产的完整产品。它监听被授权的 GitHub 事件，也可接入飞书，把需求形成工单，分配独立任务会话和工作目录，在原讨论线程中反馈成果或 Pull Request。src/core/engine.ts 将事件接收、评估、任务分配、回复和状态变更置于事务化的领域入口，另有人工决策面板。适合研究多轮 Agent 自治及授权边界；README 明确提示代码仍属研究性质，公开版也不等同团队内部实现。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="floci-io/floci floci 在本机模拟 s3、lambda、dynamodb 等 aws 服务，方便离线开发、集成测试和 ci 验证。 以 java 和 quarkus 实现兼容 aws sdk/cli 的 http 接口，常用服务可统一指向 localhost:4566；s3、dynamodb 等由内部存储后端处理，lambda、rds、elasticache 等部分服务通过真实 docker 容器提高协议与运行环境的贴近程度。提供 cli、独立原生二进制及 docker compose 部署途径，现有应用通常通过替换 endpoint 即可接入。适合无需真实云资源的自动化测试、terraform 预演和离线调试；它不能覆盖全部 aws 行为，compose 还映射多个端口并挂载 docker socket，运行时需要注意隔离权限。 开发工具" data-category="dev" data-repo="floci-io/floci">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/floci-io/floci" target="_blank" rel="noopener noreferrer">floci ↗</a></h2>
+          
+          <span class="metric">★ 29,551 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="floci-io/floci" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">在本机模拟 S3、Lambda、DynamoDB 等 AWS 服务，方便离线开发、集成测试和 CI 验证。</p>
+    <p class="search-detail">以 Java 和 Quarkus 实现兼容 AWS SDK/CLI 的 HTTP 接口，常用服务可统一指向 localhost:4566；S3、DynamoDB 等由内部存储后端处理，Lambda、RDS、ElastiCache 等部分服务通过真实 Docker 容器提高协议与运行环境的贴近程度。提供 CLI、独立原生二进制及 Docker Compose 部署途径，现有应用通常通过替换 endpoint 即可接入。适合无需真实云资源的自动化测试、Terraform 预演和离线调试；它不能覆盖全部 AWS 行为，Compose 还映射多个端口并挂载 Docker socket，运行时需要注意隔离权限。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="max-sixty/worktrunk worktrunk 用简化命令管理 git worktree，让多个编码 agent 分别在独立工作目录里并行修改同一仓库。 rust 编写的 wt 命令将创建、切换、列出、合并与删除 worktree 组织成面向分支的操作，例如 wt switch -c -x claude feat 能建立新工作区并启动 agent。除基础 git worktree 封装外，还包含 git 钩子、合并流程、交互选择器、差异生成提交说明和构建缓存复用等机制；cargo.toml 和 src/main.rs 可对应到 cli 及功能模块。适合同时运行 claude code、codex 等编码任务以减少文件冲突；它不负责模型推理，也不自动消除跨分支的语义冲突，最终合并仍需要测试和审查。 开发工具" data-category="dev" data-repo="max-sixty/worktrunk">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/max-sixty/worktrunk" target="_blank" rel="noopener noreferrer">worktrunk ↗</a></h2>
+          
+          <span class="metric">★ 10,991 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="max-sixty/worktrunk" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">用简化命令管理 Git worktree，让多个编码 Agent 分别在独立工作目录里并行修改同一仓库。</p>
+    <p class="search-detail">Rust 编写的 wt 命令将创建、切换、列出、合并与删除 worktree 组织成面向分支的操作，例如 wt switch -c -x claude feat 能建立新工作区并启动 Agent。除基础 Git worktree 封装外，还包含 Git 钩子、合并流程、交互选择器、差异生成提交说明和构建缓存复用等机制；Cargo.toml 和 src/main.rs 可对应到 CLI 及功能模块。适合同时运行 Claude Code、Codex 等编码任务以减少文件冲突；它不负责模型推理，也不自动消除跨分支的语义冲突，最终合并仍需要测试和审查。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="xpropel/pi-remote pi-remote 把本机 pi 编码 agent 的终端会话实时映射到手机浏览器，支持远程查看、回复和切换模型。 项目通过 pi 的扩展接口读取终端事件，并由 extension/pi-remote-sync.ts 将消息、工具调用与会话状态同步给 node relay；手机或桌面 web ui 再转发新消息、任务控制、模型与思考级别切换等操作。relay 可在自己电脑上运行，也支持局域网访问和按需启用隧道，设备连接采用配对令牌与连接窗口限制。与一般远程桌面不同，agent 及工作文件始终留在原机器。它专为 pi 编码 agent 开发，不会自动控制 codex 或 claude code；远程控制凭据需要妥善保护，当前主要面向个人单用户使用。 ai / agent" data-category="ai" data-repo="xpropel/pi-remote">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/Xpropel/Pi-Remote" target="_blank" rel="noopener noreferrer">Pi-Remote ↗</a></h2>
+          
+          <span class="metric">★ 295 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="xpropel/pi-remote" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">把本机 pi 编码 Agent 的终端会话实时映射到手机浏览器，支持远程查看、回复和切换模型。</p>
+    <p class="search-detail">项目通过 pi 的扩展接口读取终端事件，并由 extension/pi-remote-sync.ts 将消息、工具调用与会话状态同步给 Node relay；手机或桌面 Web UI 再转发新消息、任务控制、模型与思考级别切换等操作。Relay 可在自己电脑上运行，也支持局域网访问和按需启用隧道，设备连接采用配对令牌与连接窗口限制。与一般远程桌面不同，Agent 及工作文件始终留在原机器。它专为 pi 编码 Agent 开发，不会自动控制 Codex 或 Claude Code；远程控制凭据需要妥善保护，当前主要面向个人单用户使用。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="emanuele-em/kanzo kanzo 将轻量看板和 mcp 服务打包进一个 rust 程序，让人和多个编码 agent 共用任务进度。 启动 kanzo 就能在浏览器打开本地任务板；同一可执行程序也通过 kanzo mcp 或 http mcp 接口向 agent 提供读取、创建、认领、移动卡片和评论的工具。src/main.rs 明确实现本地服务、项目同步、共享及导出命令，src/mcp.rs 将任务操作封装为工具并尽量缩短返回文本；数据保存在本地目录，还可以通过 git 同步或局域网共享给其他设备。适合同时管理多个项目的自动编码任务。其设计以个人使用为中心，局域网共享不能当作具备企业级多用户权限和审计的协作系统。 自托管" data-category="selfhost" data-repo="emanuele-em/kanzo">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/emanuele-em/kanzo" target="_blank" rel="noopener noreferrer">kanzo ↗</a></h2>
+          
+          <span class="metric">★ 1,008 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="emanuele-em/kanzo" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">将轻量看板和 MCP 服务打包进一个 Rust 程序，让人和多个编码 Agent 共用任务进度。</p>
+    <p class="search-detail">启动 kanzo 就能在浏览器打开本地任务板；同一可执行程序也通过 kanzo mcp 或 HTTP MCP 接口向 Agent 提供读取、创建、认领、移动卡片和评论的工具。src/main.rs 明确实现本地服务、项目同步、共享及导出命令，src/mcp.rs 将任务操作封装为工具并尽量缩短返回文本；数据保存在本地目录，还可以通过 Git 同步或局域网共享给其他设备。适合同时管理多个项目的自动编码任务。其设计以个人使用为中心，局域网共享不能当作具备企业级多用户权限和审计的协作系统。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="junwan666/astrbot-for-android astrbot-for-android 在无需 root 的 arm64 android 手机上直接部署 astrbot 与 napcat，作为可随身运行的聊天机器人主机。 原生 kotlin/jetpack compose 管理界面负责服务启停、资源监控、日志、备份恢复和更新，机器人程序则在 apk 附带的 proot ubuntu 环境中运行，内置 webview 可访问 astrbot 与 napcat 的管理后台。qq 消息通过 onebot 对接 astrbot，再转给用户配置的模型；可选局域网 webui、ssh、shizuku 辅助以及后台运行设置。适合把备用手机用于个人机器人实验，但完整 apk 约 1 gib，且后台进程容易受 android 省电策略限制；qq 登录、模型调用仍需要网络与相关账户。 自托管" data-category="selfhost" data-repo="junwan666/astrbot-for-android">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/JunWan666/astrbot-for-android" target="_blank" rel="noopener noreferrer">astrbot-for-android ↗</a></h2>
+          <span class="project-flag" role="img" title="中文相关项目" aria-label="中文相关项目">🇨🇳</span>
+          <span class="metric">★ 327 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="junwan666/astrbot-for-android" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">在无需 Root 的 ARM64 Android 手机上直接部署 AstrBot 与 NapCat，作为可随身运行的聊天机器人主机。</p>
+    <p class="search-detail">原生 Kotlin/Jetpack Compose 管理界面负责服务启停、资源监控、日志、备份恢复和更新，机器人程序则在 APK 附带的 PRoot Ubuntu 环境中运行，内置 WebView 可访问 AstrBot 与 NapCat 的管理后台。QQ 消息通过 OneBot 对接 AstrBot，再转给用户配置的模型；可选局域网 WebUI、SSH、Shizuku 辅助以及后台运行设置。适合把备用手机用于个人机器人实验，但完整 APK 约 1 GiB，且后台进程容易受 Android 省电策略限制；QQ 登录、模型调用仍需要网络与相关账户。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="d4vinci/scrapling scrapling 把网页请求、浏览器渲染、数据解析和并发爬取整合进同一套 python 工具，并提供 mcp 接口。 静态页面可走 http 请求，动态页面可切换浏览器会话，css/xpath 与文本规则负责提取字段；scrapling/spiders/engine.py 结合调度器、会话管理器、并发限制、自动节流、重试与检查点实现完整爬虫流程。抓取结果可导出 json/csv 等格式，也能转成适合检索或大模型处理的 markdown，并向 agent 提供 mcp 工具。适合构建商品监控、资讯采集和研究语料流水线；浏览器模式比纯 http 更消耗资源，部署需要对应依赖，爬取还须遵守目标网站访问限制与法律要求。 开发工具" data-category="dev" data-repo="d4vinci/scrapling">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/D4Vinci/Scrapling" target="_blank" rel="noopener noreferrer">Scrapling ↗</a></h2>
+          
+          <span class="metric">★ 96,435 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="d4vinci/scrapling" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">把网页请求、浏览器渲染、数据解析和并发爬取整合进同一套 Python 工具，并提供 MCP 接口。</p>
+    <p class="search-detail">静态页面可走 HTTP 请求，动态页面可切换浏览器会话，CSS/XPath 与文本规则负责提取字段；scrapling/spiders/engine.py 结合调度器、会话管理器、并发限制、自动节流、重试与检查点实现完整爬虫流程。抓取结果可导出 JSON/CSV 等格式，也能转成适合检索或大模型处理的 Markdown，并向 Agent 提供 MCP 工具。适合构建商品监控、资讯采集和研究语料流水线；浏览器模式比纯 HTTP 更消耗资源，部署需要对应依赖，爬取还须遵守目标网站访问限制与法律要求。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="nvidia/auto-ontology auto-ontology 自动从数据库生成业务语义关系图，让 ai 依据统一指标定义执行可复查的自然语言 sql 查询。 项目先扫描数据表、字段样本和主外键关系，再建立业务术语、可复用 sql 属性及表间连接，并将语义目录保存到 postgres/pgvector。管理人员可以审核、补充或认证概念；问答代理从语义图检索候选对象，检查过滤条件、生成 sql 并展示查询依据，mcp 和 web ui 方便其他 agent 或分析人员接入。docker compose 同时编排数据库、数据摄取服务、后端、前端及迁移任务。适合内部数据库跨表分析，但仍需模型 api 与数据库凭据，自动推断的字段含义和查询权限必须经人核实。 数据与商业" data-category="data" data-repo="nvidia/auto-ontology">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/NVIDIA/auto-ontology" target="_blank" rel="noopener noreferrer">auto-ontology ↗</a></h2>
+          
+          <span class="metric">★ 4,798 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="nvidia/auto-ontology" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">自动从数据库生成业务语义关系图，让 AI 依据统一指标定义执行可复查的自然语言 SQL 查询。</p>
+    <p class="search-detail">项目先扫描数据表、字段样本和主外键关系，再建立业务术语、可复用 SQL 属性及表间连接，并将语义目录保存到 Postgres/pgvector。管理人员可以审核、补充或认证概念；问答代理从语义图检索候选对象，检查过滤条件、生成 SQL 并展示查询依据，MCP 和 Web UI 方便其他 Agent 或分析人员接入。Docker Compose 同时编排数据库、数据摄取服务、后端、前端及迁移任务。适合内部数据库跨表分析，但仍需模型 API 与数据库凭据，自动推断的字段含义和查询权限必须经人核实。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="third-intelligence/haas-asr haas-asr 面向日语音频的可本地部署语音识别推理程序，支持长录音切分及专有名词词汇表。 haas-ja-v1.0 采用 fastconformer 编码器及带 kimi delta attention 预测网络的 tdt 解码器，依赖 nvidia nemo。代码中的 longform.py 会在约 30 秒目标点附近寻找低能量窗口切分，再分批转写，减少在词中间截断造成的识别问题；另外可对专业词、姓名或产品名施加词汇表增强，并结合其他模型实现说话人标记。readme 报告在日语基准上的加权严格字符错误率约 6.12%，属于项目评测结果。运行需要 linux、nvidia cuda/triton gpu，不能直接在纯 cpu 小主机或 macos 上运行。 ai / agent" data-category="ai" data-repo="third-intelligence/haas-asr">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/third-intelligence/Haas-ASR" target="_blank" rel="noopener noreferrer">Haas-ASR ↗</a></h2>
+          <span class="project-flag" role="img" title="日本相关项目" aria-label="日本相关项目">🇯🇵</span>
+          <span class="metric">★ 35 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="third-intelligence/haas-asr" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">面向日语音频的可本地部署语音识别推理程序，支持长录音切分及专有名词词汇表。</p>
+    <p class="search-detail">Haas-ja-v1.0 采用 FastConformer 编码器及带 Kimi Delta Attention 预测网络的 TDT 解码器，依赖 NVIDIA NeMo。代码中的 longform.py 会在约 30 秒目标点附近寻找低能量窗口切分，再分批转写，减少在词中间截断造成的识别问题；另外可对专业词、姓名或产品名施加词汇表增强，并结合其他模型实现说话人标记。README 报告在日语基准上的加权严格字符错误率约 6.12%，属于项目评测结果。运行需要 Linux、NVIDIA CUDA/Triton GPU，不能直接在纯 CPU 小主机或 macOS 上运行。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="valentderah/totk-pc-recomp totk-pc-recomp 把《塞尔达传说：王国之泪》的 arm64 游戏代码静态重编译为 windows/linux 原生 x86-64 程序。 它不是运行 switch 模拟器，而是从用户持有的游戏文件提取模块，将 arm64 指令提升为 c，再使用本机编译工具链生成 x86-64 可执行代码；docs/architecture.md 具体说明了指令重编译、系统调用替代及 nvn 到 vulkan 图形后端的实现。项目还提供窗口分辨率、帧率、手柄和部分模组支持，windows/linux 都是目标平台。仓库不提供任何游戏文件，使用者必须自行合法取得原版游戏及对应更新；仍处早期开发阶段，可能出现画面问题或崩溃，安装时需要较大磁盘空间和 vulkan 1.3 显卡支持。 游戏与模拟器" data-category="games" data-repo="valentderah/totk-pc-recomp">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/valentderah/totk-pc-recomp" target="_blank" rel="noopener noreferrer">totk-pc-recomp ↗</a></h2>
+          
+          <span class="metric">★ 4,826 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="valentderah/totk-pc-recomp" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">把《塞尔达传说：王国之泪》的 ARM64 游戏代码静态重编译为 Windows/Linux 原生 x86-64 程序。</p>
+    <p class="search-detail">它不是运行 Switch 模拟器，而是从用户持有的游戏文件提取模块，将 ARM64 指令提升为 C，再使用本机编译工具链生成 x86-64 可执行代码；docs/architecture.md 具体说明了指令重编译、系统调用替代及 NVN 到 Vulkan 图形后端的实现。项目还提供窗口分辨率、帧率、手柄和部分模组支持，Windows/Linux 都是目标平台。仓库不提供任何游戏文件，使用者必须自行合法取得原版游戏及对应更新；仍处早期开发阶段，可能出现画面问题或崩溃，安装时需要较大磁盘空间和 Vulkan 1.3 显卡支持。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="physicsdolphin/nv-uefi-unlocker nv-uefi-unlocker 在操作系统驱动启动前尝试解除部分 nvidia 显卡的张量计算限制，面向特定 rtx/gtx 架构实验。 项目以 rust 实现 uefi 引导程序，在系统启动前检查 pci 设备、gpu 固件状态及适用路径，按需执行预驱动事务，随后继续引导 windows 或 linux；loader/src/main.rs 包含确认流程、日志、失败处理及 chainload 入口。作者提供了 rtx 20/30/40 系列的兼容与性能测试记录，宣称部分张量精度负载可获得提升，但这些结果不能直接推广到全部型号、驱动和游戏。该工具涉及显卡底层初始化和固件交互，存在启动失败、兼容性及稳定性风险；不应把它当作通用 fps 优化工具或已验证适配所有 rtx 3060 的方案。 硬件 / iot" data-category="hardware" data-repo="physicsdolphin/nv-uefi-unlocker">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/physicsdolphin/nv-uefi-unlocker" target="_blank" rel="noopener noreferrer">nv-uefi-unlocker ↗</a></h2>
+          <span class="project-flag" role="img" title="中文相关项目" aria-label="中文相关项目">🇨🇳</span>
+          <span class="metric">★ 1,735 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="physicsdolphin/nv-uefi-unlocker" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">在操作系统驱动启动前尝试解除部分 NVIDIA 显卡的张量计算限制，面向特定 RTX/GTX 架构实验。</p>
+    <p class="search-detail">项目以 Rust 实现 UEFI 引导程序，在系统启动前检查 PCI 设备、GPU 固件状态及适用路径，按需执行预驱动事务，随后继续引导 Windows 或 Linux；loader/src/main.rs 包含确认流程、日志、失败处理及 chainload 入口。作者提供了 RTX 20/30/40 系列的兼容与性能测试记录，宣称部分张量精度负载可获得提升，但这些结果不能直接推广到全部型号、驱动和游戏。该工具涉及显卡底层初始化和固件交互，存在启动失败、兼容性及稳定性风险；不应把它当作通用 FPS 优化工具或已验证适配所有 RTX 3060 的方案。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="thedotmack/claude-mem claude-mem 记录编码 agent 的工具操作和项目决策，跨会话压缩、搜索并恢复相关上下文。 系统通过 claude code 等客户端的生命周期钩子收集操作观察及会话概要，由 bun 管理的服务写入 sqlite，并配合向量搜索实现关键词与语义混合检索。agent 可通过 mcp 先搜简短索引，再请求时间线与完整观察，从而避免每次载入全部历史记录；也提供 web 查看界面与上下文注入机制。适合长期维护代码库、跨会话查找曾做的修改。项目当前安装文档同时包含账号登录、托管 observer 试用及本地模式说明，必须确认实际启用的存储与模型处理方式，不能直接假定所有内容仅留在本机。 ai / agent" data-category="ai" data-repo="thedotmack/claude-mem">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener noreferrer">claude-mem ↗</a></h2>
+          
+          <span class="metric">★ 112,778 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="thedotmack/claude-mem" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">记录编码 Agent 的工具操作和项目决策，跨会话压缩、搜索并恢复相关上下文。</p>
+    <p class="search-detail">系统通过 Claude Code 等客户端的生命周期钩子收集操作观察及会话概要，由 Bun 管理的服务写入 SQLite，并配合向量搜索实现关键词与语义混合检索。Agent 可通过 MCP 先搜简短索引，再请求时间线与完整观察，从而避免每次载入全部历史记录；也提供 Web 查看界面与上下文注入机制。适合长期维护代码库、跨会话查找曾做的修改。项目当前安装文档同时包含账号登录、托管 observer 试用及本地模式说明，必须确认实际启用的存储与模型处理方式，不能直接假定所有内容仅留在本机。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="the-pr-agent/pr-agent pr-agent 在 github、gitlab 等代码托管平台自动审查 pull request、提出修改建议并回答代码差异问题。 python 项目通过各平台的 git provider 适配器获取 pr 差异、上下文与评论，pr_agent/agent/pr_agent.py 将审查、改进建议、生成描述等指令分派给对应工具，模型调用由 litellm 等后端处理。既可在 github actions 中触发，也可通过本地 cli、docker 或 webhook 部署，适合团队把初步代码审查接入已有 ci。该仓库属于社区维护的开源 pr-agent，与 qodo 当前商业产品不同；使用者需提供模型 api 凭据，自动建议仍须人工复核，而且部分文档问答命令因凭据暴露问题暂被禁用。 开发工具" data-category="dev" data-repo="the-pr-agent/pr-agent">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/The-PR-Agent/pr-agent" target="_blank" rel="noopener noreferrer">pr-agent ↗</a></h2>
+          
+          <span class="metric">★ 14,710 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="the-pr-agent/pr-agent" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">在 GitHub、GitLab 等代码托管平台自动审查 Pull Request、提出修改建议并回答代码差异问题。</p>
+    <p class="search-detail">Python 项目通过各平台的 Git Provider 适配器获取 PR 差异、上下文与评论，pr_agent/agent/pr_agent.py 将审查、改进建议、生成描述等指令分派给对应工具，模型调用由 LiteLLM 等后端处理。既可在 GitHub Actions 中触发，也可通过本地 CLI、Docker 或 Webhook 部署，适合团队把初步代码审查接入已有 CI。该仓库属于社区维护的开源 PR-Agent，与 Qodo 当前商业产品不同；使用者需提供模型 API 凭据，自动建议仍须人工复核，而且部分文档问答命令因凭据暴露问题暂被禁用。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="harry0703/moneyprinterturbo moneyprinterturbo 将主题或关键词转换成视频脚本、配音、素材、字幕及成片的可自动化短视频生产流水线。 python 的任务管线将文案生成、图片或视频素材搜索、语音合成、字幕处理、背景音乐及最终视频拼接串联起来，app/services/task.py 可见任务状态、并行处理和发布队列逻辑。提供 webui、api、cli 和 agent 多种入口，可在 windows/macos/linux 上运行，也有 docker compose 与预构建镜像。适合批量制作资讯讲解、商品介绍或多语言短视频的原型。虽然编辑流程可自托管，所调用的大模型、音视频生成及部分素材服务仍可能按量计费；生成内容、配乐素材及自动发布必须自行核查质量、版权和平台规定。 图形与创作" data-category="graphics" data-repo="harry0703/moneyprinterturbo">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank" rel="noopener noreferrer">MoneyPrinterTurbo ↗</a></h2>
+          <span class="project-flag" role="img" title="中文相关项目" aria-label="中文相关项目">🇨🇳</span>
+          <span class="metric">★ 138,894 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="harry0703/moneyprinterturbo" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">将主题或关键词转换成视频脚本、配音、素材、字幕及成片的可自动化短视频生产流水线。</p>
+    <p class="search-detail">Python 的任务管线将文案生成、图片或视频素材搜索、语音合成、字幕处理、背景音乐及最终视频拼接串联起来，app/services/task.py 可见任务状态、并行处理和发布队列逻辑。提供 WebUI、API、CLI 和 Agent 多种入口，可在 Windows/macOS/Linux 上运行，也有 Docker Compose 与预构建镜像。适合批量制作资讯讲解、商品介绍或多语言短视频的原型。虽然编辑流程可自托管，所调用的大模型、音视频生成及部分素材服务仍可能按量计费；生成内容、配乐素材及自动发布必须自行核查质量、版权和平台规定。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="phone-harness/mcp phone-harness 通过 mcp 给 ai agent 提供可操作的云端真实 iphone 或 android 模拟器，用于移动端自动化测试。 python mcp 服务封装云端设备列表、创建/结束会话、获取界面元素、截图、点击、滑动、输入及应用控制等操作，src/phone_harness_mcp/server.py 要求每次调用显式传入设备 id，避免误操作到其他会话。它用 streamable http 与 oauth/令牌授权接入 claude、codex 等 mcp 客户端，特别适合复现移动端 ui 流程、检查发布后的实际操作。这里控制的是服务商托管设备，并不会直接接管用户自己手里的手机；云端 android 和真实 iphone 分别有计时或订阅费用，测试账号与敏感数据需谨慎处理。 ai / agent" data-category="ai" data-repo="phone-harness/mcp">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/phone-harness/mcp" target="_blank" rel="noopener noreferrer">phone-harness ↗</a></h2>
+          
+          <span class="metric">★ 649 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="phone-harness/mcp" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">通过 MCP 给 AI Agent 提供可操作的云端真实 iPhone 或 Android 模拟器，用于移动端自动化测试。</p>
+    <p class="search-detail">Python MCP 服务封装云端设备列表、创建/结束会话、获取界面元素、截图、点击、滑动、输入及应用控制等操作，src/phone_harness_mcp/server.py 要求每次调用显式传入设备 ID，避免误操作到其他会话。它用 Streamable HTTP 与 OAuth/令牌授权接入 Claude、Codex 等 MCP 客户端，特别适合复现移动端 UI 流程、检查发布后的实际操作。这里控制的是服务商托管设备，并不会直接接管用户自己手里的手机；云端 Android 和真实 iPhone 分别有计时或订阅费用，测试账号与敏感数据需谨慎处理。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="levhakobyan/opentv-remote opentv-remote 让 android 或 iphone 充当可自定义布局的智能电视遥控器，按电视协议显示相应控制按钮。 android 端使用 kotlin/jetpack compose，iphone 端使用 swiftui，支持通过局域网发现设备、保存电视、按厂商或协议能力展示方向键、音量、频道、文本输入及应用快捷按钮，并允许自定义按键网格、颜色和左右手布局。仓库分别维护 android、ios 原生工程，并用共享测试夹具对照两端界面行为；已描述的协议包括 android tv remote v2、三星 tizen websocket、lg ssap 和部分蓝牙 hid。适合替换丢失的物理遥控器，但不同电视的配对、指针和输入功能并不完全一致，作者也明确不保证所有机型真实兼容。 硬件 / iot" data-category="hardware" data-repo="levhakobyan/opentv-remote">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/levhakobyan/OpenTV-Remote" target="_blank" rel="noopener noreferrer">OpenTV-Remote ↗</a></h2>
+          
+          <span class="metric">★ 187 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="levhakobyan/opentv-remote" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">让 Android 或 iPhone 充当可自定义布局的智能电视遥控器，按电视协议显示相应控制按钮。</p>
+    <p class="search-detail">Android 端使用 Kotlin/Jetpack Compose，iPhone 端使用 SwiftUI，支持通过局域网发现设备、保存电视、按厂商或协议能力展示方向键、音量、频道、文本输入及应用快捷按钮，并允许自定义按键网格、颜色和左右手布局。仓库分别维护 Android、iOS 原生工程，并用共享测试夹具对照两端界面行为；已描述的协议包括 Android TV Remote v2、三星 Tizen WebSocket、LG SSAP 和部分蓝牙 HID。适合替换丢失的物理遥控器，但不同电视的配对、指针和输入功能并不完全一致，作者也明确不保证所有机型真实兼容。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/05.html">2026-11-05 的日报 →</a></div>
+  </article><article class="search-card" data-search="motionsites-ai/claude-skill claude-skill 免费claude技能：让claude构建奖项级别的电影登录页面。由motionsites提供。 让claude构建奖项级别的电影登陆页面，而不是平均的人工智能布局；技能中的40个示例设计中的8个，每个设计都显示在其构建的视频旁边。所有50多个视频都在技能的媒体架上； 40个示例提示： motionsites上最受欢迎的免费提示，人们真正喜欢的设计。claude阅读与每份简报匹配的最接近的2–3份简报 开发工具" data-category="dev" data-repo="motionsites-ai/claude-skill">
     <div class="search-card-title">
       <div class="search-card-title-content">
         <div class="project-title-line">
