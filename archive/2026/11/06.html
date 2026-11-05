@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f4">
+  <meta name="description" content="中文 GitHub 开源项目日报：项目功能、实际用途、注意事项和历史归档。">
+  <title>2026-11-06 GitHub 每日项目雷达 · radar</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/radar.svg">
+  <link rel="stylesheet" href="../../../assets/site.css">
+  <script src="../../../assets/site.js" defer></script>
+  <meta name="radar-date" content="2026-11-06"><meta name="radar-count" content="10"><meta name="radar-source" content="editorial">
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="header"><div class="container header-inner">
+    <a class="brand" href="../../../index.html"><img src="../../../assets/radar.svg" width="31" height="31" alt="">radar<span>.</span></a>
+    <span class="brand-caption">开源发现，持续积累。</span>
+    <nav class="nav" aria-label="主导航">
+      <a href="../../../index.html">最新日报</a>
+      <a href="../../../search.html">项目搜索</a>
+      <a href="../../../archive/index.html">往期归档</a>
+      <a href="../../../search.html?view=saved">我的收藏</a>
+    </nav>
+  </div></header>
+  <main class="container main" id="main">
+    <div class="eyebrow"><span class="dot"></span> DAILY OPEN SOURCE RADAR <span class="dash">/</span> 2026 / 11 / 06</div>
+    <div class="issue-intro"><div>
+      <h1>今天，有哪些项目<br><em>值得打开看看。</em></h1>
+      <p class="intro-subtitle">每日 GitHub 项目雷达 · 2026-11-06 · 10 个项目</p>
+    </div><a class="button button-light" href="../../../archive/2026/11/index.html">查看本月归档 ↗</a></div>
+    <p class="source-notice">项目资料为编辑整理；功能及限制仍应以仓库说明为准。</p>
+    <details class="overview"><summary>本期项目速览 <span>10 个项目</span><span class="overview-hint">展开查看全部名称</span></summary>
+      <ol><li><a href="https://github.com/wquguru/cicada" target="_blank" rel="noopener noreferrer">Cicada · 知了</a><span>直接监听电脑或手机允许采集的声音，生成双语实时字幕、会议记录、AI 纪要，并能把自己的发言译成对方听得见的语音。</span></li><li><a href="https://github.com/Arjun-Ingole/hop" target="_blank" rel="noopener noreferrer">hop</a><span>不用制作 U 盘启动器，直接在 Windows 内部磁盘划出 Linux 安装空间与临时启动分区。</span></li><li><a href="https://github.com/JiaFeiMiao-K-Cat/DiscImageStudio" target="_blank" rel="noopener noreferrer">Disc Image Studio</a><span>把普通图片映射成 CD、DVD 或单层蓝光刻录数据，让光盘记录面出现肉眼可见的图案。</span></li><li><a href="https://github.com/ivankovic/omnidiff" target="_blank" rel="noopener noreferrer">OmniDiff</a><span>不仅比较代码行，还能按图片像素、PDF 页面、字体字形和压缩包成员呈现真正改变的内容。</span></li><li><a href="https://github.com/sahenjp/RustXNG" target="_blank" rel="noopener noreferrer">RustXNG</a><span>用单个 Rust 服务聚合多家网页搜索，并通过 JSON API 和受限 MCP 接口为 AI Agent 提供结果与网页正文。</span></li><li><a href="https://github.com/s1dashu/quiet-md" target="_blank" rel="noopener noreferrer">Quiet.md</a><span>使用 Rust 原生 GPU 界面的本地富文本笔记本，以飞书 DocxXML 格式逐篇保存，兼顾搜索与可迁移性。</span></li><li><a href="https://github.com/patch-gg/pixelfx" target="_blank" rel="noopener noreferrer">pixelfx</a><span>把 244 种像素风火焰、爆炸、法术与战斗特效实现为可运行的代码，并可导出游戏引擎使用的精灵表。</span></li><li><a href="https://github.com/ccch1mneyyy/dsh-Go" target="_blank" rel="noopener noreferrer">DSH Go</a><span>在 Android 本机通过隔离的 Linux 环境运行 DeepSeek Harness，或者从手机连接电脑上的 Harness 会话。</span></li><li><a href="https://github.com/storytold/wordcraft" target="_blank" rel="noopener noreferrer">WordCraft</a><span>使用 Rust 自建 DOCX 文字处理器，既提供接近传统 Word 的图形编辑，也允许 CLI/MCP 以命令控制文档。</span></li><li><a href="https://github.com/opengeos/RustGIS" target="_blank" rel="noopener noreferrer">RustGIS</a><span>用 Rust 桌面程序、WebAssembly 网页版及 Python/CLI 接口处理地图、地理数据与空间分析任务。</span></li></ol>
+    </details>
+    <section class="issue-section"><div class="section-title"><h2>今日重点</h2><span>7 个项目</span></div><article class="project" data-repo="wquguru/cicada" data-name="Cicada · 知了" data-summary="直接监听电脑或手机允许采集的声音，生成双语实时字幕、会议记录、AI 纪要，并能把自己的发言译成对方听得见的语音。" data-detail="Mac 主程序使用 Core Audio 进程级音频 Tap 捕获输出，再交给 SpeechAnalyzer 或 SFSpeechRecognizer 识别；Windows 版在源码中采用 WASAPI 回环。识别文本经过翻译后按时间轴保存，支持说话人区分、会议要点和 Markdown、Word、SRT 导出。要让会议软件听到译文，Mac 安装 BlackHole、Windows 使用 VB-Cable 虚拟麦克风。Apple 芯片 Mac 默认可在本机识别语音，但翻译或生成纪要时仍可能发送文字到外部服务；Windows、Linux、Android 的识别默认需要模型服务。Android 无法直接录制微信通话等被系统禁止采集的音频；Mac 首次打开可能被未公证签名拦截。适合跨语言视频会议、直播字幕和会后检索，不应把“本机录音”误解为全部 AI 处理离线。" data-category="ai" data-flag="CN" data-metric="1,478 Stars" data-date="2026-11-06" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">01</span>
+      <div class="project-heading">
+        <div class="project-title-line">
+          <h3><a href="https://github.com/wquguru/cicada" target="_blank" rel="noopener noreferrer">Cicada · 知了<span class="external" aria-hidden="true">↗</span></a></h3>
+          <span class="project-flag" role="img" title="中文相关项目" aria-label="中文相关项目">🇨🇳</span>
+          <span class="metric">★ 1,478 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="wquguru/cicada" aria-pressed="false" aria-label="收藏 Cicada · 知了">☆ 收藏</button>
+    </div>
+    <p class="project-summary">直接监听电脑或手机允许采集的声音，生成双语实时字幕、会议记录、AI 纪要，并能把自己的发言译成对方听得见的语音。</p>
+    <p class="project-detail">Mac 主程序使用 Core Audio 进程级音频 Tap 捕获输出，再交给 SpeechAnalyzer 或 SFSpeechRecognizer 识别；Windows 版在源码中采用 WASAPI 回环。识别文本经过翻译后按时间轴保存，支持说话人区分、会议要点和 Markdown、Word、SRT 导出。要让会议软件听到译文，Mac 安装 BlackHole、Windows 使用 VB-Cable 虚拟麦克风。Apple 芯片 Mac 默认可在本机识别语音，但翻译或生成纪要时仍可能发送文字到外部服务；Windows、Linux、Android 的识别默认需要模型服务。Android 无法直接录制微信通话等被系统禁止采集的音频；Mac 首次打开可能被未公证签名拦截。适合跨语言视频会议、直播字幕和会后检索，不应把“本机录音”误解为全部 AI 处理离线。</p>
+    <p class="project-note">Mac 与 Windows 的音频接入方式不同；跨平台隐私和模型费用需要分别配置。</p>
+  </article><article class="project" data-repo="Arjun-Ingole/hop" data-name="hop" data-summary="不用制作 U 盘启动器，直接在 Windows 内部磁盘划出 Linux 安装空间与临时启动分区。" data-detail="这是 Windows 图形程序与内嵌 PowerShell 安装引擎的组合。它下载或读取发行版 ISO，先检查 UEFI、GPT、Secure Boot、BitLocker 与空间条件，再缩小指定卷或利用现有空闲区域，创建 FAT32 安装分区，将 ISO 文件复制进去，并经 EFI 启动项在下一次重启时进入发行版安装程序。实际的分区与回滚流程位于 engine/Install.ps1，EFI 入口和引导配置处理在 engine/Boot.ps1；对 Ubuntu、Fedora、Arch 等启动方式分别适配。它不会代替 Linux 安装程序完成所有分区选择；FAT32 单文件 4 GB 限制、特定发行版和第二硬盘限制仍存在。全盘替换 Windows 是单独的破坏性选项，启动链或磁盘操作失败可能导致数据损失，使用前必须做好独立备份。" data-category="dev" data-flag="" data-metric="1,529 Stars" data-date="2026-11-06" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">02</span>
+      <div class="project-heading">
+        <div class="project-title-line">
+          <h3><a href="https://github.com/Arjun-Ingole/hop" target="_blank" rel="noopener noreferrer">hop<span class="external" aria-hidden="true">↗</span></a></h3>
+          
+          <span class="metric">★ 1,529 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="arjun-ingole/hop" aria-pressed="false" aria-label="收藏 hop">☆ 收藏</button>
+    </div>
+    <p class="project-summary">不用制作 U 盘启动器，直接在 Windows 内部磁盘划出 Linux 安装空间与临时启动分区。</p>
+    <p class="project-detail">这是 Windows 图形程序与内嵌 PowerShell 安装引擎的组合。它下载或读取发行版 ISO，先检查 UEFI、GPT、Secure Boot、BitLocker 与空间条件，再缩小指定卷或利用现有空闲区域，创建 FAT32 安装分区，将 ISO 文件复制进去，并经 EFI 启动项在下一次重启时进入发行版安装程序。实际的分区与回滚流程位于 engine/Install.ps1，EFI 入口和引导配置处理在 engine/Boot.ps1；对 Ubuntu、Fedora、Arch 等启动方式分别适配。它不会代替 Linux 安装程序完成所有分区选择；FAT32 单文件 4 GB 限制、特定发行版和第二硬盘限制仍存在。全盘替换 Windows 是单独的破坏性选项，启动链或磁盘操作失败可能导致数据损失，使用前必须做好独立备份。</p>
+    <p class="project-note">适合没有空闲 U 盘又确实需要原生双系统的 Windows 用户；不能把预检当成数据安全保证。</p>
+  </article><article class="project" data-repo="JiaFeiMiao-K-Cat/DiscImageStudio" data-name="Disc Image Studio" data-summary="把普通图片映射成 CD、DVD 或单层蓝光刻录数据，让光盘记录面出现肉眼可见的图案。" data-detail="不是给光盘封面打印图片，而是利用光盘物理编码和轨道分布制造反射明暗。它可以将图片抖动、调色与几何映射后生成 CD 的 WAV+CUE 音轨、DVD ISO 或单层 BD-R 的 ISO；支持把文件区安排在图案内圈或外圈，亦有利用刻录后的照片拟合轨距的辅助校准。BluRayImageGenerator.cs 的实际代码串联灰度图载入、二阶色调映射、通道游程映射、流式 ISO 生成及元数据保存，Windows 刻录路径则使用 IMAPI2。Windows 有图形界面，Linux/macOS 侧主要是实验性命令行。效果强烈依赖光盘、光驱固件、几何参数与写入策略；项目自己的物理模型审计仍记录部分边界和介质类型校验问题。直接刻录尚属实验性，只应使用可报废空白盘片。" data-category="hardware" data-flag="CN" data-metric="7,241 Stars" data-date="2026-11-06" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">03</span>
+      <div class="project-heading">
+        <div class="project-title-line">
+          <h3><a href="https://github.com/JiaFeiMiao-K-Cat/DiscImageStudio" target="_blank" rel="noopener noreferrer">Disc Image Studio<span class="external" aria-hidden="true">↗</span></a></h3>
+          <span class="project-flag" role="img" title="中文相关项目" aria-label="中文相关项目">🇨🇳</span>
+          <span class="metric">★ 7,241 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="jiafeimiao-k-cat/discimagestudio" aria-pressed="false" aria-label="收藏 Disc Image Studio">☆ 收藏</button>
+    </div>
+    <p class="project-summary">把普通图片映射成 CD、DVD 或单层蓝光刻录数据，让光盘记录面出现肉眼可见的图案。</p>
+    <p class="project-detail">不是给光盘封面打印图片，而是利用光盘物理编码和轨道分布制造反射明暗。它可以将图片抖动、调色与几何映射后生成 CD 的 WAV+CUE 音轨、DVD ISO 或单层 BD-R 的 ISO；支持把文件区安排在图案内圈或外圈，亦有利用刻录后的照片拟合轨距的辅助校准。BluRayImageGenerator.cs 的实际代码串联灰度图载入、二阶色调映射、通道游程映射、流式 ISO 生成及元数据保存，Windows 刻录路径则使用 IMAPI2。Windows 有图形界面，Linux/macOS 侧主要是实验性命令行。效果强烈依赖光盘、光驱固件、几何参数与写入策略；项目自己的物理模型审计仍记录部分边界和介质类型校验问题。直接刻录尚属实验性，只应使用可报废空白盘片。</p>
+    <p class="project-note">适合物理媒体艺术、光盘编码研究和定制收藏盘，不是可预测成功率的商用光盘印刷方案。</p>
+  </article><article class="project" data-repo="ivankovic/omnidiff" data-name="OmniDiff" data-summary="不仅比较代码行，还能按图片像素、PDF 页面、字体字形和压缩包成员呈现真正改变的内容。" data-detail="Rust 工具根据文件实际字节识别非文本格式，而不是单看扩展名；树状语法解析使用 tree-sitter，为约 25 种语言匹配语句与移动节点。二进制的差异引擎在 src/diff/content.rs 中将图片交给像素比较，将归档、字体与 PDF 拆为可命名成员，例如单独一页或一个字形。可作为 git difftool、Jujutsu 比较器、交互 TUI 或无界面 JSON/文本输出。对于前端资源、文档和代码同时变动的仓库，它比仅显示 Binary files differ 的工具更容易审查。作者公开的大规模完成率和耗时依赖其测试集合；高亮结果与人工标注并非完全一致，尤其 PDF 的人工准确率样本仅四例。公司集成时还要留意 AGPL 授权边界。" data-category="dev" data-flag="" data-metric="1,111 Stars" data-date="2026-11-06" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">04</span>
+      <div class="project-heading">
+        <div class="project-title-line">
+          <h3><a href="https://github.com/ivankovic/omnidiff" target="_blank" rel="noopener noreferrer">OmniDiff<span class="external" aria-hidden="true">↗</span></a></h3>
+          
+          <span class="metric">★ 1,111 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="ivankovic/omnidiff" aria-pressed="false" aria-label="收藏 OmniDiff">☆ 收藏</button>
+    </div>
+    <p class="project-summary">不仅比较代码行，还能按图片像素、PDF 页面、字体字形和压缩包成员呈现真正改变的内容。</p>
+    <p class="project-detail">Rust 工具根据文件实际字节识别非文本格式，而不是单看扩展名；树状语法解析使用 tree-sitter，为约 25 种语言匹配语句与移动节点。二进制的差异引擎在 src/diff/content.rs 中将图片交给像素比较，将归档、字体与 PDF 拆为可命名成员，例如单独一页或一个字形。可作为 git difftool、Jujutsu 比较器、交互 TUI 或无界面 JSON/文本输出。对于前端资源、文档和代码同时变动的仓库，它比仅显示 Binary files differ 的工具更容易审查。作者公开的大规模完成率和耗时依赖其测试集合；高亮结果与人工标注并非完全一致，尤其 PDF 的人工准确率样本仅四例。公司集成时还要留意 AGPL 授权边界。</p>
+    <p class="project-note">适合审查图片、字体和文档与源码混合的 Git 提交；不能把视觉差异直接当成语义正确性审查。</p>
+  </article><article class="project" data-repo="sahenjp/RustXNG" data-name="RustXNG" data-summary="用单个 Rust 服务聚合多家网页搜索，并通过 JSON API 和受限 MCP 接口为 AI Agent 提供结果与网页正文。" data-detail="它借鉴 SearXNG 的多搜索引擎聚合方式，但本身并不维护全球网页索引。HTTP /search 支持结果、语言、域名和搜索引擎筛选；MCP 实现的 search 返回有限数量及长度的摘要，read_page 只能读取同一会话先前搜索得到的 URL，并限制正文长度、跳转目标、私网地址和 robots.txt。src/mcp/mod.rs 使用 rmcp SDK 明确提供这两个只读工具；多阶段 Dockerfile 构建 Rust 二进制、以非特权用户运行，镜像带 pdftotext 依赖。单机可用 Docker 或发行版二进制部署；JavaScript 渲染需另配浏览器工具，扫描 PDF 仍需单独 OCR。查询会发往启用的上游搜索服务，免费来源可能限流或变更，独立部署并不豁免供应商条款。适合个人检索入口及 Agent 的检索层，而非离线全网搜索。" data-category="selfhost" data-flag="JP" data-metric="846 Stars" data-date="2026-11-06" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">05</span>
+      <div class="project-heading">
+        <div class="project-title-line">
+          <h3><a href="https://github.com/sahenjp/RustXNG" target="_blank" rel="noopener noreferrer">RustXNG<span class="external" aria-hidden="true">↗</span></a></h3>
+          <span class="project-flag" role="img" title="日本相关项目" aria-label="日本相关项目">🇯🇵</span>
+          <span class="metric">★ 846 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="sahenjp/rustxng" aria-pressed="false" aria-label="收藏 RustXNG">☆ 收藏</button>
+    </div>
+    <p class="project-summary">用单个 Rust 服务聚合多家网页搜索，并通过 JSON API 和受限 MCP 接口为 AI Agent 提供结果与网页正文。</p>
+    <p class="project-detail">它借鉴 SearXNG 的多搜索引擎聚合方式，但本身并不维护全球网页索引。HTTP /search 支持结果、语言、域名和搜索引擎筛选；MCP 实现的 search 返回有限数量及长度的摘要，read_page 只能读取同一会话先前搜索得到的 URL，并限制正文长度、跳转目标、私网地址和 robots.txt。src/mcp/mod.rs 使用 rmcp SDK 明确提供这两个只读工具；多阶段 Dockerfile 构建 Rust 二进制、以非特权用户运行，镜像带 pdftotext 依赖。单机可用 Docker 或发行版二进制部署；JavaScript 渲染需另配浏览器工具，扫描 PDF 仍需单独 OCR。查询会发往启用的上游搜索服务，免费来源可能限流或变更，独立部署并不豁免供应商条款。适合个人检索入口及 Agent 的检索层，而非离线全网搜索。</p>
+    <p class="project-note">仓库有日语文档和日文搜索配置；日本关联标记表示适配内容，不表示开发者国籍。</p>
+  </article><article class="project" data-repo="s1dashu/quiet-md" data-name="Quiet.md" data-summary="使用 Rust 原生 GPU 界面的本地富文本笔记本，以飞书 DocxXML 格式逐篇保存，兼顾搜索与可迁移性。" data-detail="不同于 Electron 笔记工具，它直接用 GPUI 绘制编辑器，并把文档模型和界面分离到 crates/core 与根目录应用。crates/core/src/docxml.rs 通过 quick-xml 解析富文本块，未知节点尽可能原样保留；store.rs 将每篇笔记写成独立 XML，元信息放在 index.json，采用临时文件重命名及 .bak 索引备份。支持标题、表格、待办、代码、公式、附件、Markdown 快捷键和文档树，亦可导入飞书文档并导出 PDF/Markdown。它适合中文日常笔记及把文档保存在普通文件夹中，用 Git 或自选方式备份；并不意味着云端飞书的全部协作组件一比一兼容。尚为 Beta，部分嵌套单元格尾随空白存在已知往返限制，项目性能数字来自作者在 Apple M5 Pro 上的测量。" data-category="dev" data-flag="CN" data-metric="1,048 Stars" data-date="2026-11-06" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">06</span>
+      <div class="project-heading">
+        <div class="project-title-line">
+          <h3><a href="https://github.com/s1dashu/quiet-md" target="_blank" rel="noopener noreferrer">Quiet.md<span class="external" aria-hidden="true">↗</span></a></h3>
+          <span class="project-flag" role="img" title="中文相关项目" aria-label="中文相关项目">🇨🇳</span>
+          <span class="metric">★ 1,048 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="s1dashu/quiet-md" aria-pressed="false" aria-label="收藏 Quiet.md">☆ 收藏</button>
+    </div>
+    <p class="project-summary">使用 Rust 原生 GPU 界面的本地富文本笔记本，以飞书 DocxXML 格式逐篇保存，兼顾搜索与可迁移性。</p>
+    <p class="project-detail">不同于 Electron 笔记工具，它直接用 GPUI 绘制编辑器，并把文档模型和界面分离到 crates/core 与根目录应用。crates/core/src/docxml.rs 通过 quick-xml 解析富文本块，未知节点尽可能原样保留；store.rs 将每篇笔记写成独立 XML，元信息放在 index.json，采用临时文件重命名及 .bak 索引备份。支持标题、表格、待办、代码、公式、附件、Markdown 快捷键和文档树，亦可导入飞书文档并导出 PDF/Markdown。它适合中文日常笔记及把文档保存在普通文件夹中，用 Git 或自选方式备份；并不意味着云端飞书的全部协作组件一比一兼容。尚为 Beta，部分嵌套单元格尾随空白存在已知往返限制，项目性能数字来自作者在 Apple M5 Pro 上的测量。</p>
+    <p class="project-note">目前主要提供 Windows x64 与 Apple Silicon macOS 的安装包；飞书复杂文档先用副本验证。</p>
+  </article><article class="project" data-repo="patch-gg/pixelfx" data-name="pixelfx" data-summary="把 244 种像素风火焰、爆炸、法术与战斗特效实现为可运行的代码，并可导出游戏引擎使用的精灵表。" data-detail="这不是只有提示词的 Skill 仓库。src/fx 目录内每个效果是独立 JavaScript 模块，src/core/fx.js 真实实现了帧缓冲、前后层、颜色与加法发光合成，以及按固定步长推进的模拟。部分特效还包含角色蓄力、命中停顿、受击与恢复的动作时间数据。网页 Canvas 可以直接调用 createFx；node tools/render.mjs 则把指定效果输出为透明 PNG sprite sheet 和逐帧 JSON，适用于 Godot、Unity、Phaser 等需要预渲染素材的工程。颜色、翻转、随机种子可按游戏风格调整，原始代码亦可改造。附带 Claude Code Skill 只是可选编辑辅助，不是特效运行的前提。限制是视觉风格偏特定像素尺寸，移植到既有角色时仍须调整动作与碰撞节奏。" data-category="graphics" data-flag="" data-metric="5,245 Stars" data-date="2026-11-06" data-featured="true">
+    <div class="project-head">
+      <span class="ordinal">07</span>
+      <div class="project-heading">
+        <div class="project-title-line">
+          <h3><a href="https://github.com/patch-gg/pixelfx" target="_blank" rel="noopener noreferrer">pixelfx<span class="external" aria-hidden="true">↗</span></a></h3>
+          
+          <span class="metric">★ 5,245 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="patch-gg/pixelfx" aria-pressed="false" aria-label="收藏 pixelfx">☆ 收藏</button>
+    </div>
+    <p class="project-summary">把 244 种像素风火焰、爆炸、法术与战斗特效实现为可运行的代码，并可导出游戏引擎使用的精灵表。</p>
+    <p class="project-detail">这不是只有提示词的 Skill 仓库。src/fx 目录内每个效果是独立 JavaScript 模块，src/core/fx.js 真实实现了帧缓冲、前后层、颜色与加法发光合成，以及按固定步长推进的模拟。部分特效还包含角色蓄力、命中停顿、受击与恢复的动作时间数据。网页 Canvas 可以直接调用 createFx；node tools/render.mjs 则把指定效果输出为透明 PNG sprite sheet 和逐帧 JSON，适用于 Godot、Unity、Phaser 等需要预渲染素材的工程。颜色、翻转、随机种子可按游戏风格调整，原始代码亦可改造。附带 Claude Code Skill 只是可选编辑辅助，不是特效运行的前提。限制是视觉风格偏特定像素尺寸，移植到既有角色时仍须调整动作与碰撞节奏。</p>
+    <p class="project-note">适合独立游戏的 UI 动效、战斗技能和批量导出素材；直接复用代码或精灵表均可。</p>
+  </article></section>
+    <section class="issue-section"><div class="section-title"><h2>更多发现</h2><span>3 个项目</span></div><article class="project" data-repo="ccch1mneyyy/dsh-Go" data-name="DSH Go" data-summary="在 Android 本机通过隔离的 Linux 环境运行 DeepSeek Harness，或者从手机连接电脑上的 Harness 会话。" data-detail="Flutter 客户端整合 PRoot Ubuntu/Node 运行环境、DSH 接口和远程连接通道；app/pubspec.yaml 可核对 flutter_secure_storage、dartssh2、WebRTC、WebView 和本地客户端包。用户可以在手机查看任务、回复审批、切换模型、共享会话，并在授予无障碍权限后让本机引擎读取和操作屏幕；部分不打扰操作要求 Android 14 与 Shizuku/ADB。远程主机模式和本机引擎能力并不完全一致。安装本机环境约需 1GB 空间，省电策略可能杀后台；模型调用仍需联网及独立计费。匿名使用统计默认开启但可关闭，分享链接持有者能够查看内容。它是非官方社区客户端，不代表 DeepSeek。" data-category="ai" data-flag="CN" data-metric="11,394 Stars" data-date="2026-11-06" data-featured="false">
+    <div class="project-head">
+      <span class="ordinal">08</span>
+      <div class="project-heading">
+        <div class="project-title-line">
+          <h3><a href="https://github.com/ccch1mneyyy/dsh-Go" target="_blank" rel="noopener noreferrer">DSH Go<span class="external" aria-hidden="true">↗</span></a></h3>
+          <span class="project-flag" role="img" title="中文相关项目" aria-label="中文相关项目">🇨🇳</span>
+          <span class="metric">★ 11,394 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="ccch1mneyyy/dsh-go" aria-pressed="false" aria-label="收藏 DSH Go">☆ 收藏</button>
+    </div>
+    <p class="project-summary">在 Android 本机通过隔离的 Linux 环境运行 DeepSeek Harness，或者从手机连接电脑上的 Harness 会话。</p>
+    <p class="project-detail">Flutter 客户端整合 PRoot Ubuntu/Node 运行环境、DSH 接口和远程连接通道；app/pubspec.yaml 可核对 flutter_secure_storage、dartssh2、WebRTC、WebView 和本地客户端包。用户可以在手机查看任务、回复审批、切换模型、共享会话，并在授予无障碍权限后让本机引擎读取和操作屏幕；部分不打扰操作要求 Android 14 与 Shizuku/ADB。远程主机模式和本机引擎能力并不完全一致。安装本机环境约需 1GB 空间，省电策略可能杀后台；模型调用仍需联网及独立计费。匿名使用统计默认开启但可关闭，分享链接持有者能够查看内容。它是非官方社区客户端，不代表 DeepSeek。</p>
+    <p class="project-note">适合临时在手机检查开发任务、远程批准 Agent 操作；个人主力手机开启全权限前须核查隐私。</p>
+  </article><article class="project" data-repo="storytold/wordcraft" data-name="WordCraft" data-summary="使用 Rust 自建 DOCX 文字处理器，既提供接近传统 Word 的图形编辑，也允许 CLI/MCP 以命令控制文档。" data-detail="项目将文档模型、版式分页、OOXML 导入导出、PDF 渲染和 egui 图形界面拆为 Rust crate，并在引擎中定义统一的编辑命令。crates/mcp/src/tools.rs 不仅提供文本插入，还提供批量命令、文档结构检查、页面渲染及保存；这些与 ribbon 使用同一个命令层，因此可让 Agent 修改文件并检查结果。它适合文书批量生成、格式转换、离线编辑及研究可脚本化的办公软件。但当前仍处 Alpha：作者在差距文档中自评真实工作就绪度约 60%，复杂 DOCX 的图表/SmartArt 往返保留、分页一致性和稳定性仍是主要问题。不要直接用重要原稿测试无损往返。" data-category="dev" data-flag="" data-metric="17,397 Stars" data-date="2026-11-06" data-featured="false">
+    <div class="project-head">
+      <span class="ordinal">09</span>
+      <div class="project-heading">
+        <div class="project-title-line">
+          <h3><a href="https://github.com/storytold/wordcraft" target="_blank" rel="noopener noreferrer">WordCraft<span class="external" aria-hidden="true">↗</span></a></h3>
+          
+          <span class="metric">★ 17,397 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="storytold/wordcraft" aria-pressed="false" aria-label="收藏 WordCraft">☆ 收藏</button>
+    </div>
+    <p class="project-summary">使用 Rust 自建 DOCX 文字处理器，既提供接近传统 Word 的图形编辑，也允许 CLI/MCP 以命令控制文档。</p>
+    <p class="project-detail">项目将文档模型、版式分页、OOXML 导入导出、PDF 渲染和 egui 图形界面拆为 Rust crate，并在引擎中定义统一的编辑命令。crates/mcp/src/tools.rs 不仅提供文本插入，还提供批量命令、文档结构检查、页面渲染及保存；这些与 ribbon 使用同一个命令层，因此可让 Agent 修改文件并检查结果。它适合文书批量生成、格式转换、离线编辑及研究可脚本化的办公软件。但当前仍处 Alpha：作者在差距文档中自评真实工作就绪度约 60%，复杂 DOCX 的图表/SmartArt 往返保留、分页一致性和稳定性仍是主要问题。不要直接用重要原稿测试无损往返。</p>
+    <p class="project-note">有实际编辑与排版代码，不是单纯 Office 风格展示；重要 DOCX 应保留原件并比较输出。</p>
+  </article><article class="project" data-repo="opengeos/RustGIS" data-name="RustGIS" data-summary="用 Rust 桌面程序、WebAssembly 网页版及 Python/CLI 接口处理地图、地理数据与空间分析任务。" data-detail="其 GUI、数据载入、地图渲染、分析和助手功能分成多个 Rust crate；rustgis-cli 的源码提供 commands、render、run、ask 和 MCP 等真实入口，既能在编辑界面操作，也能按命令批量缓冲、裁剪、叠加图层并导出地图。输入涵盖 GeoJSON、Shapefile、GeoPackage、GeoTIFF 等矢量/栅格格式，复杂数据格式或算法可能需要已安装的 GDAL、DuckDB 或外部 GeoLibre/Whitebox 工具。应用支持 Windows/macOS/Linux，也能通过浏览器版本运行；AI 助手使用用户自选模型，只有主动调用外部模型或在线底图才会传输相应数据。项目规模庞大且较新，README 的格式覆盖和功能清单不能替代在目标数据集上逐项回归；需对坐标转换、导出图层和运算精度单独验证。" data-category="data" data-flag="" data-metric="2,346 Stars" data-date="2026-11-06" data-featured="false">
+    <div class="project-head">
+      <span class="ordinal">10</span>
+      <div class="project-heading">
+        <div class="project-title-line">
+          <h3><a href="https://github.com/opengeos/RustGIS" target="_blank" rel="noopener noreferrer">RustGIS<span class="external" aria-hidden="true">↗</span></a></h3>
+          
+          <span class="metric">★ 2,346 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="opengeos/rustgis" aria-pressed="false" aria-label="收藏 RustGIS">☆ 收藏</button>
+    </div>
+    <p class="project-summary">用 Rust 桌面程序、WebAssembly 网页版及 Python/CLI 接口处理地图、地理数据与空间分析任务。</p>
+    <p class="project-detail">其 GUI、数据载入、地图渲染、分析和助手功能分成多个 Rust crate；rustgis-cli 的源码提供 commands、render、run、ask 和 MCP 等真实入口，既能在编辑界面操作，也能按命令批量缓冲、裁剪、叠加图层并导出地图。输入涵盖 GeoJSON、Shapefile、GeoPackage、GeoTIFF 等矢量/栅格格式，复杂数据格式或算法可能需要已安装的 GDAL、DuckDB 或外部 GeoLibre/Whitebox 工具。应用支持 Windows/macOS/Linux，也能通过浏览器版本运行；AI 助手使用用户自选模型，只有主动调用外部模型或在线底图才会传输相应数据。项目规模庞大且较新，README 的格式覆盖和功能清单不能替代在目标数据集上逐项回归；需对坐标转换、导出图层和运算精度单独验证。</p>
+    <p class="project-note">适合地图制图、空间数据初步探索和可脚本化 GIS；不能直接视为成熟 QGIS 的功能等价品。</p>
+  </article></section>
+    <div class="issue-end"><a href="../../../archive/2026/11/index.html">← 返回 2026 年 11 月</a><a href="../../../search.html">搜索全部历史项目 →</a></div></main>
+  <footer class="footer container"><span>radar · 每天一页，持续归档</span><span>独立项目 · 非 GitHub 官方 · 收藏仅保存在当前浏览器</span></footer>
+</body>
+</html>
