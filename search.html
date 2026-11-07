@@ -23,7 +23,133 @@
       <a href="search.html?view=saved">我的收藏</a>
     </nav>
   </div></header>
-  <main class="container main" id="main"><div class="eyebrow">PROJECT LIBRARY / SEARCH</div><div class="archive-intro"><h1>项目搜索</h1><p>按项目名称、用途、关键词与分类查找历史日报中的开源项目。</p></div><div class="search-tools"><label for="q">关键词搜索</label><input id="q" type="search" placeholder="输入项目名、用途、MCP、日语……" autocomplete="off"><label for="category">项目分类</label><select id="category"><option value="">全部分类</option><option value="ai">AI / Agent</option><option value="selfhost">自托管</option><option value="dev">开发工具</option><option value="graphics">图形与创作</option><option value="hardware">硬件 / IoT</option><option value="games">游戏与模拟器</option><option value="data">数据与商业</option><option value="security">安全与逆向</option><option value="learning">学习与研究</option></select><label class="saved-filter"><input type="checkbox" id="saved-only"> 仅看我的收藏</label></div><p class="results-count" id="results-count" role="status">302 个项目</p><div class="search-grid" id="search-results"><article class="search-card" data-search="wquguru/cicada cicada · 知了 直接监听电脑或手机允许采集的声音，生成双语实时字幕、会议记录、ai 纪要，并能把自己的发言译成对方听得见的语音。 mac 主程序使用 core audio 进程级音频 tap 捕获输出，再交给 speechanalyzer 或 sfspeechrecognizer 识别；windows 版在源码中采用 wasapi 回环。识别文本经过翻译后按时间轴保存，支持说话人区分、会议要点和 markdown、word、srt 导出。要让会议软件听到译文，mac 安装 blackhole、windows 使用 vb-cable 虚拟麦克风。apple 芯片 mac 默认可在本机识别语音，但翻译或生成纪要时仍可能发送文字到外部服务；windows、linux、android 的识别默认需要模型服务。android 无法直接录制微信通话等被系统禁止采集的音频；mac 首次打开可能被未公证签名拦截。适合跨语言视频会议、直播字幕和会后检索，不应把“本机录音”误解为全部 ai 处理离线。 ai / agent" data-category="ai" data-repo="wquguru/cicada">
+  <main class="container main" id="main"><div class="eyebrow">PROJECT LIBRARY / SEARCH</div><div class="archive-intro"><h1>项目搜索</h1><p>按项目名称、用途、关键词与分类查找历史日报中的开源项目。</p></div><div class="search-tools"><label for="q">关键词搜索</label><input id="q" type="search" placeholder="输入项目名、用途、MCP、日语……" autocomplete="off"><label for="category">项目分类</label><select id="category"><option value="">全部分类</option><option value="ai">AI / Agent</option><option value="selfhost">自托管</option><option value="dev">开发工具</option><option value="graphics">图形与创作</option><option value="hardware">硬件 / IoT</option><option value="games">游戏与模拟器</option><option value="data">数据与商业</option><option value="security">安全与逆向</option><option value="learning">学习与研究</option></select><label class="saved-filter"><input type="checkbox" id="saved-only"> 仅看我的收藏</label></div><p class="results-count" id="results-count" role="status">311 个项目</p><div class="search-grid" id="search-results"><article class="search-card" data-search="anomalyco/rune rune 用 rust 自绘 gpu 界面，并让编码 agent 在无桌面环境下截图、检查控件树和模拟输入的跨平台 ui 框架。 不同于把 html 装入桌面壳，rune 用 keyed element tree、taffy 布局、parley 文本、wgpu 批量绘制和弹簧动画组成原生渲染管线；源码中的 crates/rune/src/lib.rs 对外提供 accessibility tree、runtime、render、tooling 等接口。agent 可以无头渲染 png、读取元素树再驱动交互，适合反复生成和验收桌面 ui 的编码工作流。当前是预发布框架，依赖 git 指定提交；不同平台渲染、输入法和辅助功能的成熟度不能按正式 gui 框架预期。 开发工具" data-category="dev" data-repo="anomalyco/rune">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/anomalyco/rune" target="_blank" rel="noopener noreferrer">Rune ↗</a></h2>
+          
+          <span class="metric">★ 2,847 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="anomalyco/rune" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">用 Rust 自绘 GPU 界面，并让编码 Agent 在无桌面环境下截图、检查控件树和模拟输入的跨平台 UI 框架。</p>
+    <p class="search-detail">不同于把 HTML 装入桌面壳，Rune 用 keyed element tree、Taffy 布局、Parley 文本、wgpu 批量绘制和弹簧动画组成原生渲染管线；源码中的 crates/rune/src/lib.rs 对外提供 accessibility tree、runtime、render、tooling 等接口。Agent 可以无头渲染 PNG、读取元素树再驱动交互，适合反复生成和验收桌面 UI 的编码工作流。当前是预发布框架，依赖 Git 指定提交；不同平台渲染、输入法和辅助功能的成熟度不能按正式 GUI 框架预期。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/07.html">2026-11-07 的日报 →</a></div>
+  </article><article class="search-card" data-search="libracoder/kiri kiri 以轻量 rust 容器守护进程和 linux vm 替代 docker desktop，同时尽量兼容现有 docker cli、compose 与镜像。 kiri 在 macos/windows 上使用小型 linux 虚拟机，在 linux 上直接利用内核容器能力。docker cli 经 docker engine api 对接 kiri daemon，再通过 vsock 调度 guest agent，后者使用 clone3、namespace 和 cgroup 启动容器，不需额外 dockerd、runc 或 shim。crates/kiri/src/docker.rs 实际把常见 docker 子命令转发到 kiri socket；docs/features.md 列明网络、端口、卷、compose 与安全选项支持边界。相比 docker desktop，重点是减小中间层和常驻开销；但 compose 兼容并非所有高级功能完全一致，windows 仍通过 wsl2。 自托管" data-category="selfhost" data-repo="libracoder/kiri">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/libracoder/kiri" target="_blank" rel="noopener noreferrer">Kiri ↗</a></h2>
+          
+          <span class="metric">★ 603 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="libracoder/kiri" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">以轻量 Rust 容器守护进程和 Linux VM 替代 Docker Desktop，同时尽量兼容现有 docker CLI、Compose 与镜像。</p>
+    <p class="search-detail">Kiri 在 macOS/Windows 上使用小型 Linux 虚拟机，在 Linux 上直接利用内核容器能力。Docker CLI 经 Docker Engine API 对接 Kiri daemon，再通过 vsock 调度 guest agent，后者使用 clone3、namespace 和 cgroup 启动容器，不需额外 dockerd、runc 或 shim。crates/kiri/src/docker.rs 实际把常见 docker 子命令转发到 Kiri socket；docs/features.md 列明网络、端口、卷、Compose 与安全选项支持边界。相比 Docker Desktop，重点是减小中间层和常驻开销；但 Compose 兼容并非所有高级功能完全一致，Windows 仍通过 WSL2。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/07.html">2026-11-07 的日报 →</a></div>
+  </article><article class="search-card" data-search="rjyo/osewa osewa 跨弱网和网络切换保持远程 shell 的持久会话，quic 不通时自动改走 tls websocket，并支持远程执行与端口转发。 它把 pty、运行进程、终端状态和输出日志交给常驻 host holder，而非绑定在某条 tcp 连接上；server 只鉴权和转发。docs/protocol.md 描述了 host holder 的 unix socket 和 ghostty 终端快照恢复；crates/server/src/lib.rs 证实 server 以 tls 通道与 holder 通信。客户端优先 quic，受限网络改走 tls websocket。与 mosh 相比，它支持 tcp 回退、远程执行和端口转发；不同于 tmux+ssh，也会恢复终端画面状态。但协议仍在草案期，新增服务端端口且尚无 openssh 级安全审计，不建议未经隔离直接暴露公网。 开发工具" data-category="dev" data-repo="rjyo/osewa">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/rjyo/osewa" target="_blank" rel="noopener noreferrer">osewa ↗</a></h2>
+          
+          <span class="metric">★ 104 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="rjyo/osewa" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">跨弱网和网络切换保持远程 Shell 的持久会话，QUIC 不通时自动改走 TLS WebSocket，并支持远程执行与端口转发。</p>
+    <p class="search-detail">它把 PTY、运行进程、终端状态和输出日志交给常驻 host holder，而非绑定在某条 TCP 连接上；server 只鉴权和转发。docs/PROTOCOL.md 描述了 host holder 的 Unix socket 和 Ghostty 终端快照恢复；crates/server/src/lib.rs 证实 server 以 TLS 通道与 holder 通信。客户端优先 QUIC，受限网络改走 TLS WebSocket。与 mosh 相比，它支持 TCP 回退、远程执行和端口转发；不同于 tmux+SSH，也会恢复终端画面状态。但协议仍在草案期，新增服务端端口且尚无 OpenSSH 级安全审计，不建议未经隔离直接暴露公网。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/07.html">2026-11-07 的日报 →</a></div>
+  </article><article class="search-card" data-search="sandflow-ai/sand3d sand3d 让 ai 用可阅读的短 python 程序描述零件、装配、关节和空间坐标，再交给 blender 生成 3d 模型。 sand3d 不自研新渲染器，而是用 blender bpy 作几何后端，提供 profile、solid、edit、frame、joint 与 assembly 等高层接口。src/sand3d/assembly.py 定义 group、assembly、handle 和具名锚点，方便模型先写零件再将它们组装，输出 glb、stl、usd、urdf 等格式。比直接让 llm 输出冗长 bpy 脚本，结构更容易阅读、复用和修正；适合机械部件概念验证、机器人结构和可程序化 3d 资产。由于依赖 blender 的 python 接口，开发 python 版本受 bpy 发行版本限制，不能按普通纯 python 轻量包部署。 图形与创作" data-category="graphics" data-repo="sandflow-ai/sand3d">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/Sandflow-ai/sand3d" target="_blank" rel="noopener noreferrer">sand3d ↗</a></h2>
+          
+          <span class="metric">★ 878 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="sandflow-ai/sand3d" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">让 AI 用可阅读的短 Python 程序描述零件、装配、关节和空间坐标，再交给 Blender 生成 3D 模型。</p>
+    <p class="search-detail">sand3d 不自研新渲染器，而是用 Blender bpy 作几何后端，提供 profile、solid、edit、frame、joint 与 assembly 等高层接口。src/sand3d/assembly.py 定义 group、assembly、Handle 和具名锚点，方便模型先写零件再将它们组装，输出 GLB、STL、USD、URDF 等格式。比直接让 LLM 输出冗长 bpy 脚本，结构更容易阅读、复用和修正；适合机械部件概念验证、机器人结构和可程序化 3D 资产。由于依赖 Blender 的 Python 接口，开发 Python 版本受 bpy 发行版本限制，不能按普通纯 Python 轻量包部署。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/07.html">2026-11-07 的日报 →</a></div>
+  </article><article class="search-card" data-search="voyager-so/vork vork 把 3d、粒子与 vfx 渲染变成无界面的 json 场景指令，让 agent 直接生成预览图、视频和多通道素材。 与面向交互建模的 blender 不同，vork 以原生 rust gpu 渲染内核承接结构化场景，可从命令行读入 json，输出 mp4、mov、png 或多层 exr。crates/vork-cli/src/main.rs 中的 render 子命令实际解析场景、通道并调用渲染管线；提供 python/typescript sdk，适合 agent 修改镜头、光线和材质后反复预览。其视频和大规模场景表现依赖指定驱动与 gpu，作者速度数据不等于所有硬件实测。项目标注为 research preview，渲染与材质兼容性仍需按场景验证。 图形与创作" data-category="graphics" data-repo="voyager-so/vork">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/voyager-so/vork" target="_blank" rel="noopener noreferrer">vork ↗</a></h2>
+          
+          <span class="metric">★ 517 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="voyager-so/vork" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">把 3D、粒子与 VFX 渲染变成无界面的 JSON 场景指令，让 Agent 直接生成预览图、视频和多通道素材。</p>
+    <p class="search-detail">与面向交互建模的 Blender 不同，vork 以原生 Rust GPU 渲染内核承接结构化场景，可从命令行读入 JSON，输出 MP4、MOV、PNG 或多层 EXR。crates/vork-cli/src/main.rs 中的 Render 子命令实际解析场景、通道并调用渲染管线；提供 Python/TypeScript SDK，适合 Agent 修改镜头、光线和材质后反复预览。其视频和大规模场景表现依赖指定驱动与 GPU，作者速度数据不等于所有硬件实测。项目标注为 research preview，渲染与材质兼容性仍需按场景验证。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/07.html">2026-11-07 的日报 →</a></div>
+  </article><article class="search-card" data-search="orailnoor/cross-platform-llm-client privatelm 在一套 flutter 客户端中切换手机本地 gguf 推理与云端 api，离线对话与多模态聊天共用同一会话界面。 其 flutter 服务层分离云端请求和手机端推理，lib/services/inference_android.dart 接入 llama_flutter_android 与 litert lm，并处理 gguf 模型加载、运行后端、视觉投影文件和推理生命周期。android 可以在模型下载后本地运行；不支持的场景切换到 openai、claude、gemini 等服务。相比只使用云端 api 的聊天套壳，区别在于真正存在设备端模型执行路径；不过不同操作系统功能并不相同，readme 重点说明 android 本地推理，而 ios 安装另有侧载说明。模型文件、内存占用、gpu 兼容和热管理直接决定实际体验。 ai / agent" data-category="ai" data-repo="orailnoor/cross-platform-llm-client">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/orailnoor/cross-platform-llm-client" target="_blank" rel="noopener noreferrer">PrivateLM ↗</a></h2>
+          
+          <span class="metric">★ 1,599 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="orailnoor/cross-platform-llm-client" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">在一套 Flutter 客户端中切换手机本地 GGUF 推理与云端 API，离线对话与多模态聊天共用同一会话界面。</p>
+    <p class="search-detail">其 Flutter 服务层分离云端请求和手机端推理，lib/services/inference_android.dart 接入 llama_flutter_android 与 LiteRT LM，并处理 GGUF 模型加载、运行后端、视觉投影文件和推理生命周期。Android 可以在模型下载后本地运行；不支持的场景切换到 OpenAI、Claude、Gemini 等服务。相比只使用云端 API 的聊天套壳，区别在于真正存在设备端模型执行路径；不过不同操作系统功能并不相同，README 重点说明 Android 本地推理，而 iOS 安装另有侧载说明。模型文件、内存占用、GPU 兼容和热管理直接决定实际体验。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/07.html">2026-11-07 的日报 →</a></div>
+  </article><article class="search-card" data-search="iiinno/openhinovoice openhinovoice 用 windows 本机语音识别把日语口述变成任意输入框中的文字，并允许再调用 ai 清除口头禅与修正标点。 这是 rust/egui 编写的 windows 桌面工具，语音识别依赖本地 speech.cpp 和日语 haas 模型。src/asr.rs 创建独立子进程、通过有界队列传送 pcm、监控启动和识别超时，避免识别卡住时拖死界面；main.rs 维护录音及格式化状态。用户按快捷键录音、enter 粘贴，快速再次按下可直接粘贴未润色的结果。词典可处理专有名词，短期历史加密保存。相比需要上传语音的听写服务，识别可留在 pc，但选择云端 ai 润色会发送文本。安装需要自行取得 speech.cpp 和模型，提供的 windows exe 尚未代码签名。 学习与研究" data-category="learning" data-repo="iiinno/openhinovoice">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/iiinno/OpenHinoVoice" target="_blank" rel="noopener noreferrer">OpenHinoVoice ↗</a></h2>
+          <span class="project-flag" role="img" title="日本相关项目" aria-label="日本相关项目">🇯🇵</span>
+          <span class="metric">★ 51 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="iiinno/openhinovoice" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">用 Windows 本机语音识别把日语口述变成任意输入框中的文字，并允许再调用 AI 清除口头禅与修正标点。</p>
+    <p class="search-detail">这是 Rust/egui 编写的 Windows 桌面工具，语音识别依赖本地 speech.cpp 和日语 Haas 模型。src/asr.rs 创建独立子进程、通过有界队列传送 PCM、监控启动和识别超时，避免识别卡住时拖死界面；main.rs 维护录音及格式化状态。用户按快捷键录音、Enter 粘贴，快速再次按下可直接粘贴未润色的结果。词典可处理专有名词，短期历史加密保存。相比需要上传语音的听写服务，识别可留在 PC，但选择云端 AI 润色会发送文本。安装需要自行取得 speech.cpp 和模型，提供的 Windows exe 尚未代码签名。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/07.html">2026-11-07 的日报 →</a></div>
+  </article><article class="search-card" data-search="koebumi/koebumi koebumi 在 macos 用 fn 键进行日语语音输入，并将口语自动调整成书面语或给 codex/claude code 发语音指令。 swift 版桌面工具支持本机 apple 语音能力或 speech-swift 的多种 asr 模型，package.swift 实际依赖 qwen3-asr、whisper、mlx 等模块；能根据工作目录修正文件名发音、把「スラッシュ コンパクト」转成 /compact，并口头回答 agent 的批准提示。不同于一般听写，它兼顾日语敬语规范和编程工作流。限制是要求 apple silicon 与 macos 26，未做 apple 公证；若通过现有 codex/claude code 订阅执行润色，会使用相应服务额度。 学习与研究" data-category="learning" data-repo="koebumi/koebumi">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/koebumi/koebumi" target="_blank" rel="noopener noreferrer">Koebumi ↗</a></h2>
+          <span class="project-flag" role="img" title="日本相关项目" aria-label="日本相关项目">🇯🇵</span>
+          <span class="metric">★ 4 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="koebumi/koebumi" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">在 macOS 用 Fn 键进行日语语音输入，并将口语自动调整成书面语或给 Codex/Claude Code 发语音指令。</p>
+    <p class="search-detail">Swift 版桌面工具支持本机 Apple 语音能力或 speech-swift 的多种 ASR 模型，Package.swift 实际依赖 Qwen3-ASR、Whisper、MLX 等模块；能根据工作目录修正文件名发音、把「スラッシュ コンパクト」转成 /compact，并口头回答 Agent 的批准提示。不同于一般听写，它兼顾日语敬语规范和编程工作流。限制是要求 Apple Silicon 与 macOS 26，未做 Apple 公证；若通过现有 Codex/Claude Code 订阅执行润色，会使用相应服务额度。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/07.html">2026-11-07 的日报 →</a></div>
+  </article><article class="search-card" data-search="mkpoli/ids-input ids-input 用汉字部件描述序列（ids）构造、搜索和编辑尚未编码的汉字，并在网页展示部件树与字形预览。 核心是无框架依赖的 javascript ids 解析/序列化引擎，以及可选的 svelte 组件和编辑工作台。src/core/ids.js 将「⿰」「⿱」等结构解析成带子节点的树并允许替换、撤销、组合；package.json 暴露 core、document、adapter、composer 等独立模块。支持汉字、喃字及西夏字的部件描述，适合古籍数字化、汉字字形教学和罕见字输入。与普通 unicode 输入法不同，它描述的是部件结构，不保证每种组合都对应正式编码字位或标准字体字形。 学习与研究" data-category="learning" data-repo="mkpoli/ids-input">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/mkpoli/ids-input" target="_blank" rel="noopener noreferrer">ids-input ↗</a></h2>
+          
+          <span class="metric">★ 7 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="mkpoli/ids-input" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">用汉字部件描述序列（IDS）构造、搜索和编辑尚未编码的汉字，并在网页展示部件树与字形预览。</p>
+    <p class="search-detail">核心是无框架依赖的 JavaScript IDS 解析/序列化引擎，以及可选的 Svelte 组件和编辑工作台。src/core/ids.js 将「⿰」「⿱」等结构解析成带子节点的树并允许替换、撤销、组合；package.json 暴露 core、document、adapter、composer 等独立模块。支持汉字、喃字及西夏字的部件描述，适合古籍数字化、汉字字形教学和罕见字输入。与普通 Unicode 输入法不同，它描述的是部件结构，不保证每种组合都对应正式编码字位或标准字体字形。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/07.html">2026-11-07 的日报 →</a></div>
+  </article><article class="search-card" data-search="wquguru/cicada cicada · 知了 直接监听电脑或手机允许采集的声音，生成双语实时字幕、会议记录、ai 纪要，并能把自己的发言译成对方听得见的语音。 mac 主程序使用 core audio 进程级音频 tap 捕获输出，再交给 speechanalyzer 或 sfspeechrecognizer 识别；windows 版在源码中采用 wasapi 回环。识别文本经过翻译后按时间轴保存，支持说话人区分、会议要点和 markdown、word、srt 导出。要让会议软件听到译文，mac 安装 blackhole、windows 使用 vb-cable 虚拟麦克风。apple 芯片 mac 默认可在本机识别语音，但翻译或生成纪要时仍可能发送文字到外部服务；windows、linux、android 的识别默认需要模型服务。android 无法直接录制微信通话等被系统禁止采集的音频；mac 首次打开可能被未公证签名拦截。适合跨语言视频会议、直播字幕和会后检索，不应把“本机录音”误解为全部 ai 处理离线。 ai / agent" data-category="ai" data-repo="wquguru/cicada">
     <div class="search-card-title">
       <div class="search-card-title-content">
         <div class="project-title-line">
