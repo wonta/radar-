@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
-import {archivePath,validDate,validRepo,esc} from '../scripts/site.mjs';
+import {archivePath,validDate,validRepo,esc,issuePage} from '../scripts/site.mjs';
 
 const file = date => fs.readFileSync(archivePath(date),'utf8');
 const count = date => Number(file(date).match(/<meta name="radar-count" content="(\d+)">/)[1]);
@@ -34,7 +34,8 @@ test('latest home and month/year indexes link to independent HTML',()=>{
 test('search database is rendered as HTML, not a JSON request',()=>{
   const html=fs.readFileSync('dist/search.html','utf8');
   assert.match(html,/morluto\/rea/);
-  assert.match(html,/data-search=/);
+  assert.match(html,/class="search-card"/);
+  assert.doesNotMatch(html,/data-search=/);
   assert.match(html,/id="saved-only"/);
   assert.doesNotMatch(html,/radar\.json/);
 });
@@ -153,4 +154,72 @@ test('description typography collapses blank lines without discarding details',(
   assert.ok(cromford);
   assert.match(cromford,/每个阶段可指定不同模型/);
   assert.match(cromford,/进入合并、部署验证和线上复查/);
+});
+
+test('archive issues have meaningful date headings and in-page overview navigation',()=>{
+  const path='archive/2026/10';
+  const files=fs.readdirSync(path).filter(f=>/^\d{2}\.html$/.test(f));
+  assert.ok(files.length>=16);
+  for(const name of files){
+    const html=fs.readFileSync(path+'/'+name,'utf8');
+    assert.doesNotMatch(html,/<h1>今天，/);
+    assert.match(html,/<h1>这一期，有哪些项目/);
+    const ids=[...html.matchAll(/<article class="project"[^>]*id="(project-\d{2})"/g)].map(m=>m[1]);
+    const anchors=[...html.matchAll(/<li><a href="#(project-\d{2})"/g)].map(m=>m[1]);
+    assert.equal(ids.length,Number(html.match(/name="radar-count" content="(\d+)"/)?.[1]),name);
+    assert.equal(new Set(ids).size,ids.length,name);
+    assert.deepEqual(anchors,ids,name);
+  }
+});
+test('search records avoid duplicate description attributes and remain an HTML document',()=>{
+  const html=fs.readFileSync('dist/search.html','utf8');
+  assert.doesNotMatch(html,/data-search=/);
+  assert.match(html,/id="load-more"[^>]*hidden/);
+  assert.match(html,/class="search-field search-field-query"/);
+  assert.match(html,/class="search-field search-field-category"/);
+  assert.ok((html.match(/class="search-card"/g)||[]).length>=234);
+});
+test('archive indexes provide useful navigation without oversized duplicated dates',()=>{
+  const all=fs.readFileSync('dist/archive/index.html','utf8');
+  const year=fs.readFileSync('dist/archive/2026/index.html','utf8');
+  const month=fs.readFileSync('dist/archive/2026/10/index.html','utf8');
+  assert.match(all,/class="archive-recent"/);
+  assert.match(year,/class="archive-grid archive-grid-compact"/);
+  assert.match(year,/>10 月<\/strong>/);
+  assert.doesNotMatch(year,/<span class="archive-desc">2026 年 10 月<\/span>/);
+  assert.match(year,/class="archive-recent"/);
+  assert.match(all,/href="\.\.\/archive\/\d{4}\/\d{2}\/\d{2}\.html"/);
+  assert.match(year,/href="\.\.\/\.\.\/archive\/2026\/\d{2}\/\d{2}\.html"/);
+  assert.match(month,/26 日 <small>周一<\/small>/);
+  assert.match(month,/aria-label="2026-10-26，20 个开源项目"/);
+  assert.doesNotMatch(month,/<small>2026-10-26<\/small>/);
+});
+test('secondary type color contrast is sufficient on paper and white surfaces',()=>{
+  const css=fs.readFileSync('dist/assets/site.css','utf8');
+  const hex=k=>css.match(new RegExp(k+':(#[a-fA-F0-9]{6})'))?.[1];
+  const light=color=>{const n=[1,3,5].map(i=>parseInt(color.slice(i,i+2),16)/255).map(v=>v<=0.04045?v/12.92:Math.pow((v+0.055)/1.055,2.4));return 0.2126*n[0]+0.7152*n[1]+0.0722*n[2]};
+  const contrast=(a,b)=>{const aa=light(a),bb=light(b);return (Math.max(aa,bb)+0.05)/(Math.min(aa,bb)+0.05)};
+  for(const token of ['--muted','--accent']){
+    assert.ok(hex(token),'missing '+token);
+    assert.ok(contrast(hex(token),'#f7f8f4')>=4.5,'paper contrast '+token);
+    assert.ok(contrast(hex(token),'#ffffff')>=4.5,'white contrast '+token);
+  }
+});
+
+test('future daily issues use the same readable structure and direct anchors',()=>{
+  const html=issuePage({date:'2026-11-01',source:'github-actions-scout',entries:[{
+    project:{id:'example/fictional-tool',name:'example-tool',category:'dev',tags:['japanese'],flag:''},
+    summary:'读取真实资料并组织成可查找的项目内容。',
+    detail:'支持按用途整理内容，提供本地检索和必要的访问控制。',
+    featured:true,
+    metric:{type:'total',value:28,display:'28'}
+  }]});
+  assert.match(html,/id="project-01"/);
+  assert.match(html,/href="#project-01"/);
+  assert.match(html,/这一期，有哪些项目/);
+  assert.match(html,/★ 28 Stars/);
+  assert.match(html,/aria-label="日本相关项目"/);
+  assert.match(html,/datetime="2026-11-01"/);
+  assert.doesNotMatch(html,/class="repo-id"|class="project-bottom"|私人笔记|data-search=/);
+  assert.match(html,/href="\.\.\/\.\.\/\.\.\/assets\/site\.css"/);
 });
