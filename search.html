@@ -23,7 +23,189 @@
       <a href="search.html?view=saved">我的收藏</a>
     </nav>
   </div></header>
-  <main class="container main" id="main"><div class="eyebrow">PROJECT LIBRARY / SEARCH</div><div class="archive-intro"><h1>项目搜索</h1><p>按项目名称、用途、关键词与分类查找历史日报中的开源项目。</p></div><div class="search-tools"><label for="q">关键词搜索</label><input id="q" type="search" placeholder="输入项目名、用途、MCP、日语……" autocomplete="off"><label for="category">项目分类</label><select id="category"><option value="">全部分类</option><option value="ai">AI / Agent</option><option value="selfhost">自托管</option><option value="dev">开发工具</option><option value="graphics">图形与创作</option><option value="hardware">硬件 / IoT</option><option value="games">游戏与模拟器</option><option value="data">数据与商业</option><option value="security">安全与逆向</option><option value="learning">学习与研究</option></select><label class="saved-filter"><input type="checkbox" id="saved-only"> 仅看我的收藏</label></div><p class="results-count" id="results-count" role="status">326 个项目</p><div class="search-grid" id="search-results"><article class="search-card" data-search="lxe/phoneuse phoneuse 通过 airplay 接收 iphone 屏幕，再以蓝牙 hid 回传点击和文字，让 linux 上的 ai agent 操作未越狱的 iphone。 项目把两条原生能力组合成可自动化控制链：uxplay/gstreamer 在 linux 电脑上接收 iphone 的屏幕镜像，蓝牙鼠标键盘或可选 esp32 桥接板将点击、拖动和键盘输入送回手机；phoneuse/mcp_server.py 又把截图、可点击文字定位和操作命令暴露为 mcp 工具。手机端不需要安装 app 或越狱，pc 与手机须在同一网络，iphone 要打开屏幕镜像及辅助触控。安装脚本会关闭 linux 蓝牙服务的输入插件，可能影响电脑原有的蓝牙键鼠。作者只在一套 iphone 17 pro、arch linux、hyprland 环境验证，其他机型及桌面环境尚不能视为兼容。 硬件 / iot" data-category="hardware" data-repo="lxe/phoneuse">
+  <main class="container main" id="main"><div class="eyebrow">PROJECT LIBRARY / SEARCH</div><div class="archive-intro"><h1>项目搜索</h1><p>按项目名称、用途、关键词与分类查找历史日报中的开源项目。</p></div><div class="search-tools"><label for="q">关键词搜索</label><input id="q" type="search" placeholder="输入项目名、用途、MCP、日语……" autocomplete="off"><label for="category">项目分类</label><select id="category"><option value="">全部分类</option><option value="ai">AI / Agent</option><option value="selfhost">自托管</option><option value="dev">开发工具</option><option value="graphics">图形与创作</option><option value="hardware">硬件 / IoT</option><option value="games">游戏与模拟器</option><option value="data">数据与商业</option><option value="security">安全与逆向</option><option value="learning">学习与研究</option></select><label class="saved-filter"><input type="checkbox" id="saved-only"> 仅看我的收藏</label></div><p class="results-count" id="results-count" role="status">339 个项目</p><div class="search-grid" id="search-results"><article class="search-card" data-search="diygod/pinky pinky 让 codex、claude 等 ai agent 通过 mcp 操作真实 iphone 和 android，并在电脑上逐步审查、接管和阻止危险操作。 go 网关统一接入 android 与 ios 驱动和 mcp 服务，手机点击与输入操作先由权限规则处理。源码中的策略引擎限制密码、验证码及敏感应用操作，批准机制将许可绑定到特定会话、设备及参数并在超时后拒绝。android 13 以上可以使用后台虚拟屏幕，ios 则需要安装辅助程序。适用于手机自动化与交互测试；目前仍属 pre-alpha，部分设备能力尚未完成验收，默认遥测可关闭。 ai / agent" data-category="ai" data-repo="diygod/pinky">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/DIYgod/pinky" target="_blank" rel="noopener noreferrer">Pinky ↗</a></h2>
+          
+          <span class="metric">★ 1,657 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="diygod/pinky" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">让 Codex、Claude 等 AI Agent 通过 MCP 操作真实 iPhone 和 Android，并在电脑上逐步审查、接管和阻止危险操作。</p>
+    <p class="search-detail">Go 网关统一接入 Android 与 iOS 驱动和 MCP 服务，手机点击与输入操作先由权限规则处理。源码中的策略引擎限制密码、验证码及敏感应用操作，批准机制将许可绑定到特定会话、设备及参数并在超时后拒绝。Android 13 以上可以使用后台虚拟屏幕，iOS 则需要安装辅助程序。适用于手机自动化与交互测试；目前仍属 pre-alpha，部分设备能力尚未完成验收，默认遥测可关闭。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/11.html">2026-11-11 的日报 →</a></div>
+  </article><article class="search-card" data-search="shanselman/gputaskman gputaskman 把 gpu 显存占用拆解到进程、推理框架与模型权重、kv cache，让本地 ai 的显存去向更容易排查。 python 终端工具组合 windows wddm、linux nvml/drm、macos 和 wsl 的显卡、进程快照；再读取 llama.cpp、ollama 等本地服务的接口与加载日志，结合 gguf 元数据估算权重、kv cache 和计算缓冲区。提供交互式监控、json 快照与对比，适合排查本地 llm 和游戏的显存争用。部分进程归属和模型显存属于估计而非驱动确认，仍处实验阶段。 开发工具" data-category="dev" data-repo="shanselman/gputaskman">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/shanselman/gputaskman" target="_blank" rel="noopener noreferrer">gputaskman ↗</a></h2>
+          
+          <span class="metric">★ 1,654 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="shanselman/gputaskman" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">把 GPU 显存占用拆解到进程、推理框架与模型权重、KV Cache，让本地 AI 的显存去向更容易排查。</p>
+    <p class="search-detail">Python 终端工具组合 Windows WDDM、Linux NVML/DRM、macOS 和 WSL 的显卡、进程快照；再读取 llama.cpp、Ollama 等本地服务的接口与加载日志，结合 GGUF 元数据估算权重、KV Cache 和计算缓冲区。提供交互式监控、JSON 快照与对比，适合排查本地 LLM 和游戏的显存争用。部分进程归属和模型显存属于估计而非驱动确认，仍处实验阶段。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/11.html">2026-11-11 的日报 →</a></div>
+  </article><article class="search-card" data-search="expo/exact exact 用一套 contract 界面描述和 typescript／rust 数据逻辑生成 web、macos、ios、linux 原生应用，并提供统一的 ai 自动化测试接口。 contract 编译器把声明式界面转为跨平台执行计划：网页使用 dom，apple 平台使用 appkit／uikit，linux 有 rust 渲染层。scripts/agent.mjs 暴露界面树、截图、点击、输入、状态与可控时钟，使 ai agent 能跨端检查界面。适合研究原生 ui 与自动化的统一开发。尚未达到稳定 api 阶段；windows 与 android 支持有限，源码开发依赖较完整的工具链。 开发工具" data-category="dev" data-repo="expo/exact">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/expo/exact" target="_blank" rel="noopener noreferrer">Exact ↗</a></h2>
+          
+          <span class="metric">★ 2,122 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="expo/exact" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">用一套 Contract 界面描述和 TypeScript／Rust 数据逻辑生成 Web、macOS、iOS、Linux 原生应用，并提供统一的 AI 自动化测试接口。</p>
+    <p class="search-detail">Contract 编译器把声明式界面转为跨平台执行计划：网页使用 DOM，Apple 平台使用 AppKit／UIKit，Linux 有 Rust 渲染层。scripts/agent.mjs 暴露界面树、截图、点击、输入、状态与可控时钟，使 AI Agent 能跨端检查界面。适合研究原生 UI 与自动化的统一开发。尚未达到稳定 API 阶段；Windows 与 Android 支持有限，源码开发依赖较完整的工具链。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/11.html">2026-11-11 的日报 →</a></div>
+  </article><article class="search-card" data-search="devvmhq/devvm devvm 为每个代码项目准备独立 linux 虚拟机，自动装配工具链，让编程 agent 在隔离环境中工作。 go 工具调用 lima 创建项目专属 linux vm，扫描仓库识别开发环境并在客体内执行 codex、claude code、opencode 等工具。网络策略包含 open、internet、allowlist、none 四档，独立 git clone 选项可避免直接修改宿主代码树。适合尝试陌生仓库或隔离高权限 agent 任务。常规共享模式仍可能挂载宿主项目目录，需要虚拟化资源、镜像下载和独立的 agent 凭据。 开发工具" data-category="dev" data-repo="devvmhq/devvm">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/devvmhq/devvm" target="_blank" rel="noopener noreferrer">devvm ↗</a></h2>
+          
+          <span class="metric">★ 536 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="devvmhq/devvm" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">为每个代码项目准备独立 Linux 虚拟机，自动装配工具链，让编程 Agent 在隔离环境中工作。</p>
+    <p class="search-detail">Go 工具调用 Lima 创建项目专属 Linux VM，扫描仓库识别开发环境并在客体内执行 Codex、Claude Code、opencode 等工具。网络策略包含 open、internet、allowlist、none 四档，独立 Git clone 选项可避免直接修改宿主代码树。适合尝试陌生仓库或隔离高权限 Agent 任务。常规共享模式仍可能挂载宿主项目目录，需要虚拟化资源、镜像下载和独立的 Agent 凭据。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/11.html">2026-11-11 的日报 →</a></div>
+  </article><article class="search-card" data-search="yjid/kensaku kensaku 在本机快速搜索文件名、文档内容、截图文字和语义，并向 ai agent 提供只读的本地文件检索能力。 采用 rust、tauri 和 tantivy 本地全文索引；中日韩单字与双字组合切词支持汉字和假名混排，还具有 ocr 模糊匹配及语义检索。可索引代码、pdf、office 文档和图片文字，提供 mcp 只读检索。适用于个人电脑的大型资料库。ocr 和语义功能可能需下载模型，大型文件有索引限制，扫描型 pdf 的支持和跨平台一致性仍不完整。 开发工具" data-category="dev" data-repo="yjid/kensaku">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/yjid/kensaku" target="_blank" rel="noopener noreferrer">Kensaku ↗</a></h2>
+          
+          <span class="metric">★ 1,593 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="yjid/kensaku" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">在本机快速搜索文件名、文档内容、截图文字和语义，并向 AI Agent 提供只读的本地文件检索能力。</p>
+    <p class="search-detail">采用 Rust、Tauri 和 Tantivy 本地全文索引；中日韩单字与双字组合切词支持汉字和假名混排，还具有 OCR 模糊匹配及语义检索。可索引代码、PDF、Office 文档和图片文字，提供 MCP 只读检索。适用于个人电脑的大型资料库。OCR 和语义功能可能需下载模型，大型文件有索引限制，扫描型 PDF 的支持和跨平台一致性仍不完整。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/11.html">2026-11-11 的日报 →</a></div>
+  </article><article class="search-card" data-search="t8y2/motty motty 把 ssh 终端、sftp 文件管理、端口转发、vnc／rdp 远程桌面及 ai 助手装进同一个原生桌面窗口。 go 应用以 viva 构建 gpu 原生界面，分离 sshconn、sftpclient、portforward、rdpcore、rfb、monitoring 与 ai 模块。支持多主机管理、私钥、加密凭据及 ssh 隧道。适合集中管理开发服务器。源码 go.mod 使用 replace 指向仓库外的 ../viva，单独克隆不能保证立即编译；部分远程桌面高级特性和发行包签名仍有限制。 开发工具" data-category="dev" data-repo="t8y2/motty">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/t8y2/motty" target="_blank" rel="noopener noreferrer">Motty ↗</a></h2>
+          <span class="project-flag" role="img" title="中文相关项目" aria-label="中文相关项目">🇨🇳</span>
+          <span class="metric">★ 839 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="t8y2/motty" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">把 SSH 终端、SFTP 文件管理、端口转发、VNC／RDP 远程桌面及 AI 助手装进同一个原生桌面窗口。</p>
+    <p class="search-detail">Go 应用以 Viva 构建 GPU 原生界面，分离 sshconn、sftpclient、portforward、rdpcore、rfb、monitoring 与 ai 模块。支持多主机管理、私钥、加密凭据及 SSH 隧道。适合集中管理开发服务器。源码 go.mod 使用 replace 指向仓库外的 ../viva，单独克隆不能保证立即编译；部分远程桌面高级特性和发行包签名仍有限制。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/11.html">2026-11-11 的日报 →</a></div>
+  </article><article class="search-card" data-search="nvidia/hyperflare-inference hyperflare inference 把 nvidia 新架构显卡上的大模型准备过程与在线推理运行时拆开，用精简 rust 服务复用预编译 cuda 图。 ignition 使用 pytorch、transformers 和 flashinfer 准备权重、调优 cuda 内核并捕获执行图；helios rust 服务加载生成的运行核心，管理请求队列、上下文缓存和会话检查点。源码提供显式准入与调度机制，适合研究长期 agent 推理的性能。主要针对 nvidia sm120／sm121，依赖 cuda 复杂工具链，不适合普通旧卡或直接替代成熟生产推理框架。 ai / agent" data-category="ai" data-repo="nvidia/hyperflare-inference">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/NVIDIA/hyperflare-inference" target="_blank" rel="noopener noreferrer">Hyperflare Inference ↗</a></h2>
+          
+          <span class="metric">★ 797 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="nvidia/hyperflare-inference" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">把 NVIDIA 新架构显卡上的大模型准备过程与在线推理运行时拆开，用精简 Rust 服务复用预编译 CUDA 图。</p>
+    <p class="search-detail">Ignition 使用 PyTorch、Transformers 和 FlashInfer 准备权重、调优 CUDA 内核并捕获执行图；Helios Rust 服务加载生成的运行核心，管理请求队列、上下文缓存和会话检查点。源码提供显式准入与调度机制，适合研究长期 Agent 推理的性能。主要针对 NVIDIA SM120／SM121，依赖 CUDA 复杂工具链，不适合普通旧卡或直接替代成熟生产推理框架。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/11.html">2026-11-11 的日报 →</a></div>
+  </article><article class="search-card" data-search="chadyi/studyontv studyontv（题了个题） 让 android 电视、平板或手机上的儿童先完成本地答题，再按家长规则解锁观看与使用时间。 受控 android 设备运行本地 http 管理服务与 sqlite 题库，家长在同一局域网扫码设置答题和观看规则。manifest 显示应用使用前台服务、无障碍、悬浮窗及开机恢复机制；题型有单选、填空和复习，主观题可选外部 ai 批改。适合家庭屏幕时间管理。厂商清理后台、系统强停或权限撤销会造成拦截失败；外部批改涉及数据传输。其 license 只允许个人家庭使用，禁止商业使用及二次分发，属于源码可见而非通用开源许可。 学习与研究" data-category="learning" data-repo="chadyi/studyontv">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/chadyi/StudyOnTV" target="_blank" rel="noopener noreferrer">StudyOnTV（题了个题） ↗</a></h2>
+          <span class="project-flag" role="img" title="中文相关项目" aria-label="中文相关项目">🇨🇳</span>
+          <span class="metric">★ 1,322 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="chadyi/studyontv" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">让 Android 电视、平板或手机上的儿童先完成本地答题，再按家长规则解锁观看与使用时间。</p>
+    <p class="search-detail">受控 Android 设备运行本地 HTTP 管理服务与 SQLite 题库，家长在同一局域网扫码设置答题和观看规则。Manifest 显示应用使用前台服务、无障碍、悬浮窗及开机恢复机制；题型有单选、填空和复习，主观题可选外部 AI 批改。适合家庭屏幕时间管理。厂商清理后台、系统强停或权限撤销会造成拦截失败；外部批改涉及数据传输。其 LICENSE 只允许个人家庭使用，禁止商业使用及二次分发，属于源码可见而非通用开源许可。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/11.html">2026-11-11 的日报 →</a></div>
+  </article><article class="search-card" data-search="govijr/terminal-mac terminal-mac 在独立 macos 虚拟机里提供可被 ai 操作的桌面，通过终端查看画面，同时避免碰到宿主 mac 的窗口。 使用 apple virtualization 运行完整 macos guest。agentserver.swift 通过标准 mcp 提供 screenshot、click、drag、scroll、type 工具，消息走虚拟机专属通道，不直接操作宿主桌面。适合在隔离环境测试 macos gui 和 ai 自动化。需要 apple silicon、macos 14 以上、完整系统镜像及来宾辅助权限；发布包自签名，部分真实机器端到端验收仍待完善。 开发工具" data-category="dev" data-repo="govijr/terminal-mac">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/govijr/terminal-mac" target="_blank" rel="noopener noreferrer">terminal-mac ↗</a></h2>
+          
+          <span class="metric">★ 2,548 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="govijr/terminal-mac" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">在独立 macOS 虚拟机里提供可被 AI 操作的桌面，通过终端查看画面，同时避免碰到宿主 Mac 的窗口。</p>
+    <p class="search-detail">使用 Apple Virtualization 运行完整 macOS Guest。AgentServer.swift 通过标准 MCP 提供 screenshot、click、drag、scroll、type 工具，消息走虚拟机专属通道，不直接操作宿主桌面。适合在隔离环境测试 macOS GUI 和 AI 自动化。需要 Apple Silicon、macOS 14 以上、完整系统镜像及来宾辅助权限；发布包自签名，部分真实机器端到端验收仍待完善。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/11.html">2026-11-11 的日报 →</a></div>
+  </article><article class="search-card" data-search="homeassistant-ai/ha-mcp ha-mcp 通过 mcp 让 ai 管理 home assistant 的自动化、仪表盘、实体和设备，而不只是开关智能家电。 python fastmcp 注册自动化、脚本、设备、日志和场景等管理工具，源码 read_only.py 在工具列表及调用阶段分别阻止写操作；也支持作为 home assistant 集成使用。适合把家庭自动化与 ai 工具连接。新版集成要求较新的 home assistant 系统，远程访问与 yaml 编辑具有修改设备行为的权限风险，应配置专门账户、控制暴露面并保留只读模式。 硬件 / iot" data-category="hardware" data-repo="homeassistant-ai/ha-mcp">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/homeassistant-ai/ha-mcp" target="_blank" rel="noopener noreferrer">HA-MCP ↗</a></h2>
+          
+          <span class="metric">★ 6,599 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="homeassistant-ai/ha-mcp" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">通过 MCP 让 AI 管理 Home Assistant 的自动化、仪表盘、实体和设备，而不只是开关智能家电。</p>
+    <p class="search-detail">Python FastMCP 注册自动化、脚本、设备、日志和场景等管理工具，源码 read_only.py 在工具列表及调用阶段分别阻止写操作；也支持作为 Home Assistant 集成使用。适合把家庭自动化与 AI 工具连接。新版集成要求较新的 Home Assistant 系统，远程访问与 YAML 编辑具有修改设备行为的权限风险，应配置专门账户、控制暴露面并保留只读模式。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/11.html">2026-11-11 的日报 →</a></div>
+  </article><article class="search-card" data-search="tang1693/kikumap kikumap 把 mac 上的 chatgpt、claude 聊天与编程 agent 会话整理成思维导图，并监测任务完成、待处理与用量。 swift／appkit 菜单栏应用把会话分组、标记、搜索并展示任务状态与时间线。代码读取本机 codex sqlite 状态与执行日志，结合文件事件和系统通知追踪 claude 会话；工作资料保留在本机。适用于同时运行大量编程 agent 的 macos 工作流。需要系统授权，依赖第三方会话文件结构，软件升级可能造成识别失效；普通网页聊天并不总能获取完整任务状态。 开发工具" data-category="dev" data-repo="tang1693/kikumap">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/tang1693/KIKUmap" target="_blank" rel="noopener noreferrer">KIKUmap ↗</a></h2>
+          
+          <span class="metric">★ 1,001 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="tang1693/kikumap" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">把 Mac 上的 ChatGPT、Claude 聊天与编程 Agent 会话整理成思维导图，并监测任务完成、待处理与用量。</p>
+    <p class="search-detail">Swift／AppKit 菜单栏应用把会话分组、标记、搜索并展示任务状态与时间线。代码读取本机 Codex SQLite 状态与执行日志，结合文件事件和系统通知追踪 Claude 会话；工作资料保留在本机。适用于同时运行大量编程 Agent 的 macOS 工作流。需要系统授权，依赖第三方会话文件结构，软件升级可能造成识别失效；普通网页聊天并不总能获取完整任务状态。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/11.html">2026-11-11 的日报 →</a></div>
+  </article><article class="search-card" data-search="huamidev/gestaltx gestaltx 在 ios／ipados 27 设备上查看和调整 mobilegestalt 功能标记、区域代码与设备能力配置，并提供备份和回退。 swiftui 管理器借助 worse_query 获取 mobilegestalt 配置访问，提供原值与草稿比较、修改预览、备份、还原及设备标识校验。可检查区域和机型相关能力标记。其底层代码调用私有系统接口并依赖签名 app group，兼容范围窄；改动标记不能保证硬件得到对应功能，可能引起异常，应预先做好设备数据备份。 安全与逆向" data-category="security" data-repo="huamidev/gestaltx">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/huamidev/GestaltX" target="_blank" rel="noopener noreferrer">GestaltX ↗</a></h2>
+          
+          <span class="metric">★ 4,649 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="huamidev/gestaltx" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">在 iOS／iPadOS 27 设备上查看和调整 MobileGestalt 功能标记、区域代码与设备能力配置，并提供备份和回退。</p>
+    <p class="search-detail">SwiftUI 管理器借助 worse_query 获取 MobileGestalt 配置访问，提供原值与草稿比较、修改预览、备份、还原及设备标识校验。可检查区域和机型相关能力标记。其底层代码调用私有系统接口并依赖签名 App Group，兼容范围窄；改动标记不能保证硬件得到对应功能，可能引起异常，应预先做好设备数据备份。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/11.html">2026-11-11 的日报 →</a></div>
+  </article><article class="search-card" data-search="we-promise/sure sure 把银行卡、资产、负债、交易与预算放进自己的财务管理网站，并用 docker 自托管而非上传全部账本到商业平台。 maybe finance 的社区续作，rails 模型维护账户、交易、持仓与多币种资产信息；compose 把 web、sidekiq 后台任务、postgresql、redis 及备份服务组合成可运行系统，可选外部 ai 助手。适合长期自建家庭财务账本。示例 compose 存在固定默认数据库密码和应用密钥，公网部署前必须替换并启用 https、备份；银行同步依赖外部提供商，不能假设覆盖日本所有机构。 数据与商业" data-category="data" data-repo="we-promise/sure">
+    <div class="search-card-title">
+      <div class="search-card-title-content">
+        <div class="project-title-line">
+          <h2><a href="https://github.com/we-promise/sure" target="_blank" rel="noopener noreferrer">Sure ↗</a></h2>
+          
+          <span class="metric">★ 11,876 Stars</span>
+        </div>
+      </div>
+      <button class="save-button" type="button" data-save="we-promise/sure" aria-pressed="false">☆ 收藏</button>
+    </div>
+    <p class="search-summary">把银行卡、资产、负债、交易与预算放进自己的财务管理网站，并用 Docker 自托管而非上传全部账本到商业平台。</p>
+    <p class="search-detail">Maybe Finance 的社区续作，Rails 模型维护账户、交易、持仓与多币种资产信息；Compose 把 Web、Sidekiq 后台任务、PostgreSQL、Redis 及备份服务组合成可运行系统，可选外部 AI 助手。适合长期自建家庭财务账本。示例 Compose 存在固定默认数据库密码和应用密钥，公网部署前必须替换并启用 HTTPS、备份；银行同步依赖外部提供商，不能假设覆盖日本所有机构。</p>
+    <div class="search-card-foot"><a href="archive/2026/11/11.html">2026-11-11 的日报 →</a></div>
+  </article><article class="search-card" data-search="lxe/phoneuse phoneuse 通过 airplay 接收 iphone 屏幕，再以蓝牙 hid 回传点击和文字，让 linux 上的 ai agent 操作未越狱的 iphone。 项目把两条原生能力组合成可自动化控制链：uxplay/gstreamer 在 linux 电脑上接收 iphone 的屏幕镜像，蓝牙鼠标键盘或可选 esp32 桥接板将点击、拖动和键盘输入送回手机；phoneuse/mcp_server.py 又把截图、可点击文字定位和操作命令暴露为 mcp 工具。手机端不需要安装 app 或越狱，pc 与手机须在同一网络，iphone 要打开屏幕镜像及辅助触控。安装脚本会关闭 linux 蓝牙服务的输入插件，可能影响电脑原有的蓝牙键鼠。作者只在一套 iphone 17 pro、arch linux、hyprland 环境验证，其他机型及桌面环境尚不能视为兼容。 硬件 / iot" data-category="hardware" data-repo="lxe/phoneuse">
     <div class="search-card-title">
       <div class="search-card-title-content">
         <div class="project-title-line">
