@@ -5,6 +5,7 @@ import {EDITORIAL_OLDER_B} from './editorial-older-b.mjs';
 import {EDITORIAL_OLDER_C} from './editorial-older-c.mjs';
 import {EDITORIAL_MIDDLE} from './editorial-middle.mjs';
 import {EDITORIAL_RECENT} from './editorial-recent.mjs';
+import {EDITORIAL_20261027} from './editorial-20261027.mjs';
 import {esc,unesc,metricBadge} from './site.mjs';
 import {flagForRepo,flagMarkup} from './flags.mjs';
 
@@ -30,12 +31,13 @@ for(const year of fs.readdirSync('archive').filter(x=>/^\d{4}$/.test(x))){
       const file=path.join(dir,filename);
       const html=fs.readFileSync(file,'utf8');
       let matchCount=0;
-      const next=html.replace(/<article class="project"([^>]*)>([\s\S]*?)<\/article>/g,(full,attrs,inside)=>{
+      let next=html.replace(/<article class="project"([^>]*)>([\s\S]*?)<\/article>/g,(full,attrs,inside)=>{
         matchCount++;
         const id=attr(attrs,'data-repo').toLowerCase();
         if(!id)throw Error('Project id missing in '+file);
         cards.add(id);
-        const editorial=EDITORIAL.get(id);
+        const latest=EDITORIAL_20261027.get(id);
+        const editorial=latest?.detail||EDITORIAL.get(id);
         const original=attr(attrs,'data-detail');
         const detail=editorial||original;
         if(!editorial)untouched.add(id);
@@ -48,6 +50,10 @@ for(const year of fs.readdirSync('archive').filter(x=>/^\d{4}$/.test(x))){
           .replace(/\sdata-flag="[^"]*"/g,'')
           .replace(/\sdata-metric="[^"]*"/g,'')+
           ' data-flag="'+esc(flag)+'" data-metric="'+esc(metric)+'"';
+        if(latest){
+          if(!/\sdata-summary="/.test(newAttrs))throw Error('Missing summary attribute for '+id);
+          newAttrs=newAttrs.replace(/\sdata-summary="[^"]*"/,' data-summary="'+esc(latest.summary)+'"');
+        }
         if(/\sdata-detail="/.test(newAttrs)){
           newAttrs=newAttrs.replace(/\sdata-detail="[^"]*"/g,' data-detail="'+esc(detail)+'"');
         }else{
@@ -68,6 +74,11 @@ for(const year of fs.readdirSync('archive').filter(x=>/^\d{4}$/.test(x))){
         }else{
           body=body.replace(title,line);
         }
+        if(latest){
+          if(!/<p class="project-summary">[\s\S]*?<\/p>/.test(body))throw Error('Missing summary paragraph for '+id);
+          body=body.replace(/<p class="project-summary">[\s\S]*?<\/p>/,
+            '<p class="project-summary">'+esc(latest.summary)+'</p>');
+        }
         if(editorial){
           if(/<p class="project-detail">[\s\S]*?<\/p>/.test(body)){
             body=body.replace(/<p class="project-detail">[\s\S]*?<\/p>/,
@@ -77,10 +88,30 @@ for(const year of fs.readdirSync('archive').filter(x=>/^\d{4}$/.test(x))){
               m=>m+'\n    <p class="project-detail">'+esc(editorial)+'</p>');
           }
         }
-        return '<article class="project"'+newAttrs+'>'+body+'</article>';
+        newAttrs=newAttrs.replace(/\sid="[^"]*"/g,'');
+        return '<article class="project"'+newAttrs+' id="project-'+String(matchCount).padStart(2,'0')+'">'+body+'</article>';
       });
       const declared=Number(html.match(/<meta name="radar-count" content="(\d+)">/)?.[1]);
       if(matchCount!==declared)throw Error('Cannot safely update every project in '+file);
+      next=next.replace('<h1>今天，有哪些项目<br><em>值得打开看看。</em></h1>',
+        '<h1>这一期，有哪些项目<br><em>值得打开看看。</em></h1>');
+      next=next.replace(/每日 GitHub 项目雷达 · \d{4}-\d{2}-\d{2} · \d+ 个项目/g,
+        '收录 '+declared+' 个 GitHub 项目 · 持续归档');
+      const datePart=year+' / '+month+' / '+filename.slice(0,2);
+      next=next.replace('<span class="dash">/</span> '+datePart+'</div>',
+        '<span class="dash">/</span> <time datetime="'+year+'-'+month+'-'+filename.slice(0,2)+'">'+datePart+'</time></div>');
+      next=next.replace('展开查看全部名称','展开后可跳到对应项目');
+      let linkIndex=0;
+      next=next.replace(/(<details class="overview">[\s\S]*?<ol>)([\s\S]*?)(<\/ol>[\s\S]*?<\/details>)/,
+        (_,opening,list,ending)=>{
+          const converted=list.replace(/<li><a href="https:\/\/github\.com\/[^"]+"[^>]*>/g,()=>{
+            linkIndex++;
+            return '<li><a href="#project-'+String(linkIndex).padStart(2,'0')+'">';
+          });
+          if(linkIndex && linkIndex!==matchCount)throw Error('Overview count mismatch in '+file);
+          return opening+converted+ending;
+        });
+      if(!linkIndex && !next.includes('href="#project-01"'))throw Error('Overview anchors missing in '+file);
       if(next!==html){fs.writeFileSync(file,next);changed++;}
       seen+=matchCount;
     }

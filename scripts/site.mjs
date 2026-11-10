@@ -79,7 +79,7 @@ function card(e, index) {
     ['data-category', p.category || 'dev'], ['data-flag', flag], ['data-metric', metric],
     ['data-date', e.date || ''], ['data-featured', String(!!e.featured)]
   ].map(([k,v]) => `${k}="${esc(v)}"`).join(' ');
-  return `<article class="project" ${meta}>
+  return `<article class="project" ${meta} id="project-${String(index + 1).padStart(2, '0')}">
     <div class="project-head">
       <span class="ordinal">${String(index + 1).padStart(2, '0')}</span>
       <div class="project-heading">
@@ -116,14 +116,14 @@ export function issuePage(issue) {
       ? ''
       : '项目资料为编辑整理；功能及限制仍应以仓库说明为准。';
   const body = `
-    <div class="eyebrow"><span class="dot"></span> DAILY OPEN SOURCE RADAR <span class="dash">/</span> ${esc(dateLabel)}</div>
+    <div class="eyebrow"><span class="dot"></span> DAILY OPEN SOURCE RADAR <span class="dash">/</span> <time datetime="${issue.date}">${esc(dateLabel)}</time></div>
     <div class="issue-intro"><div>
-      <h1>今天，有哪些项目<br><em>值得打开看看。</em></h1>
-      <p class="intro-subtitle">每日 GitHub 项目雷达 · ${esc(issue.date)} · ${entries.length} 个项目</p>
+      <h1>这一期，有哪些项目<br><em>值得打开看看。</em></h1>
+      <p class="intro-subtitle">收录 ${entries.length} 个 GitHub 项目 · 持续归档</p>
     </div><a class="button button-light" href="${prefix}archive/${year}/${month}/index.html">查看本月归档 ↗</a></div>
     ${sourceLabel ? `<p class="source-notice">${esc(sourceLabel)}</p>` : ''}
-    <details class="overview"><summary>本期项目速览 <span>${entries.length} 个项目</span><span class="overview-hint">展开查看全部名称</span></summary>
-      <ol>${entries.map(e => `<li><a href="https://github.com/${e.project.id}" target="_blank" rel="noopener noreferrer">${esc(e.project.name || e.project.id)}</a><span>${esc(e.summary)}</span></li>`).join('')}</ol>
+    <details class="overview"><summary>本期项目速览 <span>${entries.length} 个项目</span><span class="overview-hint">展开后可跳到对应项目</span></summary>
+      <ol>${entries.map((e,i) => `<li><a href="#project-${String(i + 1).padStart(2, '0')}">${esc(e.project.name || e.project.id)}</a><span>${esc(e.summary)}</span></li>`).join('')}</ol>
     </details>
     ${featured.length ? `<section class="issue-section"><div class="section-title"><h2>今日重点</h2><span>${featured.length} 个项目</span></div>${featured.map(card).join('')}</section>` : ''}
     ${others.length ? `<section class="issue-section"><div class="section-title"><h2>更多发现</h2><span>${others.length} 个项目</span></div>${others.map((e,i) => card(e, i + featured.length)).join('')}</section>` : ''}
